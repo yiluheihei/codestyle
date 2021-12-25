@@ -1,3 +1,5 @@
+# (PART\*) Code Style {-}
+
 # Bash Shell Style Guide
 
 ## Comments

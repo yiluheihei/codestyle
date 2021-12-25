@@ -1,5 +1,5 @@
 --- 
-title: "Code style guide"
+title: "Good practices in bioinformatic or computational biology projects"
 author: "Yang Cao"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
@@ -10,7 +10,26 @@ github-repo: yiluheihei/codestyle
 
 # About {-}
 
-Welcome! 
+Welcome!
+
+Good practices in bioinformatic or computational biology projects.
+
+Bioinformatic or computational biology projects need to follow the same
+practices as lab projects and notebooks, with organized data, documented steps,
+the project structured for reproducibility, and the consistent code style.
+
+## Project Organization {-}
+
+It is generally a good idea to store all of the files relevant to one project
+under a common root directory. And organizing the files that make up a project 
+in a logical and consistent directory structure will help you and others keep
+track of them.
+
+The recommendations are drawn from:
+
+Wilson, Greg, et al. "Good enough practices in scientific computing." PLoS computational biology 13.6 (2017): e1005510.
+
+## Code style {-}
 
 Write code in a consistent style will make it easier to maintain, and easier
 for collaborators to understand. Code is more often read than written, and code
@@ -26,7 +45,6 @@ python code style is derived from
 [PEP 8 style guide for python](https://www.python.org/dev/peps/pep-0008/); and 
 the R code style is drived from 
 [Tidyverse Style Guide](https://style.tidyverse.org/).
-
 
 **If you’re modifying existing files, you should follow the style that’s already 
 in the files.**

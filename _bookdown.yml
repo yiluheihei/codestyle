@@ -1,10 +1,11 @@
-book_filename: "codestyle.pdf"
+book_filename: "codestyle"
 delete_merged_file: true
 language:
   ui:
     chapter_name: "Chapter "
 rmd_files:
+  - "01-proj-organization.Rmd"
   - "index.Rmd"
-  - "01-bash.Rmd"
-  - "02-python.Rmd"
-  - "03-R.Rmd"
+  - "02-bash.Rmd"
+  - "03-python.Rmd"
+  - "04-R.Rmd"

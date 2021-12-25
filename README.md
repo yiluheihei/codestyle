@@ -1,4 +1,19 @@
-Welcome! 
+Welcome!
+
+Good practices in bioinformatic or computational biology projects.
+
+## Project Organization
+
+It is generally a good idea to store all of the files relevant to one project
+under a common root directory. And organizing the files that make up a project 
+in a logical and consistent directory structure will help you and others keep
+track of them.
+
+The recommendations are drawn from:
+
+Wilson, Greg, et al. "Good enough practices in scientific computing." PLoS computational biology 13.6 (2017): e1005510.
+
+## Code style
 
 Write code in a consistent style will make it easier to maintain, and easier
 for collaborators to understand. Code is more often read than written, and code

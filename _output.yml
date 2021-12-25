@@ -3,10 +3,10 @@ bookdown::gitbook:
   config:
     toc:
       before: |
-        <li><a href="./">Code Style</a></li>
+        <li><a href="./">Good practice in bioinformatics</a></li>
       after: |
-        <li><a href="https://github.com/yiluheihei/codestyle" target="blank">Published with bookdown</a></li>
-    edit: https://github.com/yiluheihei/codestyle/edit/master/%s
+        <li><a href="https://github.com/yiluheihei/good-practice-bioinformatics" target="blank">Published with bookdown</a></li>
+    edit: https://github.com/yiluheihei/good-practice-bioinformatics/edit/master/%s
     download: ["pdf"]
 bookdown::pdf_book:
   includes:

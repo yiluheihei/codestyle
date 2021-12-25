@@ -1,0 +1,126 @@
+# Project Organization
+
+As a rule of thumb, divide work into projects based on the overlap in data and
+code files. If 2 research efforts share no data or code, they will probably be
+easiest to manage independently. If they share more than half of their data and
+code, they are probably best managed together, while if you are building tools
+that are used in several projects, the common code should probably be in a
+project of its own.
+
+Projects do often require their own organizational model, but below are general
+recommendations on how you can structure data, code, analysis outputs, and other
+files. The important concept is that it is useful to organize the project by
+the types of files and that consistency helps you effectively find and use
+things later.
+
+**All files should be named using using `snake_case` to reflect their content or
+function.**
+
+## README
+
+`README` should be created in the root directory of the project to introduce
+and explain the project. It should at least cover the following terms:
+
+- The project's title, a brief description.
+- Dependencies and requirements, and how to install the requirements. If all the
+  requirements have been installed on your server, please detailed that whether
+  others should add the paths of the tools to the `PATH` variable. If a docker 
+  image which preinstalled all dependencies and requirements has been created,
+  please provides details on how to use it.
+- A simple example on how to run the analysis tasks of the project.
+  an example or 2 of how to run various cleaning or analysis tasks. 
+- If the project is a software or pipeline, I recommend to write a detailed 
+  manual, which can help others to use it.
+
+## Document
+
+Put text documents associated with the project in the `doc` directory. This 
+includes files for manuscripts, documentation for source code, and/or an
+electronic lab notebook recording your experiments. Subdirectories may be
+created for these different classes of files in large projects.
+
+## Data
+
+Put raw data and metadata in the `data` directory. The `data` directory might
+require subdirectories to organize raw data based on time, method of collection,
+or other metadata most relevant to your analysis.
+
+## Results
+
+Files generated during cleanup and analysis in the `results` directory where
+"generated files" includes intermediate results such as cleaned data sets or
+simulated data, as well as final results such as figures and tables.
+
+The `results` directory will usually require additional subdirectories. Intermediate files such as cleaned data, statistical tables, and figures should be separated clearly by file-naming conventions or placed into different subdirectories.
+
+## Code
+
+`src` contains all of the code written for the project. This includes programs
+written in interpreted languages such as R or Python; those written in compiled
+languages like Fortran, C++, or Java; as well as shell scripts, snippets of SQL
+used to pull information from databases; and other code needed to regenerate the
+results. 
+
+## Compiled programs
+
+Compiled programs should be saved in the `bin` directory. Projects that do not
+have any executable programs compiled from code in the src directory will not
+require bin.
+
+## Example
+
+- A `README` file that provides an overview of the project as a whole.
+- The `data` directory contains the sequence file (machine-readable metadata 
+  could also be included here). 
+- The `src` directory contains `run_shapemap`, a Python file containing
+  functions to analysis the shapemap data, `run_3wj` to perform 3WJ prediction,
+  and a controller script `runall.py` that run all the analysis.
+- Different results (shape and 3wj) are saved on their own subdirectories
+  in the `results` directory.
+- Optional: A `CITATION` file that explains how to reference it, and a `LICENSE`   file that states the licensing.
+
+```
+|-- README
+
+|-- requirements.txt
+
+|-- data
+
+|  |-- sample1.fq
+
+|  |-- sample2.fq
+
+|-- doc
+
+|  |-- notebook.md
+
+|  |-- manuscript.md
+
+|  |-- changelog.txt
+
+|-- results
+
+|  |-- shapemap
+
+|  |  |-- res.shapemap
+
+|  |-- 3WJ
+
+|  |  |-- 3wj.csv
+
+|  |  |-- 4wj.csv
+
+|  |  | -- ...
+
+|-- src
+
+|  |-- run_shapmap.py
+
+|  |-- run_3wj.py
+
+|  |-- runall.py
+
+|-- CITATION
+
+|-- LICENSE
+```
