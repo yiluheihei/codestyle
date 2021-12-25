@@ -1,0 +1,2037 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{book}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Code style guide},
+  pdfauthor={Yang Cao},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{longtable,booktabs}
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+\usepackage{booktabs}
+\usepackage[]{natbib}
+\bibliographystyle{plainnat}
+
+\title{Code style guide}
+\author{Yang Cao}
+\date{2021-12-25}
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{1}
+\tableofcontents
+}
+\hypertarget{about}{%
+\chapter*{About}\label{about}}
+\addcontentsline{toc}{chapter}{About}
+
+Welcome!
+
+Write code in a consistent style will make it easier to maintain, and easier
+for collaborators to understand. Code is more often read than written, and code
+style can also have a great impact on the readability of your code
+
+The style guides here are fundamentally opinionated, but not too opinionated.
+And many decisions are arbitrary, any suggestions are welcome.
+
+The bash is derived from
+\href{https://google.github.io/styleguide/shellguide.html}{Google's shell style guide};
+python code style is derived from
+\href{https://www.python.org/dev/peps/pep-0008/}{Google's python style guide} and
+\href{https://www.python.org/dev/peps/pep-0008/}{PEP 8 style guide for python}; and
+the R code style is drived from
+\href{https://style.tidyverse.org/}{Tidyverse Style Guide}.
+
+\textbf{If you're modifying existing files, you should follow the style that's already
+in the files.}
+
+\begin{verbatim}
+Do what Romans do in Rome.
+\end{verbatim}
+
+\hypertarget{bash-shell-style-guide}{%
+\chapter{Bash Shell Style Guide}\label{bash-shell-style-guide}}
+
+\hypertarget{comments}{%
+\section{Comments}\label{comments}}
+
+\hypertarget{file-header}{%
+\subsection{File Header}\label{file-header}}
+
+Start each file with a description of its contents.
+
+Every file must have a top-level comment including a brief overview of its
+contents. Author information are optional.
+
+Example:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#!/bin/bash}
+\CommentTok{# }
+\CommentTok{# Author: }
+\CommentTok{# Desc: Perform hot backups of Oracle databases.}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{function-comments}{%
+\subsection{Function Comments}\label{function-comments}}
+
+Any function that is not both obvious and short must be commented. Any function
+in a library must be commented regardless of length or complexity.
+
+It should be possible for someone else to learn how to use your program or to
+use a function in your library by reading the comments (and self-help, if
+provided) without reading the code.
+
+All function comments should contain:
+
+\begin{itemize}
+\tightlist
+\item
+  Description of the function
+\item
+  Global variables used and modified
+\item
+  Arguments taken
+\item
+  Returned values other than the default exit status of the last command run
+\end{itemize}
+
+Example:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#!/bin/bash}
+\CommentTok{# }
+\CommentTok{# Author:}
+\CommentTok{# Desc: Cleanup files from the backup directory.}
+\CommentTok{#######################################}
+\CommentTok{# Globals:}
+\CommentTok{#   BACKUP_DIR}
+\CommentTok{#   ORACLE_SID}
+\CommentTok{# Arguments:}
+\CommentTok{#   None}
+\CommentTok{#######################################}
+\KeywordTok{function}\FunctionTok{ cleanup()} \KeywordTok{\{}
+\NormalTok{  …}
+\KeywordTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{implementation-comments}{%
+\subsection{Implementation Comments}\label{implementation-comments}}
+
+Don't comment everything. Comment tricky, non-obvious, interesting or important
+parts of your code. use comments to explain the ``why'' not the ``what'' or ``how''.
+Each line of a comment should begin with the comment symbol and a single space:
+\texttt{\#}.
+
+\hypertarget{naming-conventions}{%
+\section{Naming conventions}\label{naming-conventions}}
+
+\hypertarget{file-names}{%
+\subsection{File Names}\label{file-names}}
+
+Lowercase, with underscores to separate words if desired. `
+
+\hypertarget{function-names}{%
+\subsection{Function Names}\label{function-names}}
+
+Function names should be in snake\_case. That is, all lower case and words are
+separated by underscores. Parentheses are required after the function name.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{func()} \KeywordTok{\{}
+  \ExtensionTok{...}
+\KeywordTok{\}}
+
+\CommentTok{### Variable Names}
+
+\ExtensionTok{As}\NormalTok{ for function names. Variables names for loops should be similarly named for }
+\ExtensionTok{any}\NormalTok{ variable you’re looping through.}
+
+\KeywordTok{```}\FunctionTok{sh}
+\KeywordTok{for} \ExtensionTok{zone}\NormalTok{ in }\StringTok{"}\VariableTok{$\{zones[@]\}}\StringTok{"}\KeywordTok{;} \KeywordTok{do}
+  \ExtensionTok{something_with} \StringTok{"}\VariableTok{$\{zone\}}\StringTok{"}
+\KeywordTok{done}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{constants-and-environment-variable-names}{%
+\subsection{Constants and Environment Variable Names}\label{constants-and-environment-variable-names}}
+
+All caps, separated with underscores, declared at the top of the file.
+
+\hypertarget{formatting}{%
+\section{Formatting}\label{formatting}}
+
+\hypertarget{identation}{%
+\subsection{Identation}\label{identation}}
+
+Indent 2 spaces. No tabs.
+
+Use blank lines between blocks to improve readability. Indentation is two
+spaces. Whatever you do, don't use tabs. For existing files, stay faithful to
+the existing indentation.
+
+\hypertarget{line-length}{%
+\subsection{Line Length}\label{line-length}}
+
+Maximum line length is 80 characters.
+
+\hypertarget{pipe}{%
+\subsection{Pipe}\label{pipe}}
+
+Pipelines should be split one per line if they don't all fit on one line, and
+put pipe symbol (\texttt{\textbar{}}) at the beginning of of its statement
+
+If a pipeline all fits on one line, it should be on one line.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+ \CommentTok{# This is an inline pipe: "$(ls -la /foo/ | grep /bar/)"}
+
+ \CommentTok{# The following pipe is of display form: every command is on}
+ \CommentTok{# its own line}
+
+\VariableTok{foobar=}\StringTok{"}\VariableTok{$(} \KeywordTok{\textbackslash{}}
+  \FunctionTok{ls}\NormalTok{ -la /foo/ \textbackslash{}}
+  \KeywordTok{|} \FunctionTok{grep}\NormalTok{ /bar/ \textbackslash{}}
+  \KeywordTok{|} \FunctionTok{awk} \StringTok{'\{print $NF\}'}\VariableTok{)}\StringTok{"}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{loops}{%
+\subsection{Loops}\label{loops}}
+
+Put \texttt{;\ do} and \texttt{;\ then} on the same line as the \texttt{while}, \texttt{for} or \texttt{if}. \texttt{else}
+should be on its own line and closing statements should be on their own line
+vertically aligned with the opening statement.
+
+\hypertarget{variable-expansion}{%
+\subsection{Variable Expansion}\label{variable-expansion}}
+
+In order of precedence: Stay consistent with what you find; quote your variables;
+prefer \texttt{"\$\{var\}"} over \texttt{"\$var"}.
+
+They are listed in order of precedence.
+
+\begin{itemize}
+\item
+  Stay consistent with what you find for existing code.
+\item
+  Quote variables, see Quoting section below.
+\item
+  Don't brace-delimit single character shell specials / positional parameters,
+  unless strictly necessary or avoiding deep confusion.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Section of *recommended* cases.}
+
+\CommentTok{# Preferred style for 'special' variables:}
+\BuiltInTok{echo} \StringTok{"Positional: }\VariableTok{$1}\StringTok{"} \StringTok{"}\VariableTok{$5}\StringTok{"} \StringTok{"}\VariableTok{$3}\StringTok{"}
+\BuiltInTok{echo} \StringTok{"Specials: !=}\VariableTok{$!}\StringTok{, -=}\VariableTok{$-}\StringTok{, _=}\VariableTok{$_}\StringTok{. ?=}\VariableTok{$?}\StringTok{, #=}\VariableTok{$#}\StringTok{ *=}\VariableTok{$*}\StringTok{ @=}\VariableTok{$@}\StringTok{ }\DataTypeTok{\textbackslash{}$}\StringTok{=}\VariableTok{$$}\StringTok{ …"}
+
+\CommentTok{# Braces necessary:}
+\BuiltInTok{echo} \StringTok{"many parameters: $\{10\}"}
+
+\CommentTok{# Braces avoiding confusion:}
+\CommentTok{# Output is "a0b0c0"}
+\KeywordTok{set} \ExtensionTok{--}\NormalTok{ a b c}
+\BuiltInTok{echo} \StringTok{"}\VariableTok{$\{1\}}\StringTok{0}\VariableTok{$\{2\}}\StringTok{0}\VariableTok{$\{3\}}\StringTok{0"}
+\end{Highlighting}
+\end{Shaded}
+\end{itemize}
+
+Prefer brace-delimiting all other variables.
+
+\hypertarget{quoting}{%
+\section{Quoting}\label{quoting}}
+
+\begin{itemize}
+\item
+  Always quote strings containing variables, command substitutions, spaces or
+  shell meta characters.
+\item
+  Optionally quote shell-internal, readonly special variables that are defined
+  to be integers: \texttt{\$?}, \texttt{\$\#}, \texttt{\$\$}, \texttt{\$!}.
+\item
+  Use double quotes for strings that require variable expansion or command
+  substitution interpolation, and single quotes for all others.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# "Double" quotes indicate that substitution is required/tolerated.}
+
+\CommentTok{# "quote variables"}
+\BuiltInTok{echo} \StringTok{"}\VariableTok{$\{flag\}}\StringTok{"}
+
+\CommentTok{# double quote for strings that require variable expansion }
+\VariableTok{bar=}\StringTok{"You are }\VariableTok{$USER}\StringTok{"}
+\CommentTok{# or command substitution}
+\VariableTok{number=}\StringTok{"}\VariableTok{$(}\ExtensionTok{generate_number}\VariableTok{)}\StringTok{"}
+
+\CommentTok{# single quote for strings does not require variable expansion}
+\VariableTok{foo=}\StringTok{'Hello World'}
+
+\CommentTok{# "quote shell meta characters"}
+\BuiltInTok{echo} \StringTok{'Hello stranger, and well met. Earn lots of $$$'}
+\BuiltInTok{echo} \StringTok{"Process }\VariableTok{$$}\StringTok{: Done making }\DataTypeTok{\textbackslash{}$\textbackslash{}$\textbackslash{}$}\StringTok{."}
+\end{Highlighting}
+\end{Shaded}
+\end{itemize}
+
+\hypertarget{error-handing}{%
+\section{Error Handing}\label{error-handing}}
+
+All errors should be sent to \texttt{STDERR}.
+
+\hypertarget{error-checking}{%
+\subsection{Error Checking}\label{error-checking}}
+
+\texttt{cd}, for example, doesn't always work. Make sure to check for any possible
+errors for \texttt{cd} (or commands like it) and exit or break if they are present.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# wrong}
+\BuiltInTok{cd}\NormalTok{ /some/path }\CommentTok{# this could fail}
+\FunctionTok{rm}\NormalTok{ file       }\CommentTok{# if cd fails where am I? what am I deleting?}
+
+\CommentTok{# right}
+\BuiltInTok{cd}\NormalTok{ /some/path }\KeywordTok{||} \BuiltInTok{exit}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{set--e}{%
+\subsection{set -e}\label{set--e}}
+
+Use \texttt{set\ -e} if your script is being used for your own business. Recommend do
+not use it.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# If _do_some_critical_check fails, the script just exits and the following }
+\CommentTok{# code is just skipped without any notice.}
+\KeywordTok{set} \ExtensionTok{-e}
+\ExtensionTok{_do_some_critical_check}
+
+\KeywordTok{if [[} \VariableTok{$?} \OtherTok{-ge}\NormalTok{ 1}\KeywordTok{ ]]}\NormalTok{; }\KeywordTok{then}
+  \BuiltInTok{echo} \StringTok{"Oh, you will never see this line."}
+\KeywordTok{fi}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{set--u}{%
+\subsection{set -u}\label{set--u}}
+
+To make sure you won't use any undeclared variable , \texttt{set\ -u} is recommended.
+
+\hypertarget{features}{%
+\section{Features}\label{features}}
+
+\hypertarget{command-substitution}{%
+\subsection{Command Substitution}\label{command-substitution}}
+
+Use \texttt{\$(command)} instead of backticks.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# This is preferred}
+\VariableTok{foo=}\KeywordTok{`}\FunctionTok{date}\KeywordTok{`} 
+
+\CommentTok{# This is not}
+\VariableTok{foo=$(}\FunctionTok{date}\VariableTok{)} 
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{math}{%
+\subsection{Math}\label{math}}
+
+Always use \texttt{((\ \ldots{}\ ))} or \texttt{\$((\ \ldots{}\ ))} rather than \texttt{let} or \texttt{\${[}\ \ldots{}\ {]}} or \texttt{expr}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Simple calculation used as text - note the use of $(( … )) within}
+\CommentTok{# a string.}
+\BuiltInTok{echo} \StringTok{"}\VariableTok{$((}\NormalTok{ 2 + 2 }\VariableTok{))}\StringTok{ is 4"}
+
+\CommentTok{# When performing arithmetic comparisons for testing}
+\KeywordTok{if} \KeywordTok{((}\NormalTok{ a < b }\KeywordTok{))}\NormalTok{; }\KeywordTok{then}
+\NormalTok{  …}
+\KeywordTok{fi}
+
+\CommentTok{# Some calculation assigned to a variable.}
+\KeywordTok{((}\NormalTok{ i = 10 * j + 400 }\KeywordTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{listing-files}{%
+\subsection{Listing Files}\label{listing-files}}
+
+Listing Files
+Do not parse \texttt{ls(1)}, instead use bash builtin functions to loop files
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# use}
+\KeywordTok{for} \ExtensionTok{f}\NormalTok{ in *}\KeywordTok{;} \KeywordTok{do}
+    \ExtensionTok{...}
+\KeywordTok{done}
+
+\CommentTok{# not}
+\KeywordTok{for} \ExtensionTok{f}\NormalTok{ in }\VariableTok{$(}\FunctionTok{ls}\VariableTok{)}\KeywordTok{;} \KeywordTok{do}
+    \ExtensionTok{...}
+\KeywordTok{done}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{arrays-and-lists}{%
+\subsection{Arrays and lists}\label{arrays-and-lists}}
+
+Use bash arrays instead of a string separated by spaces (or newlines, tabs,
+etc.) whenever possible.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# use array}
+\VariableTok{modules=(}\NormalTok{json httpserver jshint}\VariableTok{)}
+\KeywordTok{for} \ExtensionTok{module}\NormalTok{ in }\StringTok{"}\VariableTok{$\{modules[@]\}}\StringTok{"}\KeywordTok{;} \KeywordTok{do}
+    \ExtensionTok{npm}\NormalTok{ install -g }\StringTok{"}\VariableTok{$module}\StringTok{"}
+\KeywordTok{done}
+
+\CommentTok{# instead of string separated by spaces }
+\VariableTok{modules=}\StringTok{'json httpserver jshint'}
+\KeywordTok{for} \ExtensionTok{module}\NormalTok{ in }\VariableTok{$modules}\KeywordTok{;} \KeywordTok{do}
+    \ExtensionTok{npm}\NormalTok{ install -g }\StringTok{"}\VariableTok{$module}\StringTok{"}
+\KeywordTok{done}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{test-...-and-...}{%
+\subsection{\texorpdfstring{Test, \texttt{{[}...{]}}, and \texttt{{[}{[}...{]}{]}}}{Test, {[}...{]}, and {[}{[}...{]}{]}}}\label{test-...-and-...}}
+
+\texttt{{[}{[}\ \ldots{}\ {]}{]}} is preferred over \texttt{{[}\ \ldots{}\ {]}}, \texttt{test}. \texttt{{[}{[}\ \ldots{}\ {]}{]}} reduces errors as no
+pathname expansion or word splitting takes place between \texttt{{[}{[}} and \texttt{{]}{]}}.
+In addition, \texttt{{[}{[}\ \ldots{}\ {]}{]}} allows for regular expression matching, while \texttt{{[}\ \ldots{}\ {]}}
+does not.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# This ensures the string on the left is made up of characters in}
+\CommentTok{# the alnum character class followed by the string name.}
+\CommentTok{# Note that the RHS should not be quoted here.}
+\KeywordTok{if [[} \StringTok{"filename"}\NormalTok{ =~ ^[[:alnum:]]+name}\KeywordTok{ ]]}\NormalTok{; }\KeywordTok{then}
+  \BuiltInTok{echo} \StringTok{"Match"}
+\KeywordTok{fi}
+
+\CommentTok{# This matches the exact pattern "f*" (Does not match in this case)}
+\KeywordTok{if [[} \StringTok{"filename"} \OtherTok{==} \StringTok{"f*"}\KeywordTok{ ]]}\NormalTok{; }\KeywordTok{then}
+  \BuiltInTok{echo} \StringTok{"Match"}
+\KeywordTok{fi}
+\CommentTok{# This gives a "too many arguments" error as f* is expanded to the}
+\CommentTok{# contents of the current directory}
+\KeywordTok{if}\BuiltInTok{ [} \StringTok{"filename"} \OtherTok{==}\NormalTok{ f*}\BuiltInTok{ ]}\NormalTok{; }\KeywordTok{then}
+  \BuiltInTok{echo} \StringTok{"Match"}
+\KeywordTok{fi}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{references}{%
+\section{References}\label{references}}
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://google.github.io/styleguide/shellguide.html}{Google shell style guide}
+\item
+  \href{https://github.com/bahamas10/bash-style-guide}{bash style guide}
+\item
+  \href{https://github.com/icy/bash-coding-style}{bash coding style}
+\end{itemize}
+
+\hypertarget{resources}{%
+\section{Resources}\label{resources}}
+
+\href{https://github.com/koalaman/shellcheck}{Shellcheck}
+
+\hypertarget{python-style-guide}{%
+\chapter{Python Style Guide}\label{python-style-guide}}
+
+\hypertarget{comments-and-docstrings}{%
+\section{Comments and Docstrings}\label{comments-and-docstrings}}
+
+You should use comments to document code as it's written. It is important to
+document your code so that you, and any collaborators, can understand it. When
+you or someone else reads a comment, they should be able to easily understand
+the code the comment applies to and how it fits in with the rest of your code.
+
+\hypertarget{block-comments}{%
+\subsection{Block Comments}\label{block-comments}}
+
+Block comments generally apply to some (or all) code that follows them, and are
+indented to the same level as that code. Each line of a block comment starts
+with a \texttt{\#} and a single space (unless it is indented text inside the comment).
+
+Paragraphs inside a block comment are separated by a line containing a single \#.
+
+\hypertarget{inline-comments}{%
+\subsection{Inline Comments}\label{inline-comments}}
+
+Use inline comments sparingly.
+
+An inline comment is a comment on the same line as a statement. Inline comments
+should be separated by at least two spaces from the statement. They should start
+with a \texttt{\#} and a single space.
+
+Inline comments are unnecessary and in fact distracting if they state the
+obvious. Don't do this:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x }\OperatorTok{=}\NormalTok{ x }\OperatorTok{+} \DecValTok{1}                 \CommentTok{# Increment x}
+\end{Highlighting}
+\end{Shaded}
+
+But sometimes, this is useful:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x }\OperatorTok{=}\NormalTok{ x }\OperatorTok{+} \DecValTok{1}                 \CommentTok{# Compensate for border}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{docstrings}{%
+\subsection{Docstrings}\label{docstrings}}
+
+\begin{itemize}
+\item
+  Write docstrings for all public modules, functions, classes, and methods.
+\item
+  Docstrings are not necessary for non-public methods, but you should have a
+  comment that describes what the method does. This comment should appear after
+  the def line.
+\item
+  Surround docstrings with three double quotes on either side, as in ""``This is
+  a docstring''"".
+\item
+  Put the """ that ends a multiline docstring on a line by itself:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{"""Return a foobang}
+
+\CommentTok{Optional plotz says to frobnicate the bizbaz first.}
+\CommentTok{"""}
+\end{Highlighting}
+\end{Shaded}
+\item
+  For one liner docstrings, please keep the closing """ on the same line:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{"""Return an ex-parrot."""}
+\end{Highlighting}
+\end{Shaded}
+\item
+  Recommend to use
+  \href{https://numpydoc.readthedocs.io/en/latest/format.html}{Numpy Docstring format}.
+  An example from numpy:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{"""Docstring for the example.py module.}
+
+\CommentTok{Modules names should have short, all-lowercase names.  The module name may}
+\CommentTok{have underscores if this improves readability.}
+
+\CommentTok{Every module should have a docstring at the very top of the file.  The}
+\CommentTok{module's docstring may extend over multiple lines.  If your docstring does}
+\CommentTok{extend over multiple lines, the closing three quotation marks must be on}
+\CommentTok{a line by itself, preferably preceded by a blank line.}
+
+\CommentTok{"""}
+\ImportTok{from}\NormalTok{ __future__ }\ImportTok{import}\NormalTok{ division, absolute_import, print_function}
+
+\ImportTok{import}\NormalTok{ os  }\CommentTok{# standard library imports first}
+
+\CommentTok{# Do NOT import using *, e.g. from numpy import *}
+\CommentTok{#}
+\CommentTok{# Import the module using}
+\CommentTok{#}
+\CommentTok{#   import numpy}
+\CommentTok{#}
+\CommentTok{# instead or import individual functions as needed, e.g}
+\CommentTok{#}
+\CommentTok{#  from numpy import array, zeros}
+\CommentTok{#}
+\CommentTok{# If you prefer the use of abbreviated module names, we suggest the}
+\CommentTok{# convention used by NumPy itself::}
+
+\ImportTok{import}\NormalTok{ numpy }\ImportTok{as}\NormalTok{ np}
+\ImportTok{import}\NormalTok{ matplotlib }\ImportTok{as}\NormalTok{ mpl}
+\ImportTok{import}\NormalTok{ matplotlib.pyplot }\ImportTok{as}\NormalTok{ plt}
+
+\CommentTok{# These abbreviated names are not to be used in docstrings; users must}
+\CommentTok{# be able to paste and execute docstrings after importing only the}
+\CommentTok{# numpy module itself, unabbreviated.}
+
+
+\KeywordTok{def}\NormalTok{ foo(var1, var2, }\OperatorTok{*}\NormalTok{args, long_var_name}\OperatorTok{=}\StringTok{'hi'}\NormalTok{, only_seldom_used_keyword}\OperatorTok{=}\DecValTok{0}\NormalTok{, }\OperatorTok{**}\NormalTok{kwargs):}
+    \CommentTok{r"""Summarize the function in one line.}
+
+\CommentTok{    Several sentences providing an extended description. Refer to}
+\CommentTok{    variables using back-ticks, e.g. `var`.}
+
+\CommentTok{    Parameters}
+\CommentTok{    ----------}
+\CommentTok{    var1 : array_like}
+\CommentTok{        Array_like means all those objects -- lists, nested lists, etc. --}
+\CommentTok{        that can be converted to an array.  We can also refer to}
+\CommentTok{        variables like `var1`.}
+\CommentTok{    var2 : int}
+\CommentTok{        The type above can either refer to an actual Python type}
+\CommentTok{        (e.g. ``int``), or describe the type of the variable in more}
+\CommentTok{        detail, e.g. ``(N,) ndarray`` or ``array_like``.}
+\CommentTok{    *args : iterable}
+\CommentTok{        Other arguments.}
+\CommentTok{    long_var_name : \{'hi', 'ho'\}, optional}
+\CommentTok{        Choices in brackets, default first when optional.}
+
+\CommentTok{    Returns}
+\CommentTok{    -------}
+\CommentTok{    type}
+\CommentTok{        Explanation of anonymous return value of type ``type``.}
+\CommentTok{    describe : type}
+\CommentTok{        Explanation of return value named `describe`.}
+\CommentTok{    out : type}
+\CommentTok{        Explanation of `out`.}
+\CommentTok{    type_without_description}
+
+\CommentTok{    Other Parameters}
+\CommentTok{    ----------------}
+\CommentTok{    only_seldom_used_keyword : int, optional}
+\CommentTok{        Infrequently used parameters can be described under this optional}
+\CommentTok{        section to prevent cluttering the Parameters section.}
+\CommentTok{    **kwargs : dict}
+\CommentTok{        Other infrequently used keyword arguments. Note that all keyword}
+\CommentTok{        arguments appearing after the first parameter specified under the}
+\CommentTok{        Other Parameters section, should also be described under this}
+\CommentTok{        section.}
+
+\CommentTok{    Raises}
+\CommentTok{    ------}
+\CommentTok{    BadException}
+\CommentTok{        Because you shouldn't have done that.}
+
+\CommentTok{    See Also}
+\CommentTok{    --------}
+\CommentTok{    numpy.array : Relationship (optional).}
+\CommentTok{    numpy.ndarray : Relationship (optional), which could be fairly long, in}
+\CommentTok{                    which case the line wraps here.}
+\CommentTok{    numpy.dot, numpy.linalg.norm, numpy.eye}
+
+\CommentTok{    Notes}
+\CommentTok{    -----}
+\CommentTok{    Notes about the implementation algorithm (if needed).}
+
+\CommentTok{    This can have multiple paragraphs.}
+
+\CommentTok{    You may include some math:}
+
+\CommentTok{    .. math:: X(e^\{j\textbackslash{}omega \} ) = x(n)e^\{ - j\textbackslash{}omega n\}}
+
+\CommentTok{    And even use a Greek symbol like :math:`\textbackslash{}omega` inline.}
+
+\CommentTok{    References}
+\CommentTok{    ----------}
+\CommentTok{    Cite the relevant literature, e.g. [1]_.  You may also cite these}
+\CommentTok{    references in the notes section above.}
+
+\CommentTok{    .. [1] O. McNoleg, "The integration of GIS, remote sensing,}
+\CommentTok{       expert systems and adaptive co-kriging for environmental habitat}
+\CommentTok{       modelling of the Highland Haggis using object-oriented, fuzzy-logic}
+\CommentTok{       and neural-network techniques," Computers & Geosciences, vol. 22,}
+\CommentTok{       pp. 585-588, 1996.}
+
+\CommentTok{    Examples}
+\CommentTok{    --------}
+\CommentTok{    These are written in doctest format, and should illustrate how to}
+\CommentTok{    use the function.}
+
+\CommentTok{    >>> a = [1, 2, 3]}
+\CommentTok{    >>> print([x + 3 for x in a])}
+\CommentTok{    [4, 5, 6]}
+\CommentTok{    >>> print("a}\CharTok{\textbackslash{}n}\CommentTok{b")}
+\CommentTok{    a}
+\CommentTok{    b}
+\CommentTok{    """}
+    \CommentTok{# After closing class docstring, there should be one blank line to}
+    \CommentTok{# separate following codes (according to PEP257).}
+    \CommentTok{# But for function, method and module, there should be no blank lines}
+    \CommentTok{# after closing the docstring.}
+    \ControlFlowTok{pass}
+\end{Highlighting}
+\end{Shaded}
+\end{itemize}
+
+\hypertarget{naming-conventions-1}{%
+\section{Naming Conventions}\label{naming-conventions-1}}
+
+\texttt{module\_name}, \texttt{package\_name}, \texttt{ClassName}, \texttt{method\_name}, \texttt{ExceptionName},
+\texttt{function\_name}, \texttt{GLOBAL\_CONSTANT\_NAME}, \texttt{global\_var\_name}, \texttt{instance\_var\_name},
+\texttt{function\_parameter\_name}, \texttt{local\_var\_name}.
+
+Function names, variable names, and filenames should be descriptive. In
+particular, do not use abbreviations that are ambiguous or unfamiliar to
+readers outside your project, and do not abbreviate by deleting letters within
+a word.
+
+\hypertarget{names-to-avoid}{%
+\subsection{Names to Avoid}\label{names-to-avoid}}
+
+\begin{itemize}
+\tightlist
+\item
+  single character names, except for specifically allowed cases:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    counters or iterators (e.g.~\texttt{i}, \texttt{j}, \texttt{k}, \texttt{v}, et al.).
+  \item
+    \texttt{e} as an exception identifier in try/except statements.
+  \item
+    \texttt{f} as a file handle in with statements.
+  \end{itemize}
+\item
+  dashes (\texttt{-}) in any package/module name.
+\item
+  \texttt{\_\_double\_leading\_and\_trailing\_underscore\_\_} names (reserved by Python).
+\end{itemize}
+
+\hypertarget{file-naming}{%
+\subsection{File Naming}\label{file-naming}}
+
+Python filenames must have a \texttt{.py} extension and must not contain dashes (\texttt{-}).
+
+\hypertarget{naming-guides-from-google-python-style}{%
+\subsubsection{\texorpdfstring{\href{https://google.github.io/styleguide/pyguide.html\#s3.16.4-guidelines-derived-from-guidos-recommendations}{Naming guides from google python style}}{Naming guides from google python style}}\label{naming-guides-from-google-python-style}}
+
+Type
+
+Public
+
+Internal
+
+Packages
+
+lower\_with\_under
+
+Modules
+
+lower\_with\_under
+
+\_lower\_with\_under
+
+Classes
+
+CapWords
+
+\_CapWords
+
+Exceptions
+
+CapWords
+
+Functions
+
+lower\_with\_under()
+
+\_lower\_with\_under()
+
+Global/Class Constants
+
+CAPS\_WITH\_UNDER
+
+\_CAPS\_WITH\_UNDER
+
+Global/Class Variables
+
+lower\_with\_under
+
+\_lower\_with\_under
+
+Instance Variables
+
+lower\_with\_under
+
+\_lower\_with\_under (protected)
+
+Method Names
+
+lower\_with\_under()
+
+\_lower\_with\_under() (protected)
+
+Function/Method Parameters
+
+lower\_with\_under
+
+Local Variables
+
+lower\_with\_under
+
+\hypertarget{code-layout}{%
+\section{Code Layout}\label{code-layout}}
+
+\hypertarget{line-length-1}{%
+\subsection{Line length}\label{line-length-1}}
+
+\begin{itemize}
+\item
+  Maximum line length is 80 characters.
+\item
+  Explicit exceptions to the 80 character limit:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Long import statements.
+  \item
+    URLs, pathnames, or long flags in comments.
+  \end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# long URL on their own line if necessary. }
+\CommentTok{# http:/www.example.com/longurl/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx}
+\end{Highlighting}
+\end{Shaded}
+\item
+  When a literal string won't fit on a single line, use parentheses for implicit
+  line joining.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x }\OperatorTok{=}\NormalTok{ (}\StringTok{'This will build a very long long '}
+     \StringTok{'long long long long long long string'}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+\item
+  Python will assume line continuation if code is contained within parentheses,
+  brackets, or braces:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{def}\NormalTok{ function(arg_one, arg_two,}
+\NormalTok{             arg_three, arg_four):}
+    \ControlFlowTok{return}\NormalTok{ arg_one}
+\end{Highlighting}
+\end{Shaded}
+\item
+  If it is impossible to use implied continuation, then you can use backslashes
+  to break lines instead. However, if you can use implied continuation, then
+  you should do so.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ImportTok{from}\NormalTok{ mypkg }\ImportTok{import}\NormalTok{ example1, }\OperatorTok{\textbackslash{}}
+\NormalTok{    example2, example3}
+\end{Highlighting}
+\end{Shaded}
+\item
+  If line breaking needs to occur around binary operators, like + and *, it
+  should occur before the operator.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{total }\OperatorTok{=}\NormalTok{ (first_variable}
+         \OperatorTok{+}\NormalTok{ second_variable}
+         \OperatorTok{-}\NormalTok{ third_variable)}
+\end{Highlighting}
+\end{Shaded}
+\end{itemize}
+
+\hypertarget{indentation}{%
+\subsection{Indentation}\label{indentation}}
+
+\begin{itemize}
+\item
+  Use 4 spaces per indentation level.
+\item
+  Prefer spaces over tabs.
+\item
+  Never use tabs or mix tabs and spaces.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Aligned with opening delimiter.}
+\NormalTok{foo }\OperatorTok{=}\NormalTok{ long_function_name(var_one, var_two,}
+\NormalTok{                         var_three, var_four)}
+
+\CommentTok{# Add 4 spaces (an extra level of indentation) to distinguish arguments from }
+\CommentTok{# the rest.}
+\KeywordTok{def}\NormalTok{ long_function_name(}
+\NormalTok{        var_one, var_two, var_three,}
+\NormalTok{        var_four):}
+    \BuiltInTok{print}\NormalTok{(var_one)}
+
+\CommentTok{# Hanging indents should add a level.}
+\NormalTok{foo }\OperatorTok{=}\NormalTok{ long_function_name(}
+\NormalTok{    var_one, var_two,}
+\NormalTok{    var_three, var_four)}
+\end{Highlighting}
+\end{Shaded}
+\end{itemize}
+
+\hypertarget{parentheses}{%
+\subsection{Parentheses}\label{parentheses}}
+
+\begin{itemize}
+\item
+  Use parentheses around tuples.
+\item
+  Do not use them in return statements or conditional statements
+  unless using parentheses for implied line continuation or to indicate a tuple.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# good}
+\ControlFlowTok{if}\NormalTok{ foo:}
+\NormalTok{    bar()}
+\ControlFlowTok{while}\NormalTok{ x:}
+\NormalTok{    x }\OperatorTok{=}\NormalTok{ bar()}
+\ControlFlowTok{if}\NormalTok{ x }\KeywordTok{and}\NormalTok{ y:}
+\NormalTok{    bar()}
+\ControlFlowTok{if} \KeywordTok{not}\NormalTok{ x:}
+\NormalTok{    bar()}
+\CommentTok{# For a 1 item tuple the ()s are more visually obvious than the comma.}
+\NormalTok{onesie }\OperatorTok{=}\NormalTok{ (foo,)}
+\ControlFlowTok{return}\NormalTok{ foo}
+\ControlFlowTok{return}\NormalTok{ spam, beans}
+\ControlFlowTok{return}\NormalTok{ (spam, beans)}
+\ControlFlowTok{for}\NormalTok{ (x, y) }\KeywordTok{in} \BuiltInTok{dict}\NormalTok{.items(): ...}
+
+\CommentTok{# bad}
+\ControlFlowTok{if}\NormalTok{ (x):}
+\NormalTok{    bar()}
+\ControlFlowTok{if} \KeywordTok{not}\NormalTok{(x):}
+\NormalTok{    bar()}
+\ControlFlowTok{return}\NormalTok{ (foo)}
+\end{Highlighting}
+\end{Shaded}
+\end{itemize}
+
+\hypertarget{blank-lines}{%
+\subsection{Blank Lines}\label{blank-lines}}
+
+\begin{itemize}
+\item
+  Two blank lines between top-level definitions, be they function or class
+  definitions.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{class}\NormalTok{ MyFirstClass:}
+    \ControlFlowTok{pass}
+
+
+\KeywordTok{class}\NormalTok{ MySecondClass:}
+    \ControlFlowTok{pass}
+
+
+\KeywordTok{def}\NormalTok{ top_level_function():}
+    \ControlFlowTok{return} \VariableTok{None}
+\end{Highlighting}
+\end{Shaded}
+\item
+  One blank line between method definitions inside classes.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{class}\NormalTok{ MyClass:}
+    \KeywordTok{def}\NormalTok{ first_method(}\VariableTok{self}\NormalTok{):}
+        \ControlFlowTok{return} \VariableTok{None}
+
+    \KeywordTok{def}\NormalTok{ second_method(}\VariableTok{self}\NormalTok{):}
+        \ControlFlowTok{return} \VariableTok{None}
+\end{Highlighting}
+\end{Shaded}
+\item
+  Use single blank lines as you judge appropriate within functions or methods.
+\end{itemize}
+
+\hypertarget{whitespace}{%
+\subsection{Whitespace}\label{whitespace}}
+
+\begin{itemize}
+\item
+  No whitespace inside parentheses, brackets or braces.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# good}
+\NormalTok{spam(ham[}\DecValTok{1}\NormalTok{], \{}\StringTok{'eggs'}\NormalTok{: }\DecValTok{2}\NormalTok{\}, [])}
+
+\CommentTok{# bad}
+\NormalTok{spam( ham[ }\DecValTok{1}\NormalTok{ ], \{ eggs: }\DecValTok{2}\NormalTok{ \} )}
+\end{Highlighting}
+\end{Shaded}
+\item
+  No whitespace before a comma, semicolon, or colon. Do use whitespace after a
+  comma, semicolon, or colon, except at the end of the line.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# good}
+\ControlFlowTok{if}\NormalTok{ x }\OperatorTok{==} \DecValTok{4}\NormalTok{: }
+    \BuiltInTok{print}\NormalTok{ x, y}
+\NormalTok{x, y }\OperatorTok{=}\NormalTok{ y, x}
+
+\CommentTok{# bad}
+\ControlFlowTok{if}\NormalTok{ x }\OperatorTok{==} \DecValTok{4}\NormalTok{ : }
+    \BuiltInTok{print}\NormalTok{ x , y }
+\NormalTok{x , y }\OperatorTok{=}\NormalTok{ y , x}
+\end{Highlighting}
+\end{Shaded}
+\item
+  No whitespace before the open paren/bracket that starts an argument list,
+  indexing or slicing.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# good}
+\NormalTok{spam(}\DecValTok{1}\NormalTok{)}
+\BuiltInTok{dict}\NormalTok{[}\StringTok{'key'}\NormalTok{] }\OperatorTok{=} \BuiltInTok{list}\NormalTok{[index]}
+
+\CommentTok{# bad}
+\NormalTok{spam (}\DecValTok{1}\NormalTok{)}
+\BuiltInTok{dict}\NormalTok{ [}\StringTok{'key'}\NormalTok{] }\OperatorTok{=} \BuiltInTok{list}\NormalTok{ [index]}
+\end{Highlighting}
+\end{Shaded}
+\item
+  Always surround these binary operators with a single space on either side:
+  assignment (=), augmented assignment (+=, -= etc.), comparisons (==, \textless, \textgreater,
+  !=, \textless\textgreater, \textless=, \textgreater=, in, not in, is, is not), Booleans (and, or, not).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# good}
+\NormalTok{i }\OperatorTok{=}\NormalTok{ i }\OperatorTok{+} \DecValTok{1}
+\NormalTok{submitted }\OperatorTok{+=} \DecValTok{1}
+\NormalTok{x }\OperatorTok{=}\NormalTok{ x}\OperatorTok{*}\DecValTok{2} \OperatorTok{-} \DecValTok{1}
+\NormalTok{hypot2 }\OperatorTok{=}\NormalTok{ x}\OperatorTok{*}\NormalTok{x }\OperatorTok{+}\NormalTok{ y}\OperatorTok{*}\NormalTok{y}
+\NormalTok{c }\OperatorTok{=}\NormalTok{ (a}\OperatorTok{+}\NormalTok{b) }\OperatorTok{*}\NormalTok{ (a}\OperatorTok{-}\NormalTok{b)}
+
+\CommentTok{# bad}
+\NormalTok{i}\OperatorTok{=}\NormalTok{i}\OperatorTok{+}\DecValTok{1}
+\NormalTok{submitted }\OperatorTok{+=}\DecValTok{1}
+\NormalTok{x }\OperatorTok{=}\NormalTok{ x }\OperatorTok{*} \DecValTok{2} \OperatorTok{-} \DecValTok{1}
+\NormalTok{hypot2 }\OperatorTok{=}\NormalTok{ x }\OperatorTok{*}\NormalTok{ x }\OperatorTok{+}\NormalTok{ y }\OperatorTok{*}\NormalTok{ y}
+\NormalTok{c }\OperatorTok{=}\NormalTok{ (a }\OperatorTok{+}\NormalTok{ b) }\OperatorTok{*}\NormalTok{ (a }\OperatorTok{-}\NormalTok{ b)}
+\end{Highlighting}
+\end{Shaded}
+\item
+  Never use spaces around = when passing keyword arguments or defining a default
+  parameter value, with one exception: when a type annotation is present, do
+  use spaces around the = for the default parameter value.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# good}
+\KeywordTok{def} \BuiltInTok{complex}\NormalTok{(real, imag}\OperatorTok{=}\FloatTok{0.0}\NormalTok{): }\ControlFlowTok{return}\NormalTok{ Magic(r}\OperatorTok{=}\NormalTok{real, i}\OperatorTok{=}\NormalTok{imag)}
+\KeywordTok{def} \BuiltInTok{complex}\NormalTok{(real, imag: }\BuiltInTok{float} \OperatorTok{=} \FloatTok{0.0}\NormalTok{): }\ControlFlowTok{return}\NormalTok{ Magic(r}\OperatorTok{=}\NormalTok{real, i}\OperatorTok{=}\NormalTok{imag)}
+
+\CommentTok{# bad}
+\KeywordTok{def} \BuiltInTok{complex}\NormalTok{(real, imag }\OperatorTok{=} \FloatTok{0.0}\NormalTok{): }\ControlFlowTok{return}\NormalTok{ Magic(r }\OperatorTok{=}\NormalTok{ real, i }\OperatorTok{=}\NormalTok{ imag)}
+\KeywordTok{def} \BuiltInTok{complex}\NormalTok{(real, imag: }\BuiltInTok{float}\OperatorTok{=}\FloatTok{0.0}\NormalTok{): }\ControlFlowTok{return}\NormalTok{ Magic(r }\OperatorTok{=}\NormalTok{ real, i }\OperatorTok{=}\NormalTok{ imag)}
+\end{Highlighting}
+\end{Shaded}
+\end{itemize}
+
+\hypertarget{trailing-commas}{%
+\subsection{Trailing Commas}\label{trailing-commas}}
+
+Trailing commas in sequences of items are recommended only when the closing
+container token \texttt{{]}}, \texttt{)}, or \texttt{\}} does not appear on the same line as the final
+element.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+  \CommentTok{# good}
+\NormalTok{  golomb3 }\OperatorTok{=}\NormalTok{ [}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{3}\NormalTok{]}
+\NormalTok{  golomb4 }\OperatorTok{=}\NormalTok{ [}
+      \DecValTok{0}\NormalTok{,}
+      \DecValTok{1}\NormalTok{,}
+      \DecValTok{4}\NormalTok{,}
+      \DecValTok{6}\NormalTok{,}
+\NormalTok{  ]}
+  
+  \CommentTok{# bad}
+\NormalTok{  golomb4 }\OperatorTok{=}\NormalTok{ [}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{6}\NormalTok{,]}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{strings}{%
+\subsection{Strings}\label{strings}}
+
+\begin{itemize}
+\item
+  Use an \texttt{f-string}, the \texttt{\%} operator, or the \texttt{format} method for formatting
+  strings, even when the parameters are all strings.
+\item
+  Use your best judgment to decide between + and \% (or format) though.
+\item
+  Do not use \% or the format method for pure concatenation.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# good}
+\NormalTok{x }\OperatorTok{=} \StringTok{'}\SpecialCharTok{%s}\StringTok{, }\SpecialCharTok{%s}\StringTok{!'} \OperatorTok{%}\NormalTok{ (imperative, expletive)}
+\NormalTok{x }\OperatorTok{=} \StringTok{'}\SpecialCharTok{\{\}}\StringTok{, }\SpecialCharTok{\{\}}\StringTok{'}\NormalTok{.}\BuiltInTok{format}\NormalTok{(first, second)}
+\NormalTok{x }\OperatorTok{=} \StringTok{'name: }\SpecialCharTok{%s}\StringTok{; score: }\SpecialCharTok{%d}\StringTok{'} \OperatorTok{%}\NormalTok{ (name, n)}
+\NormalTok{x }\OperatorTok{=} \StringTok{'name: }\SpecialCharTok{\{\}}\StringTok{; score: }\SpecialCharTok{\{\}}\StringTok{'}\NormalTok{.}\BuiltInTok{format}\NormalTok{(name, n)}
+\NormalTok{x }\OperatorTok{=} \SpecialStringTok{f'name: }\SpecialCharTok{\{}\NormalTok{name}\SpecialCharTok{\}}\SpecialStringTok{; score: }\SpecialCharTok{\{n\}}\SpecialStringTok{'}  
+
+\CommentTok{# bad}
+\NormalTok{x }\OperatorTok{=} \StringTok{'}\SpecialCharTok{%s%s}\StringTok{'} \OperatorTok{%}\NormalTok{ (a, b)  }\CommentTok{# use + in this case}
+\NormalTok{x }\OperatorTok{=} \StringTok{'}\SpecialCharTok{\{\}\{\}}\StringTok{'}\NormalTok{.}\BuiltInTok{format}\NormalTok{(a, b)  }\CommentTok{# use + in this case}
+\NormalTok{x }\OperatorTok{=}\NormalTok{ first }\OperatorTok{+} \StringTok{', '} \OperatorTok{+}\NormalTok{ second}
+\NormalTok{x }\OperatorTok{=} \StringTok{'name: '} \OperatorTok{+}\NormalTok{ name }\OperatorTok{+} \StringTok{'; score: '} \OperatorTok{+} \BuiltInTok{str}\NormalTok{(n)}
+\end{Highlighting}
+\end{Shaded}
+\item
+  Be consistent with your choice of string quote character within a file.
+  Pick \texttt{\textquotesingle{}} or \texttt{"} and stick with it. It is okay to use the other quote
+  character on a string to avoid the need to backslash-escape quote characters
+  within the string.
+\item
+  Prefer \texttt{"""} for multi-line strings rather than \texttt{\textquotesingle{}\textquotesingle{}\textquotesingle{}}.
+\item
+  Multi-line strings do not flow with the indentation of the rest of the program.
+  If you need to avoid embedding extra space in the string, use concatenated
+  single-line strings.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# good}
+\NormalTok{long_string }\OperatorTok{=} \StringTok{"""This is fine if your use case can accept}
+\StringTok{    extraneous leading spaces."""}
+\NormalTok{long_string }\OperatorTok{=}\NormalTok{ (}\StringTok{"And this is fine if you cannot accept}\CharTok{\textbackslash{}n}\StringTok{"} \OperatorTok{+}
+               \StringTok{"extraneous leading spaces."}\NormalTok{)}
+
+\CommentTok{# bad}
+\NormalTok{long_string }\OperatorTok{=} \StringTok{"""This is pretty ugly.}
+\StringTok{Don't do this.}
+\StringTok{"""}
+\end{Highlighting}
+\end{Shaded}
+\end{itemize}
+
+\hypertarget{imports}{%
+\subsection{Imports}\label{imports}}
+
+\begin{itemize}
+\item
+  Imports should usually be on separate lines.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# good}
+\ImportTok{import}\NormalTok{ os}
+\ImportTok{import}\NormalTok{ sys}
+
+\CommentTok{# bad}
+\ImportTok{import}\NormalTok{ sys, os}
+\end{Highlighting}
+\end{Shaded}
+\item
+  Imports are always put at the top of the file, just after any module comments
+  and docstrings and before module globals and constants. Imports should be
+  grouped in the following order, and you should put a blank line between each
+  group of imports.
+
+  \begin{itemize}
+  \item
+    Standard library imports.
+  \item
+    Related third party imports.
+  \item
+    Local application/library specific imports.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ImportTok{import}\NormalTok{ collections}
+\ImportTok{import}\NormalTok{ sys}
+
+\ImportTok{from}\NormalTok{ absl }\ImportTok{import}\NormalTok{ app}
+\ImportTok{from}\NormalTok{ absl }\ImportTok{import}\NormalTok{ flags}
+
+\ImportTok{from}\NormalTok{ myproject.backend }\ImportTok{import}\NormalTok{ huxley}
+\ImportTok{from}\NormalTok{ myproject.backend.state_machine }\ImportTok{import}\NormalTok{ main_loop}
+\end{Highlighting}
+\end{Shaded}
+  \end{itemize}
+\end{itemize}
+
+\hypertarget{references-1}{%
+\section{References}\label{references-1}}
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://www.python.org/dev/peps/pep-0008/}{PEP 8 style guide for python code}
+\item
+  \href{https://github.com/amontalenti/elements-of-python-style}{The elements of python style}
+\item
+  \href{https://google.github.io/styleguide/pyguide.html}{Google python style guid}
+\item
+  \href{https://numpydoc.readthedocs.io/en/latest/format.html}{numpy Docstring format}
+\end{itemize}
+
+\hypertarget{r-style-guide}{%
+\chapter{R Style Guide}\label{r-style-guide}}
+
+\hypertarget{files}{%
+\section{Files}\label{files}}
+
+\hypertarget{names}{%
+\subsection{Names}\label{names}}
+
+\begin{itemize}
+\item
+  File names should be meaningful and end in .R. Avoid using special
+  characters in file names - stick with numbers, letters, \texttt{-}, and \texttt{\_}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Good}
+\NormalTok{fit_models.R}
+\NormalTok{utility_functions.R}
+
+\CommentTok{# Bad}
+\NormalTok{fit models.R}
+\NormalTok{foo.r}
+\NormalTok{stuff.r}
+\end{Highlighting}
+\end{Shaded}
+\item
+  If files should be run in a particular order, prefix them with numbers. If
+  it seems likely you'll have more than 10 files, left pad with zero:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{00}\NormalTok{_download.R}
+\DecValTok{01}\NormalTok{_explore.R}
+\NormalTok{...}
+\DecValTok{09}\NormalTok{_model.R}
+\DecValTok{10}\NormalTok{_visualize.R}
+\end{Highlighting}
+\end{Shaded}
+\item
+  Prefer file names that are all lower case, and never have names that differ
+  only in their capitalization.
+\end{itemize}
+
+\hypertarget{internal-structure}{%
+\subsection{Internal structure}\label{internal-structure}}
+
+\begin{itemize}
+\item
+  Use commented lines of - and = to break up your file into easily readable chunks.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Load data ---------------------------}
+
+\CommentTok{# Plot data ---------------------------}
+\end{Highlighting}
+\end{Shaded}
+\item
+  If your script uses add-on packages, load them all at once at the very
+  beginning of the file.
+\end{itemize}
+
+\hypertarget{naming-convention}{%
+\section{Naming Convention}\label{naming-convention}}
+
+\begin{itemize}
+\item
+  Variable and function names should use only lowercase letters, numbers,
+  and \texttt{\_}. Use underscores (\texttt{\_}) (so called snake case) to separate words within
+  a name.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Good}
+\NormalTok{day_one}
+\NormalTok{day_}\DecValTok{1}
+\end{Highlighting}
+\end{Shaded}
+\item
+  It's better to reserve dots exclusively for the S3 object system. In S3,
+  methods are given the name \texttt{function.class}.
+\item
+  Generally, variable names should be nouns and function names should be
+  verbs. Strive for names that are concise and meaningful (this is not easy!).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Good}
+\NormalTok{day_one}
+
+\CommentTok{# Bad}
+\NormalTok{first_day_of_the_month}
+\NormalTok{djm1}
+\end{Highlighting}
+\end{Shaded}
+\item
+  Avoid re-using names of common functions and variables. This will cause
+  confusion for the readers of your code.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Bad}
+\NormalTok{T <-}\StringTok{ }\OtherTok{FALSE}
+\NormalTok{c <-}\StringTok{ }\DecValTok{10}
+\NormalTok{mean <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x) }\KeywordTok{sum}\NormalTok{(x)}
+\end{Highlighting}
+\end{Shaded}
+\end{itemize}
+
+\hypertarget{spacing}{%
+\section{Spacing}\label{spacing}}
+
+\hypertarget{indentation-1}{%
+\subsection{Indentation}\label{indentation-1}}
+
+Use four spaces.
+
+\hypertarget{commas}{%
+\subsection{Commas}\label{commas}}
+
+Always put a space after a comma, never before, just like in regular English.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Good}
+\NormalTok{x[, }\DecValTok{1}\NormalTok{]}
+
+\CommentTok{# Bad}
+\NormalTok{x[,}\DecValTok{1}\NormalTok{]}
+\NormalTok{x[ ,}\DecValTok{1}\NormalTok{]}
+\NormalTok{x[ , }\DecValTok{1}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{parentheses-1}{%
+\subsection{Parentheses}\label{parentheses-1}}
+
+\begin{itemize}
+\item
+  Do not put spaces inside or outside parentheses for regular function calls.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Good}
+\KeywordTok{mean}\NormalTok{(x, }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{)}
+
+\CommentTok{# Bad}
+\KeywordTok{mean}\NormalTok{ (x, }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{)}
+\KeywordTok{mean}\NormalTok{( x, }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{ )}
+\end{Highlighting}
+\end{Shaded}
+\item
+  Place a space before and after \texttt{()} when used with \texttt{if}, \texttt{for}, or \texttt{while}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Good}
+\ControlFlowTok{if}\NormalTok{ (debug) \{}
+    \KeywordTok{show}\NormalTok{(x)}
+\NormalTok{\}}
+
+\CommentTok{# Bad}
+\ControlFlowTok{if}\NormalTok{(debug)\{}
+    \KeywordTok{show}\NormalTok{(x)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+\item
+  Place a space after \texttt{()} used for function arguments:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Good}
+\ControlFlowTok{function}\NormalTok{(x) \{\}}
+
+\CommentTok{# Bad}
+\ControlFlowTok{function}\NormalTok{ (x) \{\}}
+\ControlFlowTok{function}\NormalTok{(x)\{\}}
+\end{Highlighting}
+\end{Shaded}
+\end{itemize}
+
+\hypertarget{embracing}{%
+\subsection{Embracing}\label{embracing}}
+
+The embracing operator, \texttt{\{\{\ \}\}}, should always have inner spaces to help
+emphasise its special behaviour:
+
+\begin{verbatim}
+# Good
+max_by <- function(data, var, by) {
+  data %>%
+    group_by({{ by }}) %>%
+    summarise(maximum = max({{ var }}, na.rm = TRUE))
+}
+
+# Bad
+max_by <- function(data, var, by) {
+  data %>%
+    group_by({{by}}) %>%
+    summarise(maximum = max({{var}}, na.rm = TRUE))
+}
+\end{verbatim}
+
+\hypertarget{infix-operators}{%
+\subsection{Infix operators}\label{infix-operators}}
+
+Most infix operators (\texttt{==}, \texttt{+}, \texttt{-}, \texttt{\textless{}-}, etc.) should always be surrounded
+by spaces:
+
+\begin{verbatim}
+# Good
+height <- (feet * 12) + inches
+mean(x, na.rm = TRUE)
+
+# Bad
+height<-feet*12+inches
+mean(x, na.rm=TRUE)
+\end{verbatim}
+
+There are a few exceptions, which should never be surrounded by spaces:
+
+\begin{itemize}
+\item
+  The operators with high precedence: \texttt{::}, \texttt{:::}, \texttt{\$}, \texttt{@}, \texttt{{[}}, \texttt{{[}{[}}, \texttt{\^{}},
+  unary \texttt{-}, unary \texttt{+}, and \texttt{:}.
+\item
+  Single-sided formulas when the right-hand side is a single identifier.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Good}
+\OperatorTok{~}\NormalTok{foo}
+
+\CommentTok{# Bad}
+\OperatorTok{~}\StringTok{ }\NormalTok{foo}
+\end{Highlighting}
+\end{Shaded}
+
+  Note that single-sided formulas with a complex right-hand side do need a space:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Good}
+\OperatorTok{~}\StringTok{ }\NormalTok{.x }\OperatorTok{+}\StringTok{ }\NormalTok{.y}
+
+\CommentTok{# Bad}
+\OperatorTok{~}\NormalTok{.x }\OperatorTok{+}\StringTok{ }\NormalTok{.y}
+\end{Highlighting}
+\end{Shaded}
+\item
+  When used in tidy evaluation \texttt{!!} (bang-bang) and \texttt{!!!} (bang-bang-bang)
+\end{itemize}
+
+\hypertarget{function-calls}{%
+\section{Function Calls}\label{function-calls}}
+
+\hypertarget{named-arguments}{%
+\subsection{Named arguments}\label{named-arguments}}
+
+\begin{itemize}
+\item
+  If you override the default value of an argument, use the full name.
+\item
+  You can omit the argument names for very common arguments
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Good}
+\KeywordTok{mean}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{10}\NormalTok{, }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{)}
+
+\CommentTok{# Bad}
+\KeywordTok{mean}\NormalTok{(}\DataTypeTok{x =} \DecValTok{1}\OperatorTok{:}\DecValTok{10}\NormalTok{, , }\OtherTok{FALSE}\NormalTok{)}
+\KeywordTok{mean}\NormalTok{(, }\OtherTok{TRUE}\NormalTok{, }\DataTypeTok{x =} \KeywordTok{c}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{10}\NormalTok{, }\OtherTok{NA}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+\end{itemize}
+
+\hypertarget{assignment}{%
+\subsection{Assignment}\label{assignment}}
+
+Avoid assignment in function calls:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Good}
+\NormalTok{x <-}\StringTok{ }\KeywordTok{complicated_function}\NormalTok{()}
+\ControlFlowTok{if}\NormalTok{ (}\KeywordTok{nzchar}\NormalTok{(x) }\OperatorTok{<}\StringTok{ }\DecValTok{1}\NormalTok{) \{}
+  \CommentTok{# do something}
+\NormalTok{\}}
+
+\CommentTok{# Bad}
+\ControlFlowTok{if}\NormalTok{ (}\KeywordTok{nzchar}\NormalTok{(x <-}\StringTok{ }\KeywordTok{complicated_function}\NormalTok{()) }\OperatorTok{<}\StringTok{ }\DecValTok{1}\NormalTok{) \{}
+  \CommentTok{# do something}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+The only exception is in functions that capture side-effects:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{output <-}\StringTok{ }\KeywordTok{capture.output}\NormalTok{(x <-}\StringTok{ }\KeywordTok{f}\NormalTok{())}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{long-lines}{%
+\subsection{Long lines}\label{long-lines}}
+
+There are two options if the function name and definition can't fit on a single
+line:
+
+\begin{itemize}
+\item
+  Function-indent: place each argument on its own line, and indent to match
+  the opening \texttt{(} of function:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{long_function_name <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(}\DataTypeTok{a =} \StringTok{"a long argument"}\NormalTok{,}
+                               \DataTypeTok{b =} \StringTok{"another argument"}\NormalTok{,}
+                               \DataTypeTok{c =} \StringTok{"another long argument"}\NormalTok{) \{}
+  \CommentTok{# As usual code is indented by two spaces.}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+\item
+  Double-indent: Place each argument of its own double indented line.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{long_function_name <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(}
+    \DataTypeTok{a =} \StringTok{"a long argument"}\NormalTok{,}
+    \DataTypeTok{b =} \StringTok{"another argument"}\NormalTok{,}
+    \DataTypeTok{c =} \StringTok{"another long argument"}\NormalTok{) \{}
+    \CommentTok{# As usual code is indented by two spaces.}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+\end{itemize}
+
+In both cases the trailing \texttt{)} and leading \texttt{\{} should go on the same line as
+the last argument.
+
+Prefer function-indent style to double-indent style when it fits.
+
+These styles are designed to clearly separate the function definition from its
+body.
+
+\begin{verbatim}
+# Bad
+long_function_name <- function(a = "a long argument",
+    b = "another argument",
+    c = "another long argument") {
+    # Here it's hard to spot where the definition ends and the
+    # code begins, and to see all three function arguments
+}
+\end{verbatim}
+
+\hypertarget{return}{%
+\subsection{Return}\label{return}}
+
+\begin{itemize}
+\item
+  Only use \texttt{return()} for early returns. Otherwise, rely on R to return the
+  result of the last evaluated expression.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Good}
+\NormalTok{find_abs <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x) \{}
+    \ControlFlowTok{if}\NormalTok{ (x }\OperatorTok{>}\StringTok{ }\DecValTok{0}\NormalTok{) \{}
+        \KeywordTok{return}\NormalTok{(x)}
+\NormalTok{    \}}
+\NormalTok{    x }\OperatorTok{*}\StringTok{ }\DecValTok{-1}
+\NormalTok{\}}
+\NormalTok{add_two <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x, y) \{}
+\NormalTok{    x }\OperatorTok{+}\StringTok{ }\NormalTok{y}
+\NormalTok{\}}
+
+\CommentTok{# Bad}
+\NormalTok{add_two <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x, y) \{}
+    \KeywordTok{return}\NormalTok{(x }\OperatorTok{+}\StringTok{ }\NormalTok{y)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+\item
+  Return statements should always be on their own line because they have
+  important effects on the control flow
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Good}
+\NormalTok{find_abs <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x) \{}
+    \ControlFlowTok{if}\NormalTok{ (x }\OperatorTok{>}\StringTok{ }\DecValTok{0}\NormalTok{) \{}
+        \KeywordTok{return}\NormalTok{(x)}
+\NormalTok{    \}}
+\NormalTok{    x }\OperatorTok{*}\StringTok{ }\DecValTok{-1}
+\NormalTok{\}}
+
+\CommentTok{# Bad}
+\NormalTok{find_abs <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x) \{}
+    \ControlFlowTok{if}\NormalTok{ (x }\OperatorTok{>}\StringTok{ }\DecValTok{0}\NormalTok{) }\KeywordTok{return}\NormalTok{(x)}
+\NormalTok{    x }\OperatorTok{*}\StringTok{ }\DecValTok{-1}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+\item
+  If your function is called primarily for its side-effects (like printing,
+  plotting, or saving to disk), it should return the first argument invisibly.
+  This makes it possible to use the function as part of a pipe. print methods
+  should usually do this, like this example from httr:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{print.url <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x, ...) \{}
+    \KeywordTok{cat}\NormalTok{(}\StringTok{"Url: "}\NormalTok{, }\KeywordTok{build_url}\NormalTok{(x), }\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{, }\DataTypeTok{sep =} \StringTok{""}\NormalTok{)}
+    \KeywordTok{invisible}\NormalTok{(x)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+\end{itemize}
+
+\hypertarget{comments-1}{%
+\subsection{Comments}\label{comments-1}}
+
+\begin{itemize}
+\item
+  In code, use comments to explain the ``why'' not the ``what'' or ``how''. Each
+  line of a comment should begin with the comment symbol and a single space:
+  \texttt{\#}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Good}
+
+\CommentTok{# Objects like data frames are treated as leaves}
+\NormalTok{x <-}\StringTok{ }\KeywordTok{map_if}\NormalTok{(x, is_bare_list, recurse)}
+
+
+\CommentTok{# Bad}
+
+\CommentTok{# Recurse only with bare lists}
+\NormalTok{x <-}\StringTok{ }\KeywordTok{map_if}\NormalTok{(x, is_bare_list, recurse)}
+\end{Highlighting}
+\end{Shaded}
+\item
+  Comments should be in sentence case, and only end with a full stop if they
+  contain at least two sentences:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Good}
+
+\CommentTok{# Objects like data frames are treated as leaves}
+\NormalTok{x <-}\StringTok{ }\KeywordTok{map_if}\NormalTok{(x, is_bare_list, recurse)}
+
+\CommentTok{# Do not use `is.list()`. Objects like data frames must be treated}
+\CommentTok{# as leaves.}
+\NormalTok{x <-}\StringTok{ }\KeywordTok{map_if}\NormalTok{(x, is_bare_list, recurse)}
+
+
+\CommentTok{# Bad}
+
+\CommentTok{# objects like data frames are treated as leaves}
+\NormalTok{x <-}\StringTok{ }\KeywordTok{map_if}\NormalTok{(x, is_bare_list, recurse)}
+
+\CommentTok{# Objects like data frames are treated as leaves.}
+\NormalTok{x <-}\StringTok{ }\KeywordTok{map_if}\NormalTok{(x, is_bare_list, recurse)}
+\end{Highlighting}
+\end{Shaded}
+\end{itemize}
+
+\hypertarget{control-flow}{%
+\section{Control flow}\label{control-flow}}
+
+\hypertarget{code-blocks}{%
+\subsection{Code blocks}\label{code-blocks}}
+
+\begin{itemize}
+\item
+  \texttt{\{} should be the last character on the line. Related code (e.g., an \texttt{if}
+  clause, a function declaration, a trailing comma, \ldots) must be on the same line
+  as the opening brace.
+\item
+  The contents should be indented by four spaces.
+\item
+  \texttt{\}} should be the first character on the line.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# good}
+\ControlFlowTok{if}\NormalTok{ (y }\OperatorTok{<}\StringTok{ }\DecValTok{0} \OperatorTok{&&}\StringTok{ }\NormalTok{debug) \{}
+    \KeywordTok{message}\NormalTok{(}\StringTok{"y is negative"}\NormalTok{)}
+\NormalTok{\}}
+
+\ControlFlowTok{if}\NormalTok{ (y }\OperatorTok{==}\StringTok{ }\DecValTok{0}\NormalTok{) \{}
+    \ControlFlowTok{if}\NormalTok{ (x }\OperatorTok{>}\StringTok{ }\DecValTok{0}\NormalTok{) \{}
+        \KeywordTok{log}\NormalTok{(x)}
+\NormalTok{    \} }\ControlFlowTok{else}\NormalTok{ \{}
+        \KeywordTok{message}\NormalTok{(}\StringTok{"x is negative or zero"}\NormalTok{)}
+\NormalTok{    \}}
+\NormalTok{\} }\ControlFlowTok{else}\NormalTok{ \{}
+\NormalTok{    y}\OperatorTok{^}\NormalTok{x}
+\NormalTok{\}}
+
+\CommentTok{# bad}
+\ControlFlowTok{if}\NormalTok{ (y }\OperatorTok{==}\StringTok{ }\DecValTok{0}\NormalTok{)}
+\NormalTok{\{}
+  \ControlFlowTok{if}\NormalTok{ (x }\OperatorTok{>}\StringTok{ }\DecValTok{0}\NormalTok{) \{}
+    \KeywordTok{log}\NormalTok{(x)}
+\NormalTok{  \} }\ControlFlowTok{else}\NormalTok{ \{}
+\KeywordTok{message}\NormalTok{(}\StringTok{"x is negative or zero"}\NormalTok{)}
+\NormalTok{  \}}
+\NormalTok{\} }\ControlFlowTok{else}\NormalTok{ \{ y }\OperatorTok{^}\StringTok{ }\NormalTok{x \}}
+\end{Highlighting}
+\end{Shaded}
+\end{itemize}
+
+\hypertarget{if-statements}{%
+\subsection{If Statements}\label{if-statements}}
+
+\begin{itemize}
+\tightlist
+\item
+  If used, \texttt{else} should be on the same line as \texttt{\}}.
+\item
+  \texttt{\&} and \texttt{\textbar{}} should never be used inside of an \texttt{if} clause because they can
+  return vectors. Always use \texttt{\&\&} and \texttt{\textbar{}\textbar{}} instead.
+\end{itemize}
+
+\hypertarget{inline-statement}{%
+\subsection{Inline statement}\label{inline-statement}}
+
+\begin{itemize}
+\item
+  You can write a simple \texttt{if} block on ane single line
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{message <-}\StringTok{ }\ControlFlowTok{if}\NormalTok{ (x }\OperatorTok{>}\StringTok{ }\DecValTok{10}\NormalTok{) }\StringTok{"big"} \ControlFlowTok{else} \StringTok{"small"}
+\end{Highlighting}
+\end{Shaded}
+\item
+  Function calls that affect control flow (like \texttt{return()}, \texttt{stop()} or
+  \texttt{continue}) should always go in their own \texttt{\{\}} block:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Good}
+\ControlFlowTok{if}\NormalTok{ (y }\OperatorTok{<}\StringTok{ }\DecValTok{0}\NormalTok{) \{}
+    \KeywordTok{stop}\NormalTok{(}\StringTok{"Y is negative"}\NormalTok{)}
+\NormalTok{\}}
+
+\NormalTok{find_abs <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x) \{}
+    \ControlFlowTok{if}\NormalTok{ (x }\OperatorTok{>}\StringTok{ }\DecValTok{0}\NormalTok{) \{}
+        \KeywordTok{return}\NormalTok{(x)}
+\NormalTok{    \}}
+\NormalTok{    x }\OperatorTok{*}\StringTok{ }\DecValTok{-1}
+\NormalTok{\}}
+
+\CommentTok{# Bad}
+\ControlFlowTok{if}\NormalTok{ (y }\OperatorTok{<}\StringTok{ }\DecValTok{0}\NormalTok{) }\KeywordTok{stop}\NormalTok{(}\StringTok{"Y is negative"}\NormalTok{)}
+
+\ControlFlowTok{if}\NormalTok{ (y }\OperatorTok{<}\StringTok{ }\DecValTok{0}\NormalTok{)}
+    \KeywordTok{stop}\NormalTok{(}\StringTok{"Y is negative"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+\end{itemize}
+
+\hypertarget{implicit-type-coercion}{%
+\subsection{Implicit type coercion}\label{implicit-type-coercion}}
+
+Avoid implicit type coercion (e.g.~from numeric to logical) in \texttt{if} statements:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Good}
+\ControlFlowTok{if}\NormalTok{ (}\KeywordTok{length}\NormalTok{(x) }\OperatorTok{>}\StringTok{ }\DecValTok{0}\NormalTok{) \{}
+    \CommentTok{# do something}
+\NormalTok{\}}
+
+\CommentTok{# Bad}
+\ControlFlowTok{if}\NormalTok{ (}\KeywordTok{length}\NormalTok{(x)) \{}
+    \CommentTok{# do something}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{switch-statements}{%
+\subsection{Switch statements}\label{switch-statements}}
+
+\begin{itemize}
+\item
+  Avoid position-based \texttt{switch()} statements (i.e.~prefer names).
+\item
+  Each element should go on its own line.
+\item
+  Elements that fall through to the following element should have a space after
+  \texttt{=}.
+\item
+  Provide a fall-through error, unless you have previously validated the input.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Good }
+\ControlFlowTok{switch}\NormalTok{(x, }
+    \DataTypeTok{a =}\NormalTok{ ,}
+    \DataTypeTok{b =} \DecValTok{1}\NormalTok{, }
+    \DataTypeTok{c =} \DecValTok{2}\NormalTok{,}
+    \KeywordTok{stop}\NormalTok{(}\StringTok{"Unknown `x`"}\NormalTok{, }\DataTypeTok{call. =} \OtherTok{FALSE}\NormalTok{)}
+\NormalTok{)}
+
+\CommentTok{# Bad}
+\ControlFlowTok{switch}\NormalTok{(x, }\DataTypeTok{a =}\NormalTok{ , }\DataTypeTok{b =} \DecValTok{1}\NormalTok{, }\DataTypeTok{c =} \DecValTok{2}\NormalTok{)}
+\ControlFlowTok{switch}\NormalTok{(x, }\DataTypeTok{a =}\NormalTok{, }\DataTypeTok{b =} \DecValTok{1}\NormalTok{, }\DataTypeTok{c =} \DecValTok{2}\NormalTok{)}
+\ControlFlowTok{switch}\NormalTok{(y, }\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+\end{itemize}
+
+\hypertarget{long-lines-1}{%
+\section{Long lines}\label{long-lines-1}}
+
+\begin{itemize}
+\item
+  Strive to limit your code to 80 characters per line.
+\item
+  If a function call is too long to fit on a single line, use one line each for
+  the function name, each argument, and the closing \texttt{)}. This makes the code
+  easier to read and to change later.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Good}
+\KeywordTok{do_something_very_complicated}\NormalTok{(}
+    \DataTypeTok{something =} \StringTok{"that"}\NormalTok{,}
+    \DataTypeTok{requires =}\NormalTok{ many,}
+    \DataTypeTok{arguments =} \StringTok{"some of which may be long"}
+\NormalTok{)}
+
+\CommentTok{# Bad}
+\KeywordTok{do_something_very_complicated}\NormalTok{(}\StringTok{"that"}\NormalTok{, requires, many, arguments,}
+                              \StringTok{"some of which may be long"}
+\NormalTok{                             )}
+\end{Highlighting}
+\end{Shaded}
+\item
+  Short unnamed arguments can also go on the same line as the function name,
+  even if the whole function call spans multiple lines.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{map}\NormalTok{(x, f,}
+    \DataTypeTok{extra_argument_a =} \DecValTok{10}\NormalTok{,}
+    \DataTypeTok{extra_argument_b =} \KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{43}\NormalTok{, }\DecValTok{390}\NormalTok{, }\DecValTok{210209}\NormalTok{)}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+\item
+  You may also place several arguments on the same line if they are closely
+  related to each other.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Good}
+\KeywordTok{paste0}\NormalTok{(}
+    \StringTok{"Requirement: "}\NormalTok{, requires, }\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{,}
+    \StringTok{"Result: "}\NormalTok{, result, }\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{"}
+\NormalTok{)}
+
+\CommentTok{# Bad}
+\KeywordTok{paste0}\NormalTok{(}
+    \StringTok{"Requirement: "}\NormalTok{, requires,}
+    \StringTok{"}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{, }\StringTok{"Result: "}\NormalTok{,}
+\NormalTok{    result, }\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+\end{itemize}
+
+\hypertarget{semicolons}{%
+\section{Semicolons}\label{semicolons}}
+
+Don't put \texttt{;} at the end of a line, and don't use \texttt{;} to put multiple commands
+on one line.
+
+\hypertarget{assignment-1}{%
+\section{Assignment}\label{assignment-1}}
+
+Use \texttt{\textless{}-}, not \texttt{=}, for assignment.
+
+\hypertarget{character-vectors}{%
+\section{Character vectors}\label{character-vectors}}
+
+Use \texttt{"}, not \texttt{\textquotesingle{}}, for quoting text. The only exception is when the text already
+contains double quotes and no single quotes.
+
+\begin{verbatim}
+# Good
+"Text"
+'Text with "quotes"'
+'<a href="http://style.tidyverse.org">A link</a>'
+
+# Bad
+'Text'
+'Text with "double" and \'single\' quotes'
+\end{verbatim}
+
+\hypertarget{logical-vectors}{%
+\section{Logical vectors}\label{logical-vectors}}
+
+Use \texttt{TRUE} and \texttt{FALSE} rather than \texttt{T} and \texttt{F}.
+
+\hypertarget{comments-2}{%
+\section{Comments}\label{comments-2}}
+
+Each line of a comment should begin with the comment symbol \texttt{\#} and a single space.
+
+In data analysis code, use comments to record important findings and analysis
+decisions. If you need comments to explain what your code is doing, consider
+rewriting your code to be clearer. If you discover that you have more comments
+than code, consider switching to \href{https://rmarkdown.rstudio.com/}{R Markdown}.
+
+\hypertarget{resources-1}{%
+\section{Resources}\label{resources-1}}
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://github.com/r-lib/styler}{styler}: formatting your code according to
+  the tidyverse style guide (or your custom style guide) so you can direct your
+  attention to the content of your code. It helps to keep the coding style
+  consistent across projects and facilitate collaboration.
+\item
+  \href{https://github.com/r-lib/lintr}{lintr}: offering static code analysis for R.
+  It checks adherence to a given style, syntax errors and possible semantic
+  issues.
+\end{itemize}
+
+\end{document}
