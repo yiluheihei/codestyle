@@ -6,8 +6,8 @@ bookdown::gitbook:
         <li><a href="./">Code Style</a></li>
       after: |
         <li><a href="https://github.com/yiluheihei/codestyle" target="blank">Published with bookdown</a></li>
-    edit: https://github.com/yiluheihei/codestyle/edit/BRANCH/%s
-    download: ["pdf", "epub"]
+    edit: https://github.com/yiluheihei/codestyle/edit/master/%s
+    download: ["codestyle.pdf"]
 bookdown::pdf_book:
   includes:
     in_header: preamble.tex

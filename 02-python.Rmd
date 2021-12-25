@@ -222,84 +222,19 @@ a word.
 Python filenames must have a `.py` extension and must not contain dashes (`-`).
 
 #### [Naming guides from google python style ](https://google.github.io/styleguide/pyguide.html#s3.16.4-guidelines-derived-from-guidos-recommendations)
- 
- <table rules="all" border="1" summary="Guidelines from Guido's Recommendations"
-       cellspacing="2" cellpadding="2">
 
-  <tr>
-    <th>Type</th>
-    <th>Public</th>
-    <th>Internal</th>
-  </tr>
-
-  <tr>
-    <td>Packages</td>
-    <td><code>lower_with_under</code></td>
-    <td></td>
-  </tr>
-
-  <tr>
-    <td>Modules</td>
-    <td><code>lower_with_under</code></td>
-    <td><code>_lower_with_under</code></td>
-  </tr>
-
-  <tr>
-    <td>Classes</td>
-    <td><code>CapWords</code></td>
-    <td><code>_CapWords</code></td>
-  </tr>
-
-  <tr>
-    <td>Exceptions</td>
-    <td><code>CapWords</code></td>
-    <td></td>
-  </tr>
-
-  <tr>
-    <td>Functions</td>
-    <td><code>lower_with_under()</code></td>
-    <td><code>_lower_with_under()</code></td>
-  </tr>
-
-  <tr>
-    <td>Global/Class Constants</td>
-    <td><code>CAPS_WITH_UNDER</code></td>
-    <td><code>_CAPS_WITH_UNDER</code></td>
-  </tr>
-
-  <tr>
-    <td>Global/Class Variables</td>
-    <td><code>lower_with_under</code></td>
-    <td><code>_lower_with_under</code></td>
-  </tr>
-
-  <tr>
-    <td>Instance Variables</td>
-    <td><code>lower_with_under</code></td>
-    <td><code>_lower_with_under</code> (protected)</td>
-  </tr>
-
-  <tr>
-    <td>Method Names</td>
-    <td><code>lower_with_under()</code></td>
-    <td><code>_lower_with_under()</code> (protected)</td>
-  </tr>
-
-  <tr>
-    <td>Function/Method Parameters</td>
-    <td><code>lower_with_under</code></td>
-    <td></td>
-  </tr>
-
-  <tr>
-    <td>Local Variables</td>
-    <td><code>lower_with_under</code></td>
-    <td></td>
-  </tr>
-
-</table>
-
+Type                          Public                  Internal
+--------                      ----------              -------------
+Packages                      `lower_with_under`      
+Classes                       `CapWords`              `_CapWords`
+Exceptions                    `CapWords`
+Functions                     `lower_with_under()`    `lower_with_under()`
+Global/Class Constants        `CAPS_WITH_UNDER`       `_CAPS_WITH_UNDER`
+Global/Class Variables        `lower_with_under`      `_lower_with_under`
+Instance Variables            `lower_with_under`      `_lower_with_under`
+Method Names                  `lower_with_under()`    `_lower_with_under()`
+Function/Method Parameters    `lower_with_under`
+Local Variables	              `lower_with_under`
 
 ## Code Layout
 
