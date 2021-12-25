@@ -42,7 +42,6 @@ jobs:
         run: |
           Rscript -e 'bookdown::render_book("index.Rmd", quiet = TRUE)'
           Rscript -e "bookdown::render_book('index.Rmd', 'bookdown::pdf_book')"
-          mv _main.pdf codestyle.pdf
 
       - name: Deploy to GitHub pages 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.4
