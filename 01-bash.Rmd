@@ -1,0 +1,332 @@
+# Bash Shell Style Guide
+
+## Comments
+
+### File Header
+
+Start each file with a description of its contents.
+
+Every file must have a top-level comment including a brief overview of its 
+contents. Author information are optional.
+
+Example:
+
+```sh
+#!/bin/bash
+# 
+# Author: 
+# Desc: Perform hot backups of Oracle databases.
+```
+
+### Function Comments
+
+Any function that is not both obvious and short must be commented. Any function
+in a library must be commented regardless of length or complexity.
+
+It should be possible for someone else to learn how to use your program or to
+use a function in your library by reading the comments (and self-help, if 
+provided) without reading the code.
+
+All function comments should contain:
+
+- Description of the function
+- Global variables used and modified
+- Arguments taken
+- Returned values other than the default exit status of the last command run
+
+Example:
+
+```sh
+#!/bin/bash
+# 
+# Author:
+# Desc: Cleanup files from the backup directory.
+#######################################
+# Globals:
+#   BACKUP_DIR
+#   ORACLE_SID
+# Arguments:
+#   None
+#######################################
+function cleanup() {
+  …
+}
+```
+
+### Implementation Comments
+
+Don’t comment everything. Comment tricky, non-obvious, interesting or important
+parts of your code. use comments to explain the "why" not the "what" or "how".
+Each line of a comment should begin with the comment symbol and a single space:
+`# `.
+
+## Naming conventions
+
+### File Names
+
+Lowercase, with underscores to separate words if desired. `
+
+### Function Names
+
+Function names should be in snake_case. That is, all lower case and words are
+separated by underscores. Parentheses are required after the function name.
+
+```sh
+func() {
+  ...
+}
+
+### Variable Names
+
+As for function names. Variables names for loops should be similarly named for 
+any variable you’re looping through.
+
+```sh
+for zone in "${zones[@]}"; do
+  something_with "${zone}"
+done
+```
+
+### Constants and Environment Variable Names
+
+All caps, separated with underscores, declared at the top of the file.
+
+## Formatting
+
+### Identation
+
+Indent 2 spaces. No tabs.
+
+Use blank lines between blocks to improve readability. Indentation is two
+spaces. Whatever you do, don’t use tabs. For existing files, stay faithful to
+the existing indentation.
+
+### Line Length
+
+Maximum line length is 80 characters.
+
+### Pipe
+
+Pipelines should be split one per line if they don’t all fit on one line, and 
+put pipe symbol (`|`) at the beginning of of its statement
+
+If a pipeline all fits on one line, it should be on one line.
+
+```sh
+ # This is an inline pipe: "$(ls -la /foo/ | grep /bar/)"
+
+ # The following pipe is of display form: every command is on
+ # its own line
+
+foobar="$( \
+  ls -la /foo/ \
+  | grep /bar/ \
+  | awk '{print $NF}')"
+```
+
+### Loops
+
+Put `; do` and `; then` on the same line as the `while`, `for` or `if`. `else` 
+should be on its own line and closing statements should be on their own line 
+vertically aligned with the opening statement.
+
+### Variable Expansion
+
+In order of precedence: Stay consistent with what you find; quote your variables;
+prefer `"${var}"` over `"$var"`.
+
+
+They are listed in order of precedence.
+
+- Stay consistent with what you find for existing code.
+- Quote variables, see Quoting section below.
+- Don’t brace-delimit single character shell specials / positional parameters, 
+  unless strictly necessary or avoiding deep confusion.
+  
+  ```sh
+  # Section of *recommended* cases.
+
+  # Preferred style for 'special' variables:
+  echo "Positional: $1" "$5" "$3"
+  echo "Specials: !=$!, -=$-, _=$_. ?=$?, #=$# *=$* @=$@ \$=$$ …"
+
+  # Braces necessary:
+  echo "many parameters: ${10}"
+
+  # Braces avoiding confusion:
+  # Output is "a0b0c0"
+  set -- a b c
+  echo "${1}0${2}0${3}0"
+  ```
+
+Prefer brace-delimiting all other variables.
+
+## Quoting
+
+- Always quote strings containing variables, command substitutions, spaces or 
+  shell meta characters.
+- Optionally quote shell-internal, readonly special variables that are defined 
+  to be integers: `$?`, `$#`, `$$`, `$!`.
+- Use double quotes for strings that require variable expansion or command 
+  substitution interpolation, and single quotes for all others.
+
+  ```sh
+  # "Double" quotes indicate that substitution is required/tolerated.
+
+  # "quote variables"
+  echo "${flag}"
+
+  # double quote for strings that require variable expansion 
+  bar="You are $USER"
+  # or command substitution
+  number="$(generate_number)"
+
+  # single quote for strings does not require variable expansion
+  foo='Hello World'
+
+  # "quote shell meta characters"
+  echo 'Hello stranger, and well met. Earn lots of $$$'
+  echo "Process $$: Done making \$\$\$."
+  ```
+
+## Error Handing
+
+All errors should be sent to `STDERR`.
+
+### Error Checking
+
+`cd`, for example, doesn't always work. Make sure to check for any possible 
+errors for `cd` (or commands like it) and exit or break if they are present.
+
+```sh
+# wrong
+cd /some/path # this could fail
+rm file       # if cd fails where am I? what am I deleting?
+
+# right
+cd /some/path || exit
+```
+
+### set -e
+
+Use `set -e` if your script is being used for your own business. Recommend do
+not use it.
+
+```sh
+# If _do_some_critical_check fails, the script just exits and the following 
+# code is just skipped without any notice.
+set -e
+_do_some_critical_check
+
+if [[ $? -ge 1 ]]; then
+  echo "Oh, you will never see this line."
+fi
+```
+
+### set -u 
+
+To make sure you won't use any undeclared variable , `set -u ` is recommended.
+
+## Features
+
+### Command Substitution
+
+Use `$(command)` instead of backticks.
+
+```sh
+# This is preferred
+foo=`date` 
+
+# This is not
+foo=$(date) 
+```
+
+### Math
+
+Always use `(( … ))` or `$(( … ))` rather than `let` or `$[ … ]` or `expr`.
+
+```sh
+# Simple calculation used as text - note the use of $(( … )) within
+# a string.
+echo "$(( 2 + 2 )) is 4"
+
+# When performing arithmetic comparisons for testing
+if (( a < b )); then
+  …
+fi
+
+# Some calculation assigned to a variable.
+(( i = 10 * j + 400 ))
+```
+
+### Listing Files
+
+Listing Files
+Do not parse `ls(1)`, instead use bash builtin functions to loop files
+
+```sh
+# use
+for f in *; do
+    ...
+done
+
+# not
+for f in $(ls); do
+    ...
+done
+```
+
+### Arrays and lists
+
+Use bash arrays instead of a string separated by spaces (or newlines, tabs, 
+etc.) whenever possible.
+
+```sh
+# use array
+modules=(json httpserver jshint)
+for module in "${modules[@]}"; do
+    npm install -g "$module"
+done
+
+# instead of string separated by spaces 
+modules='json httpserver jshint'
+for module in $modules; do
+    npm install -g "$module"
+done
+```
+
+### Test, `[...]`, and `[[...]]`
+
+`[[ … ]]` is preferred over `[ … ]`, `test`. `[[ … ]]` reduces errors as no 
+pathname expansion or word splitting takes place between `[[` and `]]`. 
+In addition, `[[ … ]]` allows for regular expression matching, while `[ … ]` 
+does not.
+
+```sh
+# This ensures the string on the left is made up of characters in
+# the alnum character class followed by the string name.
+# Note that the RHS should not be quoted here.
+if [[ "filename" =~ ^[[:alnum:]]+name ]]; then
+  echo "Match"
+fi
+
+# This matches the exact pattern "f*" (Does not match in this case)
+if [[ "filename" == "f*" ]]; then
+  echo "Match"
+fi
+# This gives a "too many arguments" error as f* is expanded to the
+# contents of the current directory
+if [ "filename" == f* ]; then
+  echo "Match"
+fi
+```
+
+## References
+
+- [Google shell style guide](https://google.github.io/styleguide/shellguide.html)
+- [bash style guide](https://github.com/bahamas10/bash-style-guide)
+- [bash coding style](https://github.com/icy/bash-coding-style)
+
+## Resources
+
+[Shellcheck](https://github.com/koalaman/shellcheck)

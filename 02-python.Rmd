@@ -1,0 +1,617 @@
+# Python Style Guide
+
+## Comments and Docstrings
+
+You should use comments to document code as it’s written. It is important to
+document your code so that you, and any collaborators, can understand it. When
+you or someone else reads a comment, they should be able to easily understand
+the code the comment applies to and how it fits in with the rest of your code.
+
+### Block Comments
+
+Block comments generally apply to some (or all) code that follows them, and are
+indented to the same level as that code. Each line of a block comment starts
+with a `#` and a single space (unless it is indented text inside the comment).
+
+Paragraphs inside a block comment are separated by a line containing a single #.
+
+### Inline Comments
+
+Use inline comments sparingly.
+
+An inline comment is a comment on the same line as a statement. Inline comments
+should be separated by at least two spaces from the statement. They should start
+with a `#` and a single space.
+
+Inline comments are unnecessary and in fact distracting if they state the
+obvious. Don't do this:
+
+```python
+x = x + 1                 # Increment x
+```
+
+But sometimes, this is useful:
+
+```python
+x = x + 1                 # Compensate for border
+```
+
+### Docstrings
+
+- Write docstrings for all public modules, functions, classes, and methods.
+- Docstrings are not necessary for non-public methods, but you should have a
+  comment that describes what the method does. This comment should appear after
+  the def line. 
+- Surround docstrings with three double quotes on either side, as in """This is 
+  a docstring""".
+- Put the """ that ends a multiline docstring on a line by itself:
+
+  ```python
+  """Return a foobang
+
+  Optional plotz says to frobnicate the bizbaz first.
+  """
+  ```
+
+- For one liner docstrings, please keep the closing """ on the same line:
+
+  ```python
+  """Return an ex-parrot."""
+  ```
+  
+- Recommend to use 
+[Numpy Docstring format](https://numpydoc.readthedocs.io/en/latest/format.html). 
+An example from numpy:
+
+  ```python
+  """Docstring for the example.py module.
+
+  Modules names should have short, all-lowercase names.  The module name may
+  have underscores if this improves readability.
+
+  Every module should have a docstring at the very top of the file.  The
+  module's docstring may extend over multiple lines.  If your docstring does
+  extend over multiple lines, the closing three quotation marks must be on
+  a line by itself, preferably preceded by a blank line.
+
+  """
+  from __future__ import division, absolute_import, print_function
+
+  import os  # standard library imports first
+
+  # Do NOT import using *, e.g. from numpy import *
+  #
+  # Import the module using
+  #
+  #   import numpy
+  #
+  # instead or import individual functions as needed, e.g
+  #
+  #  from numpy import array, zeros
+  #
+  # If you prefer the use of abbreviated module names, we suggest the
+  # convention used by NumPy itself::
+
+  import numpy as np
+  import matplotlib as mpl
+  import matplotlib.pyplot as plt
+
+  # These abbreviated names are not to be used in docstrings; users must
+  # be able to paste and execute docstrings after importing only the
+  # numpy module itself, unabbreviated.
+
+
+  def foo(var1, var2, *args, long_var_name='hi', only_seldom_used_keyword=0, **kwargs):
+      r"""Summarize the function in one line.
+
+      Several sentences providing an extended description. Refer to
+      variables using back-ticks, e.g. `var`.
+
+      Parameters
+      ----------
+      var1 : array_like
+          Array_like means all those objects -- lists, nested lists, etc. --
+          that can be converted to an array.  We can also refer to
+          variables like `var1`.
+      var2 : int
+          The type above can either refer to an actual Python type
+          (e.g. ``int``), or describe the type of the variable in more
+          detail, e.g. ``(N,) ndarray`` or ``array_like``.
+      *args : iterable
+          Other arguments.
+      long_var_name : {'hi', 'ho'}, optional
+          Choices in brackets, default first when optional.
+
+      Returns
+      -------
+      type
+          Explanation of anonymous return value of type ``type``.
+      describe : type
+          Explanation of return value named `describe`.
+      out : type
+          Explanation of `out`.
+      type_without_description
+
+      Other Parameters
+      ----------------
+      only_seldom_used_keyword : int, optional
+          Infrequently used parameters can be described under this optional
+          section to prevent cluttering the Parameters section.
+      **kwargs : dict
+          Other infrequently used keyword arguments. Note that all keyword
+          arguments appearing after the first parameter specified under the
+          Other Parameters section, should also be described under this
+          section.
+
+      Raises
+      ------
+      BadException
+          Because you shouldn't have done that.
+
+      See Also
+      --------
+      numpy.array : Relationship (optional).
+      numpy.ndarray : Relationship (optional), which could be fairly long, in
+                      which case the line wraps here.
+      numpy.dot, numpy.linalg.norm, numpy.eye
+
+      Notes
+      -----
+      Notes about the implementation algorithm (if needed).
+
+      This can have multiple paragraphs.
+
+      You may include some math:
+
+      .. math:: X(e^{j\omega } ) = x(n)e^{ - j\omega n}
+
+      And even use a Greek symbol like :math:`\omega` inline.
+
+      References
+      ----------
+      Cite the relevant literature, e.g. [1]_.  You may also cite these
+      references in the notes section above.
+
+      .. [1] O. McNoleg, "The integration of GIS, remote sensing,
+         expert systems and adaptive co-kriging for environmental habitat
+         modelling of the Highland Haggis using object-oriented, fuzzy-logic
+         and neural-network techniques," Computers & Geosciences, vol. 22,
+         pp. 585-588, 1996.
+
+      Examples
+      --------
+      These are written in doctest format, and should illustrate how to
+      use the function.
+
+      >>> a = [1, 2, 3]
+      >>> print([x + 3 for x in a])
+      [4, 5, 6]
+      >>> print("a\nb")
+      a
+      b
+      """
+      # After closing class docstring, there should be one blank line to
+      # separate following codes (according to PEP257).
+      # But for function, method and module, there should be no blank lines
+      # after closing the docstring.
+      pass
+  ```
+
+## Naming Conventions
+
+`module_name`, `package_name`, `ClassName`, `method_name`, `ExceptionName`, 
+`function_name`, `GLOBAL_CONSTANT_NAME`, `global_var_name`, `instance_var_name`,
+`function_parameter_name`, `local_var_name`.
+
+Function names, variable names, and filenames should be descriptive. In
+particular, do not use abbreviations that are ambiguous or unfamiliar to
+readers outside your project, and do not abbreviate by deleting letters within 
+a word.
+
+### Names to Avoid
+
+- single character names, except for specifically allowed cases:
+  - counters or iterators (e.g. `i`, `j`, `k`, `v`, et al.).
+  - `e` as an exception identifier in try/except statements.
+  - `f` as a file handle in with statements.
+- dashes (`-`) in any package/module name.
+- `__double_leading_and_trailing_underscore__` names (reserved by Python).
+
+### File Naming
+
+Python filenames must have a `.py` extension and must not contain dashes (`-`).
+
+#### [Naming guides from google python style ](https://google.github.io/styleguide/pyguide.html#s3.16.4-guidelines-derived-from-guidos-recommendations)
+ 
+ <table rules="all" border="1" summary="Guidelines from Guido's Recommendations"
+       cellspacing="2" cellpadding="2">
+
+  <tr>
+    <th>Type</th>
+    <th>Public</th>
+    <th>Internal</th>
+  </tr>
+
+  <tr>
+    <td>Packages</td>
+    <td><code>lower_with_under</code></td>
+    <td></td>
+  </tr>
+
+  <tr>
+    <td>Modules</td>
+    <td><code>lower_with_under</code></td>
+    <td><code>_lower_with_under</code></td>
+  </tr>
+
+  <tr>
+    <td>Classes</td>
+    <td><code>CapWords</code></td>
+    <td><code>_CapWords</code></td>
+  </tr>
+
+  <tr>
+    <td>Exceptions</td>
+    <td><code>CapWords</code></td>
+    <td></td>
+  </tr>
+
+  <tr>
+    <td>Functions</td>
+    <td><code>lower_with_under()</code></td>
+    <td><code>_lower_with_under()</code></td>
+  </tr>
+
+  <tr>
+    <td>Global/Class Constants</td>
+    <td><code>CAPS_WITH_UNDER</code></td>
+    <td><code>_CAPS_WITH_UNDER</code></td>
+  </tr>
+
+  <tr>
+    <td>Global/Class Variables</td>
+    <td><code>lower_with_under</code></td>
+    <td><code>_lower_with_under</code></td>
+  </tr>
+
+  <tr>
+    <td>Instance Variables</td>
+    <td><code>lower_with_under</code></td>
+    <td><code>_lower_with_under</code> (protected)</td>
+  </tr>
+
+  <tr>
+    <td>Method Names</td>
+    <td><code>lower_with_under()</code></td>
+    <td><code>_lower_with_under()</code> (protected)</td>
+  </tr>
+
+  <tr>
+    <td>Function/Method Parameters</td>
+    <td><code>lower_with_under</code></td>
+    <td></td>
+  </tr>
+
+  <tr>
+    <td>Local Variables</td>
+    <td><code>lower_with_under</code></td>
+    <td></td>
+  </tr>
+
+</table>
+
+
+## Code Layout
+
+### Line length
+
+- Maximum line length is 80 characters.
+- Explicit exceptions to the 80 character limit:
+  - Long import statements.
+  - URLs, pathnames, or long flags in comments.
+
+  ```python
+  # long URL on their own line if necessary. 
+  # http:/www.example.com/longurl/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+  ```
+
+- When a literal string won’t fit on a single line, use parentheses for implicit
+  line joining.
+
+  ```python
+  x = ('This will build a very long long '
+       'long long long long long long string')
+  ```
+
+- Python will assume line continuation if code is contained within parentheses, 
+  brackets, or braces:
+
+  ```python
+  def function(arg_one, arg_two,
+               arg_three, arg_four):
+      return arg_one
+  ```
+
+- If it is impossible to use implied continuation, then you can use backslashes
+  to break lines instead. However, if you can use implied continuation, then 
+  you should do so.
+
+  ```python
+  from mypkg import example1, \
+      example2, example3
+  ```
+
+- If line breaking needs to occur around binary operators, like + and *, it
+  should occur before the operator.
+
+  ```python
+  total = (first_variable
+           + second_variable
+           - third_variable)
+  ``` 
+
+### Indentation
+
+- Use 4 spaces per indentation level.
+- Prefer spaces over tabs.
+- Never use tabs or mix tabs and spaces.
+
+  ```python
+  # Aligned with opening delimiter.
+  foo = long_function_name(var_one, var_two,
+                           var_three, var_four)
+
+  # Add 4 spaces (an extra level of indentation) to distinguish arguments from 
+  # the rest.
+  def long_function_name(
+          var_one, var_two, var_three,
+          var_four):
+      print(var_one)
+
+  # Hanging indents should add a level.
+  foo = long_function_name(
+      var_one, var_two,
+      var_three, var_four)
+  ```
+
+### Parentheses
+
+- Use parentheses around tuples. 
+- Do not use them in return statements or conditional statements
+  unless using parentheses for implied line continuation or to indicate a tuple.
+
+  ```python
+  # good
+  if foo:
+      bar()
+  while x:
+      x = bar()
+  if x and y:
+      bar()
+  if not x:
+      bar()
+  # For a 1 item tuple the ()s are more visually obvious than the comma.
+  onesie = (foo,)
+  return foo
+  return spam, beans
+  return (spam, beans)
+  for (x, y) in dict.items(): ...
+
+  # bad
+  if (x):
+      bar()
+  if not(x):
+      bar()
+  return (foo)
+  ```
+
+
+### Blank Lines
+
+- Two blank lines between top-level definitions, be they function or class 
+  definitions.
+
+  ```python
+  class MyFirstClass:
+      pass
+
+
+  class MySecondClass:
+      pass
+
+
+  def top_level_function():
+      return None
+  ```
+
+- One blank line between method definitions inside classes.
+  
+  ```python
+  class MyClass:
+      def first_method(self):
+          return None
+
+      def second_method(self):
+          return None
+  ```
+
+- Use single blank lines as you judge appropriate within functions or methods.
+
+### Whitespace
+
+- No whitespace inside parentheses, brackets or braces.
+
+  ```python
+  # good
+  spam(ham[1], {'eggs': 2}, [])
+
+  # bad
+  spam( ham[ 1 ], { eggs: 2 } )
+  ```
+
+- No whitespace before a comma, semicolon, or colon. Do use whitespace after a
+  comma, semicolon, or colon, except at the end of the line.
+  
+  ```python
+  # good
+  if x == 4: 
+      print x, y
+  x, y = y, x
+  
+  # bad
+  if x == 4 : 
+      print x , y 
+  x , y = y , x
+  ```
+
+- No whitespace before the open paren/bracket that starts an argument list, 
+  indexing or slicing.
+  
+  ```python
+  # good
+  spam(1)
+  dict['key'] = list[index]
+  
+  # bad
+  spam (1)
+  dict ['key'] = list [index]
+  ```
+
+- Always surround these binary operators with a single space on either side:
+  assignment (=), augmented assignment (+=, -= etc.), comparisons (==, <, >,
+  !=, <>, <=, >=, in, not in, is, is not), Booleans (and, or, not).
+  
+  ```python
+  # good
+  i = i + 1
+  submitted += 1
+  x = x*2 - 1
+  hypot2 = x*x + y*y
+  c = (a+b) * (a-b)
+  
+  # bad
+  i=i+1
+  submitted +=1
+  x = x * 2 - 1
+  hypot2 = x * x + y * y
+  c = (a + b) * (a - b)
+  ```
+
+- Never use spaces around = when passing keyword arguments or defining a default
+  parameter value, with one exception: when a type annotation is present, do
+  use spaces around the = for the default parameter value.
+  
+  ```python
+  # good
+  def complex(real, imag=0.0): return Magic(r=real, i=imag)
+  def complex(real, imag: float = 0.0): return Magic(r=real, i=imag)
+  
+  # bad
+  def complex(real, imag = 0.0): return Magic(r = real, i = imag)
+  def complex(real, imag: float=0.0): return Magic(r = real, i = imag)
+  ```
+  
+### Trailing Commas
+
+Trailing commas in sequences of items are recommended only when the closing
+container token `]`, `)`, or `}` does not appear on the same line as the final
+element.
+
+  ```python
+  # good
+  golomb3 = [0, 1, 3]
+  golomb4 = [
+      0,
+      1,
+      4,
+      6,
+  ]
+  
+  # bad
+  golomb4 = [0, 1, 4, 6,]
+  ```
+
+
+### Strings
+
+- Use an `f-string`, the `%` operator, or the `format` method for formatting
+  strings, even when the parameters are all strings.
+- Use your best judgment to decide between + and % (or format) though.
+- Do not use % or the format method for pure concatenation.
+
+  ```python
+  # good
+  x = '%s, %s!' % (imperative, expletive)
+  x = '{}, {}'.format(first, second)
+  x = 'name: %s; score: %d' % (name, n)
+  x = 'name: {}; score: {}'.format(name, n)
+  x = f'name: {name}; score: {n}'  
+  
+  # bad
+  x = '%s%s' % (a, b)  # use + in this case
+  x = '{}{}'.format(a, b)  # use + in this case
+  x = first + ', ' + second
+  x = 'name: ' + name + '; score: ' + str(n)
+  ```
+
+- Be consistent with your choice of string quote character within a file.
+  Pick `'` or `"` and stick with it. It is okay to use the other quote
+  character on a string to avoid the need to backslash-escape quote characters
+  within the string.
+
+- Prefer `"""` for multi-line strings rather than `'''`.
+- Multi-line strings do not flow with the indentation of the rest of the program.
+  If you need to avoid embedding extra space in the string, use concatenated 
+  single-line strings.
+  
+  ```python
+  # good
+  long_string = """This is fine if your use case can accept
+      extraneous leading spaces."""
+  long_string = ("And this is fine if you cannot accept\n" +
+                 "extraneous leading spaces.")
+  
+  # bad
+  long_string = """This is pretty ugly.
+  Don't do this.
+  """
+  ```
+  
+### Imports
+
+- Imports should usually be on separate lines.
+  
+  ```python
+  # good
+  import os
+  import sys
+  
+  # bad
+  import sys, os
+  ```
+- Imports are always put at the top of the file, just after any module comments
+  and docstrings and before module globals and constants. Imports should be
+  grouped in the following order, and you should put a blank line between each
+  group of imports.
+  
+  - Standard library imports.
+  - Related third party imports.
+  - Local application/library specific imports.
+
+    ```python
+    import collections
+    import sys
+
+    from absl import app
+    from absl import flags
+
+    from myproject.backend import huxley
+    from myproject.backend.state_machine import main_loop
+    ```
+
+## References
+
+- [PEP 8 style guide for python code](https://www.python.org/dev/peps/pep-0008/)
+- [The elements of python style](https://github.com/amontalenti/elements-of-python-style)
+- [Google python style guid](https://google.github.io/styleguide/pyguide.html)
+- [numpy Docstring format](https://numpydoc.readthedocs.io/en/latest/format.html)
