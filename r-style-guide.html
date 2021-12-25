@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 3 R Style Guide | Code style guide</title>
-  <meta name="description" content="Chapter 3 R Style Guide | Code style guide" />
+  <title>Chapter 4 R Style Guide | Good practices in bioinformatic or computational biology projects</title>
+  <meta name="description" content="Chapter 4 R Style Guide | Good practices in bioinformatic or computational biology projects" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 3 R Style Guide | Code style guide" />
+  <meta property="og:title" content="Chapter 4 R Style Guide | Good practices in bioinformatic or computational biology projects" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="yiluheihei/codestyle" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 3 R Style Guide | Code style guide" />
+  <meta name="twitter:title" content="Chapter 4 R Style Guide | Good practices in bioinformatic or computational biology projects" />
   
   
   
@@ -134,103 +134,116 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">Code Style</a></li>
+<li><a href="./">Good practice in bioinformatics</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>About</a></li>
-<li class="chapter" data-level="1" data-path="bash-shell-style-guide.html"><a href="bash-shell-style-guide.html"><i class="fa fa-check"></i><b>1</b> Bash Shell Style Guide</a><ul>
-<li class="chapter" data-level="1.1" data-path="bash-shell-style-guide.html"><a href="bash-shell-style-guide.html#comments"><i class="fa fa-check"></i><b>1.1</b> Comments</a><ul>
-<li class="chapter" data-level="1.1.1" data-path="bash-shell-style-guide.html"><a href="bash-shell-style-guide.html#file-header"><i class="fa fa-check"></i><b>1.1.1</b> File Header</a></li>
-<li class="chapter" data-level="1.1.2" data-path="bash-shell-style-guide.html"><a href="bash-shell-style-guide.html#function-comments"><i class="fa fa-check"></i><b>1.1.2</b> Function Comments</a></li>
-<li class="chapter" data-level="1.1.3" data-path="bash-shell-style-guide.html"><a href="bash-shell-style-guide.html#implementation-comments"><i class="fa fa-check"></i><b>1.1.3</b> Implementation Comments</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>About</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#project-organization"><i class="fa fa-check"></i>Project Organization</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#code-style"><i class="fa fa-check"></i>Code style</a></li>
 </ul></li>
-<li class="chapter" data-level="1.2" data-path="bash-shell-style-guide.html"><a href="bash-shell-style-guide.html#naming-conventions"><i class="fa fa-check"></i><b>1.2</b> Naming conventions</a><ul>
-<li class="chapter" data-level="1.2.1" data-path="bash-shell-style-guide.html"><a href="bash-shell-style-guide.html#file-names"><i class="fa fa-check"></i><b>1.2.1</b> File Names</a></li>
-<li class="chapter" data-level="1.2.2" data-path="bash-shell-style-guide.html"><a href="bash-shell-style-guide.html#function-names"><i class="fa fa-check"></i><b>1.2.2</b> Function Names</a></li>
-<li class="chapter" data-level="1.2.3" data-path="bash-shell-style-guide.html"><a href="bash-shell-style-guide.html#constants-and-environment-variable-names"><i class="fa fa-check"></i><b>1.2.3</b> Constants and Environment Variable Names</a></li>
+<li class="chapter" data-level="1" data-path="project-organization-1.html"><a href="project-organization-1.html"><i class="fa fa-check"></i><b>1</b> Project Organization</a><ul>
+<li class="chapter" data-level="1.1" data-path="project-organization-1.html"><a href="project-organization-1.html#readme"><i class="fa fa-check"></i><b>1.1</b> README</a></li>
+<li class="chapter" data-level="1.2" data-path="project-organization-1.html"><a href="project-organization-1.html#document"><i class="fa fa-check"></i><b>1.2</b> Document</a></li>
+<li class="chapter" data-level="1.3" data-path="project-organization-1.html"><a href="project-organization-1.html#data"><i class="fa fa-check"></i><b>1.3</b> Data</a></li>
+<li class="chapter" data-level="1.4" data-path="project-organization-1.html"><a href="project-organization-1.html#results"><i class="fa fa-check"></i><b>1.4</b> Results</a></li>
+<li class="chapter" data-level="1.5" data-path="project-organization-1.html"><a href="project-organization-1.html#code"><i class="fa fa-check"></i><b>1.5</b> Code</a></li>
+<li class="chapter" data-level="1.6" data-path="project-organization-1.html"><a href="project-organization-1.html#compiled-programs"><i class="fa fa-check"></i><b>1.6</b> Compiled programs</a></li>
+<li class="chapter" data-level="1.7" data-path="project-organization-1.html"><a href="project-organization-1.html#example"><i class="fa fa-check"></i><b>1.7</b> Example</a></li>
 </ul></li>
-<li class="chapter" data-level="1.3" data-path="bash-shell-style-guide.html"><a href="bash-shell-style-guide.html#formatting"><i class="fa fa-check"></i><b>1.3</b> Formatting</a><ul>
-<li class="chapter" data-level="1.3.1" data-path="bash-shell-style-guide.html"><a href="bash-shell-style-guide.html#identation"><i class="fa fa-check"></i><b>1.3.1</b> Identation</a></li>
-<li class="chapter" data-level="1.3.2" data-path="bash-shell-style-guide.html"><a href="bash-shell-style-guide.html#line-length"><i class="fa fa-check"></i><b>1.3.2</b> Line Length</a></li>
-<li class="chapter" data-level="1.3.3" data-path="bash-shell-style-guide.html"><a href="bash-shell-style-guide.html#pipe"><i class="fa fa-check"></i><b>1.3.3</b> Pipe</a></li>
-<li class="chapter" data-level="1.3.4" data-path="bash-shell-style-guide.html"><a href="bash-shell-style-guide.html#loops"><i class="fa fa-check"></i><b>1.3.4</b> Loops</a></li>
-<li class="chapter" data-level="1.3.5" data-path="bash-shell-style-guide.html"><a href="bash-shell-style-guide.html#variable-expansion"><i class="fa fa-check"></i><b>1.3.5</b> Variable Expansion</a></li>
+<li class="part"><span><b>Code Style</b></span></li>
+<li class="chapter" data-level="2" data-path="bash-shell-style-guide.html"><a href="bash-shell-style-guide.html"><i class="fa fa-check"></i><b>2</b> Bash Shell Style Guide</a><ul>
+<li class="chapter" data-level="2.1" data-path="bash-shell-style-guide.html"><a href="bash-shell-style-guide.html#comments"><i class="fa fa-check"></i><b>2.1</b> Comments</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="bash-shell-style-guide.html"><a href="bash-shell-style-guide.html#file-header"><i class="fa fa-check"></i><b>2.1.1</b> File Header</a></li>
+<li class="chapter" data-level="2.1.2" data-path="bash-shell-style-guide.html"><a href="bash-shell-style-guide.html#function-comments"><i class="fa fa-check"></i><b>2.1.2</b> Function Comments</a></li>
+<li class="chapter" data-level="2.1.3" data-path="bash-shell-style-guide.html"><a href="bash-shell-style-guide.html#implementation-comments"><i class="fa fa-check"></i><b>2.1.3</b> Implementation Comments</a></li>
 </ul></li>
-<li class="chapter" data-level="1.4" data-path="bash-shell-style-guide.html"><a href="bash-shell-style-guide.html#quoting"><i class="fa fa-check"></i><b>1.4</b> Quoting</a></li>
-<li class="chapter" data-level="1.5" data-path="bash-shell-style-guide.html"><a href="bash-shell-style-guide.html#error-handing"><i class="fa fa-check"></i><b>1.5</b> Error Handing</a><ul>
-<li class="chapter" data-level="1.5.1" data-path="bash-shell-style-guide.html"><a href="bash-shell-style-guide.html#error-checking"><i class="fa fa-check"></i><b>1.5.1</b> Error Checking</a></li>
-<li class="chapter" data-level="1.5.2" data-path="bash-shell-style-guide.html"><a href="bash-shell-style-guide.html#set--e"><i class="fa fa-check"></i><b>1.5.2</b> set -e</a></li>
-<li class="chapter" data-level="1.5.3" data-path="bash-shell-style-guide.html"><a href="bash-shell-style-guide.html#set--u"><i class="fa fa-check"></i><b>1.5.3</b> set -u</a></li>
+<li class="chapter" data-level="2.2" data-path="bash-shell-style-guide.html"><a href="bash-shell-style-guide.html#naming-conventions"><i class="fa fa-check"></i><b>2.2</b> Naming conventions</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="bash-shell-style-guide.html"><a href="bash-shell-style-guide.html#file-names"><i class="fa fa-check"></i><b>2.2.1</b> File Names</a></li>
+<li class="chapter" data-level="2.2.2" data-path="bash-shell-style-guide.html"><a href="bash-shell-style-guide.html#function-names"><i class="fa fa-check"></i><b>2.2.2</b> Function Names</a></li>
+<li class="chapter" data-level="2.2.3" data-path="bash-shell-style-guide.html"><a href="bash-shell-style-guide.html#constants-and-environment-variable-names"><i class="fa fa-check"></i><b>2.2.3</b> Constants and Environment Variable Names</a></li>
 </ul></li>
-<li class="chapter" data-level="1.6" data-path="bash-shell-style-guide.html"><a href="bash-shell-style-guide.html#features"><i class="fa fa-check"></i><b>1.6</b> Features</a><ul>
-<li class="chapter" data-level="1.6.1" data-path="bash-shell-style-guide.html"><a href="bash-shell-style-guide.html#command-substitution"><i class="fa fa-check"></i><b>1.6.1</b> Command Substitution</a></li>
-<li class="chapter" data-level="1.6.2" data-path="bash-shell-style-guide.html"><a href="bash-shell-style-guide.html#math"><i class="fa fa-check"></i><b>1.6.2</b> Math</a></li>
-<li class="chapter" data-level="1.6.3" data-path="bash-shell-style-guide.html"><a href="bash-shell-style-guide.html#listing-files"><i class="fa fa-check"></i><b>1.6.3</b> Listing Files</a></li>
-<li class="chapter" data-level="1.6.4" data-path="bash-shell-style-guide.html"><a href="bash-shell-style-guide.html#arrays-and-lists"><i class="fa fa-check"></i><b>1.6.4</b> Arrays and lists</a></li>
-<li class="chapter" data-level="1.6.5" data-path="bash-shell-style-guide.html"><a href="bash-shell-style-guide.html#test-...-and-..."><i class="fa fa-check"></i><b>1.6.5</b> Test, <code>[...]</code>, and <code>[[...]]</code></a></li>
+<li class="chapter" data-level="2.3" data-path="bash-shell-style-guide.html"><a href="bash-shell-style-guide.html#formatting"><i class="fa fa-check"></i><b>2.3</b> Formatting</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="bash-shell-style-guide.html"><a href="bash-shell-style-guide.html#identation"><i class="fa fa-check"></i><b>2.3.1</b> Identation</a></li>
+<li class="chapter" data-level="2.3.2" data-path="bash-shell-style-guide.html"><a href="bash-shell-style-guide.html#line-length"><i class="fa fa-check"></i><b>2.3.2</b> Line Length</a></li>
+<li class="chapter" data-level="2.3.3" data-path="bash-shell-style-guide.html"><a href="bash-shell-style-guide.html#pipe"><i class="fa fa-check"></i><b>2.3.3</b> Pipe</a></li>
+<li class="chapter" data-level="2.3.4" data-path="bash-shell-style-guide.html"><a href="bash-shell-style-guide.html#loops"><i class="fa fa-check"></i><b>2.3.4</b> Loops</a></li>
+<li class="chapter" data-level="2.3.5" data-path="bash-shell-style-guide.html"><a href="bash-shell-style-guide.html#variable-expansion"><i class="fa fa-check"></i><b>2.3.5</b> Variable Expansion</a></li>
 </ul></li>
-<li class="chapter" data-level="1.7" data-path="bash-shell-style-guide.html"><a href="bash-shell-style-guide.html#references"><i class="fa fa-check"></i><b>1.7</b> References</a></li>
-<li class="chapter" data-level="1.8" data-path="bash-shell-style-guide.html"><a href="bash-shell-style-guide.html#resources"><i class="fa fa-check"></i><b>1.8</b> Resources</a></li>
+<li class="chapter" data-level="2.4" data-path="bash-shell-style-guide.html"><a href="bash-shell-style-guide.html#quoting"><i class="fa fa-check"></i><b>2.4</b> Quoting</a></li>
+<li class="chapter" data-level="2.5" data-path="bash-shell-style-guide.html"><a href="bash-shell-style-guide.html#error-handing"><i class="fa fa-check"></i><b>2.5</b> Error Handing</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="bash-shell-style-guide.html"><a href="bash-shell-style-guide.html#error-checking"><i class="fa fa-check"></i><b>2.5.1</b> Error Checking</a></li>
+<li class="chapter" data-level="2.5.2" data-path="bash-shell-style-guide.html"><a href="bash-shell-style-guide.html#set--e"><i class="fa fa-check"></i><b>2.5.2</b> set -e</a></li>
+<li class="chapter" data-level="2.5.3" data-path="bash-shell-style-guide.html"><a href="bash-shell-style-guide.html#set--u"><i class="fa fa-check"></i><b>2.5.3</b> set -u</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="python-style-guide.html"><a href="python-style-guide.html"><i class="fa fa-check"></i><b>2</b> Python Style Guide</a><ul>
-<li class="chapter" data-level="2.1" data-path="python-style-guide.html"><a href="python-style-guide.html#comments-and-docstrings"><i class="fa fa-check"></i><b>2.1</b> Comments and Docstrings</a><ul>
-<li class="chapter" data-level="2.1.1" data-path="python-style-guide.html"><a href="python-style-guide.html#block-comments"><i class="fa fa-check"></i><b>2.1.1</b> Block Comments</a></li>
-<li class="chapter" data-level="2.1.2" data-path="python-style-guide.html"><a href="python-style-guide.html#inline-comments"><i class="fa fa-check"></i><b>2.1.2</b> Inline Comments</a></li>
-<li class="chapter" data-level="2.1.3" data-path="python-style-guide.html"><a href="python-style-guide.html#docstrings"><i class="fa fa-check"></i><b>2.1.3</b> Docstrings</a></li>
+<li class="chapter" data-level="2.6" data-path="bash-shell-style-guide.html"><a href="bash-shell-style-guide.html#features"><i class="fa fa-check"></i><b>2.6</b> Features</a><ul>
+<li class="chapter" data-level="2.6.1" data-path="bash-shell-style-guide.html"><a href="bash-shell-style-guide.html#command-substitution"><i class="fa fa-check"></i><b>2.6.1</b> Command Substitution</a></li>
+<li class="chapter" data-level="2.6.2" data-path="bash-shell-style-guide.html"><a href="bash-shell-style-guide.html#math"><i class="fa fa-check"></i><b>2.6.2</b> Math</a></li>
+<li class="chapter" data-level="2.6.3" data-path="bash-shell-style-guide.html"><a href="bash-shell-style-guide.html#listing-files"><i class="fa fa-check"></i><b>2.6.3</b> Listing Files</a></li>
+<li class="chapter" data-level="2.6.4" data-path="bash-shell-style-guide.html"><a href="bash-shell-style-guide.html#arrays-and-lists"><i class="fa fa-check"></i><b>2.6.4</b> Arrays and lists</a></li>
+<li class="chapter" data-level="2.6.5" data-path="bash-shell-style-guide.html"><a href="bash-shell-style-guide.html#test-...-and-..."><i class="fa fa-check"></i><b>2.6.5</b> Test, <code>[...]</code>, and <code>[[...]]</code></a></li>
 </ul></li>
-<li class="chapter" data-level="2.2" data-path="python-style-guide.html"><a href="python-style-guide.html#naming-conventions-1"><i class="fa fa-check"></i><b>2.2</b> Naming Conventions</a><ul>
-<li class="chapter" data-level="2.2.1" data-path="python-style-guide.html"><a href="python-style-guide.html#names-to-avoid"><i class="fa fa-check"></i><b>2.2.1</b> Names to Avoid</a></li>
-<li class="chapter" data-level="2.2.2" data-path="python-style-guide.html"><a href="python-style-guide.html#file-naming"><i class="fa fa-check"></i><b>2.2.2</b> File Naming</a></li>
+<li class="chapter" data-level="2.7" data-path="bash-shell-style-guide.html"><a href="bash-shell-style-guide.html#references"><i class="fa fa-check"></i><b>2.7</b> References</a></li>
+<li class="chapter" data-level="2.8" data-path="bash-shell-style-guide.html"><a href="bash-shell-style-guide.html#resources"><i class="fa fa-check"></i><b>2.8</b> Resources</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="python-style-guide.html"><a href="python-style-guide.html#code-layout"><i class="fa fa-check"></i><b>2.3</b> Code Layout</a><ul>
-<li class="chapter" data-level="2.3.1" data-path="python-style-guide.html"><a href="python-style-guide.html#line-length-1"><i class="fa fa-check"></i><b>2.3.1</b> Line length</a></li>
-<li class="chapter" data-level="2.3.2" data-path="python-style-guide.html"><a href="python-style-guide.html#indentation"><i class="fa fa-check"></i><b>2.3.2</b> Indentation</a></li>
-<li class="chapter" data-level="2.3.3" data-path="python-style-guide.html"><a href="python-style-guide.html#parentheses"><i class="fa fa-check"></i><b>2.3.3</b> Parentheses</a></li>
-<li class="chapter" data-level="2.3.4" data-path="python-style-guide.html"><a href="python-style-guide.html#blank-lines"><i class="fa fa-check"></i><b>2.3.4</b> Blank Lines</a></li>
-<li class="chapter" data-level="2.3.5" data-path="python-style-guide.html"><a href="python-style-guide.html#whitespace"><i class="fa fa-check"></i><b>2.3.5</b> Whitespace</a></li>
-<li class="chapter" data-level="2.3.6" data-path="python-style-guide.html"><a href="python-style-guide.html#trailing-commas"><i class="fa fa-check"></i><b>2.3.6</b> Trailing Commas</a></li>
-<li class="chapter" data-level="2.3.7" data-path="python-style-guide.html"><a href="python-style-guide.html#strings"><i class="fa fa-check"></i><b>2.3.7</b> Strings</a></li>
-<li class="chapter" data-level="2.3.8" data-path="python-style-guide.html"><a href="python-style-guide.html#imports"><i class="fa fa-check"></i><b>2.3.8</b> Imports</a></li>
+<li class="chapter" data-level="3" data-path="python-style-guide.html"><a href="python-style-guide.html"><i class="fa fa-check"></i><b>3</b> Python Style Guide</a><ul>
+<li class="chapter" data-level="3.1" data-path="python-style-guide.html"><a href="python-style-guide.html#comments-and-docstrings"><i class="fa fa-check"></i><b>3.1</b> Comments and Docstrings</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="python-style-guide.html"><a href="python-style-guide.html#block-comments"><i class="fa fa-check"></i><b>3.1.1</b> Block Comments</a></li>
+<li class="chapter" data-level="3.1.2" data-path="python-style-guide.html"><a href="python-style-guide.html#inline-comments"><i class="fa fa-check"></i><b>3.1.2</b> Inline Comments</a></li>
+<li class="chapter" data-level="3.1.3" data-path="python-style-guide.html"><a href="python-style-guide.html#docstrings"><i class="fa fa-check"></i><b>3.1.3</b> Docstrings</a></li>
 </ul></li>
-<li class="chapter" data-level="2.4" data-path="python-style-guide.html"><a href="python-style-guide.html#references-1"><i class="fa fa-check"></i><b>2.4</b> References</a></li>
+<li class="chapter" data-level="3.2" data-path="python-style-guide.html"><a href="python-style-guide.html#naming-conventions-1"><i class="fa fa-check"></i><b>3.2</b> Naming Conventions</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="python-style-guide.html"><a href="python-style-guide.html#names-to-avoid"><i class="fa fa-check"></i><b>3.2.1</b> Names to Avoid</a></li>
+<li class="chapter" data-level="3.2.2" data-path="python-style-guide.html"><a href="python-style-guide.html#file-naming"><i class="fa fa-check"></i><b>3.2.2</b> File Naming</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="r-style-guide.html"><a href="r-style-guide.html"><i class="fa fa-check"></i><b>3</b> R Style Guide</a><ul>
-<li class="chapter" data-level="3.1" data-path="r-style-guide.html"><a href="r-style-guide.html#files"><i class="fa fa-check"></i><b>3.1</b> Files</a><ul>
-<li class="chapter" data-level="3.1.1" data-path="r-style-guide.html"><a href="r-style-guide.html#names"><i class="fa fa-check"></i><b>3.1.1</b> Names</a></li>
-<li class="chapter" data-level="3.1.2" data-path="r-style-guide.html"><a href="r-style-guide.html#internal-structure"><i class="fa fa-check"></i><b>3.1.2</b> Internal structure</a></li>
+<li class="chapter" data-level="3.3" data-path="python-style-guide.html"><a href="python-style-guide.html#code-layout"><i class="fa fa-check"></i><b>3.3</b> Code Layout</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="python-style-guide.html"><a href="python-style-guide.html#line-length-1"><i class="fa fa-check"></i><b>3.3.1</b> Line length</a></li>
+<li class="chapter" data-level="3.3.2" data-path="python-style-guide.html"><a href="python-style-guide.html#indentation"><i class="fa fa-check"></i><b>3.3.2</b> Indentation</a></li>
+<li class="chapter" data-level="3.3.3" data-path="python-style-guide.html"><a href="python-style-guide.html#parentheses"><i class="fa fa-check"></i><b>3.3.3</b> Parentheses</a></li>
+<li class="chapter" data-level="3.3.4" data-path="python-style-guide.html"><a href="python-style-guide.html#blank-lines"><i class="fa fa-check"></i><b>3.3.4</b> Blank Lines</a></li>
+<li class="chapter" data-level="3.3.5" data-path="python-style-guide.html"><a href="python-style-guide.html#whitespace"><i class="fa fa-check"></i><b>3.3.5</b> Whitespace</a></li>
+<li class="chapter" data-level="3.3.6" data-path="python-style-guide.html"><a href="python-style-guide.html#trailing-commas"><i class="fa fa-check"></i><b>3.3.6</b> Trailing Commas</a></li>
+<li class="chapter" data-level="3.3.7" data-path="python-style-guide.html"><a href="python-style-guide.html#strings"><i class="fa fa-check"></i><b>3.3.7</b> Strings</a></li>
+<li class="chapter" data-level="3.3.8" data-path="python-style-guide.html"><a href="python-style-guide.html#imports"><i class="fa fa-check"></i><b>3.3.8</b> Imports</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="r-style-guide.html"><a href="r-style-guide.html#naming-convention"><i class="fa fa-check"></i><b>3.2</b> Naming Convention</a></li>
-<li class="chapter" data-level="3.3" data-path="r-style-guide.html"><a href="r-style-guide.html#spacing"><i class="fa fa-check"></i><b>3.3</b> Spacing</a><ul>
-<li class="chapter" data-level="3.3.1" data-path="r-style-guide.html"><a href="r-style-guide.html#indentation-1"><i class="fa fa-check"></i><b>3.3.1</b> Indentation</a></li>
-<li class="chapter" data-level="3.3.2" data-path="r-style-guide.html"><a href="r-style-guide.html#commas"><i class="fa fa-check"></i><b>3.3.2</b> Commas</a></li>
-<li class="chapter" data-level="3.3.3" data-path="r-style-guide.html"><a href="r-style-guide.html#parentheses-1"><i class="fa fa-check"></i><b>3.3.3</b> Parentheses</a></li>
-<li class="chapter" data-level="3.3.4" data-path="r-style-guide.html"><a href="r-style-guide.html#embracing"><i class="fa fa-check"></i><b>3.3.4</b> Embracing</a></li>
-<li class="chapter" data-level="3.3.5" data-path="r-style-guide.html"><a href="r-style-guide.html#infix-operators"><i class="fa fa-check"></i><b>3.3.5</b> Infix operators</a></li>
+<li class="chapter" data-level="3.4" data-path="python-style-guide.html"><a href="python-style-guide.html#references-1"><i class="fa fa-check"></i><b>3.4</b> References</a></li>
 </ul></li>
-<li class="chapter" data-level="3.4" data-path="r-style-guide.html"><a href="r-style-guide.html#function-calls"><i class="fa fa-check"></i><b>3.4</b> Function Calls</a><ul>
-<li class="chapter" data-level="3.4.1" data-path="r-style-guide.html"><a href="r-style-guide.html#named-arguments"><i class="fa fa-check"></i><b>3.4.1</b> Named arguments</a></li>
-<li class="chapter" data-level="3.4.2" data-path="r-style-guide.html"><a href="r-style-guide.html#assignment"><i class="fa fa-check"></i><b>3.4.2</b> Assignment</a></li>
-<li class="chapter" data-level="3.4.3" data-path="r-style-guide.html"><a href="r-style-guide.html#long-lines"><i class="fa fa-check"></i><b>3.4.3</b> Long lines</a></li>
-<li class="chapter" data-level="3.4.4" data-path="r-style-guide.html"><a href="r-style-guide.html#return"><i class="fa fa-check"></i><b>3.4.4</b> Return</a></li>
-<li class="chapter" data-level="3.4.5" data-path="r-style-guide.html"><a href="r-style-guide.html#comments-1"><i class="fa fa-check"></i><b>3.4.5</b> Comments</a></li>
+<li class="chapter" data-level="4" data-path="r-style-guide.html"><a href="r-style-guide.html"><i class="fa fa-check"></i><b>4</b> R Style Guide</a><ul>
+<li class="chapter" data-level="4.1" data-path="r-style-guide.html"><a href="r-style-guide.html#files"><i class="fa fa-check"></i><b>4.1</b> Files</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="r-style-guide.html"><a href="r-style-guide.html#names"><i class="fa fa-check"></i><b>4.1.1</b> Names</a></li>
+<li class="chapter" data-level="4.1.2" data-path="r-style-guide.html"><a href="r-style-guide.html#internal-structure"><i class="fa fa-check"></i><b>4.1.2</b> Internal structure</a></li>
 </ul></li>
-<li class="chapter" data-level="3.5" data-path="r-style-guide.html"><a href="r-style-guide.html#control-flow"><i class="fa fa-check"></i><b>3.5</b> Control flow</a><ul>
-<li class="chapter" data-level="3.5.1" data-path="r-style-guide.html"><a href="r-style-guide.html#code-blocks"><i class="fa fa-check"></i><b>3.5.1</b> Code blocks</a></li>
-<li class="chapter" data-level="3.5.2" data-path="r-style-guide.html"><a href="r-style-guide.html#if-statements"><i class="fa fa-check"></i><b>3.5.2</b> If Statements</a></li>
-<li class="chapter" data-level="3.5.3" data-path="r-style-guide.html"><a href="r-style-guide.html#inline-statement"><i class="fa fa-check"></i><b>3.5.3</b> Inline statement</a></li>
-<li class="chapter" data-level="3.5.4" data-path="r-style-guide.html"><a href="r-style-guide.html#implicit-type-coercion"><i class="fa fa-check"></i><b>3.5.4</b> Implicit type coercion</a></li>
-<li class="chapter" data-level="3.5.5" data-path="r-style-guide.html"><a href="r-style-guide.html#switch-statements"><i class="fa fa-check"></i><b>3.5.5</b> Switch statements</a></li>
+<li class="chapter" data-level="4.2" data-path="r-style-guide.html"><a href="r-style-guide.html#naming-convention"><i class="fa fa-check"></i><b>4.2</b> Naming Convention</a></li>
+<li class="chapter" data-level="4.3" data-path="r-style-guide.html"><a href="r-style-guide.html#spacing"><i class="fa fa-check"></i><b>4.3</b> Spacing</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="r-style-guide.html"><a href="r-style-guide.html#indentation-1"><i class="fa fa-check"></i><b>4.3.1</b> Indentation</a></li>
+<li class="chapter" data-level="4.3.2" data-path="r-style-guide.html"><a href="r-style-guide.html#commas"><i class="fa fa-check"></i><b>4.3.2</b> Commas</a></li>
+<li class="chapter" data-level="4.3.3" data-path="r-style-guide.html"><a href="r-style-guide.html#parentheses-1"><i class="fa fa-check"></i><b>4.3.3</b> Parentheses</a></li>
+<li class="chapter" data-level="4.3.4" data-path="r-style-guide.html"><a href="r-style-guide.html#embracing"><i class="fa fa-check"></i><b>4.3.4</b> Embracing</a></li>
+<li class="chapter" data-level="4.3.5" data-path="r-style-guide.html"><a href="r-style-guide.html#infix-operators"><i class="fa fa-check"></i><b>4.3.5</b> Infix operators</a></li>
 </ul></li>
-<li class="chapter" data-level="3.6" data-path="r-style-guide.html"><a href="r-style-guide.html#long-lines-1"><i class="fa fa-check"></i><b>3.6</b> Long lines</a></li>
-<li class="chapter" data-level="3.7" data-path="r-style-guide.html"><a href="r-style-guide.html#semicolons"><i class="fa fa-check"></i><b>3.7</b> Semicolons</a></li>
-<li class="chapter" data-level="3.8" data-path="r-style-guide.html"><a href="r-style-guide.html#assignment-1"><i class="fa fa-check"></i><b>3.8</b> Assignment</a></li>
-<li class="chapter" data-level="3.9" data-path="r-style-guide.html"><a href="r-style-guide.html#character-vectors"><i class="fa fa-check"></i><b>3.9</b> Character vectors</a></li>
-<li class="chapter" data-level="3.10" data-path="r-style-guide.html"><a href="r-style-guide.html#logical-vectors"><i class="fa fa-check"></i><b>3.10</b> Logical vectors</a></li>
-<li class="chapter" data-level="3.11" data-path="r-style-guide.html"><a href="r-style-guide.html#comments-2"><i class="fa fa-check"></i><b>3.11</b> Comments</a></li>
-<li class="chapter" data-level="3.12" data-path="r-style-guide.html"><a href="r-style-guide.html#resources-1"><i class="fa fa-check"></i><b>3.12</b> Resources</a></li>
+<li class="chapter" data-level="4.4" data-path="r-style-guide.html"><a href="r-style-guide.html#function-calls"><i class="fa fa-check"></i><b>4.4</b> Function Calls</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="r-style-guide.html"><a href="r-style-guide.html#named-arguments"><i class="fa fa-check"></i><b>4.4.1</b> Named arguments</a></li>
+<li class="chapter" data-level="4.4.2" data-path="r-style-guide.html"><a href="r-style-guide.html#assignment"><i class="fa fa-check"></i><b>4.4.2</b> Assignment</a></li>
+<li class="chapter" data-level="4.4.3" data-path="r-style-guide.html"><a href="r-style-guide.html#long-lines"><i class="fa fa-check"></i><b>4.4.3</b> Long lines</a></li>
+<li class="chapter" data-level="4.4.4" data-path="r-style-guide.html"><a href="r-style-guide.html#return"><i class="fa fa-check"></i><b>4.4.4</b> Return</a></li>
+<li class="chapter" data-level="4.4.5" data-path="r-style-guide.html"><a href="r-style-guide.html#comments-1"><i class="fa fa-check"></i><b>4.4.5</b> Comments</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="r-style-guide.html"><a href="r-style-guide.html#control-flow"><i class="fa fa-check"></i><b>4.5</b> Control flow</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="r-style-guide.html"><a href="r-style-guide.html#code-blocks"><i class="fa fa-check"></i><b>4.5.1</b> Code blocks</a></li>
+<li class="chapter" data-level="4.5.2" data-path="r-style-guide.html"><a href="r-style-guide.html#if-statements"><i class="fa fa-check"></i><b>4.5.2</b> If Statements</a></li>
+<li class="chapter" data-level="4.5.3" data-path="r-style-guide.html"><a href="r-style-guide.html#inline-statement"><i class="fa fa-check"></i><b>4.5.3</b> Inline statement</a></li>
+<li class="chapter" data-level="4.5.4" data-path="r-style-guide.html"><a href="r-style-guide.html#implicit-type-coercion"><i class="fa fa-check"></i><b>4.5.4</b> Implicit type coercion</a></li>
+<li class="chapter" data-level="4.5.5" data-path="r-style-guide.html"><a href="r-style-guide.html#switch-statements"><i class="fa fa-check"></i><b>4.5.5</b> Switch statements</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="r-style-guide.html"><a href="r-style-guide.html#long-lines-1"><i class="fa fa-check"></i><b>4.6</b> Long lines</a></li>
+<li class="chapter" data-level="4.7" data-path="r-style-guide.html"><a href="r-style-guide.html#semicolons"><i class="fa fa-check"></i><b>4.7</b> Semicolons</a></li>
+<li class="chapter" data-level="4.8" data-path="r-style-guide.html"><a href="r-style-guide.html#assignment-1"><i class="fa fa-check"></i><b>4.8</b> Assignment</a></li>
+<li class="chapter" data-level="4.9" data-path="r-style-guide.html"><a href="r-style-guide.html#character-vectors"><i class="fa fa-check"></i><b>4.9</b> Character vectors</a></li>
+<li class="chapter" data-level="4.10" data-path="r-style-guide.html"><a href="r-style-guide.html#logical-vectors"><i class="fa fa-check"></i><b>4.10</b> Logical vectors</a></li>
+<li class="chapter" data-level="4.11" data-path="r-style-guide.html"><a href="r-style-guide.html#comments-2"><i class="fa fa-check"></i><b>4.11</b> Comments</a></li>
+<li class="chapter" data-level="4.12" data-path="r-style-guide.html"><a href="r-style-guide.html#resources-1"><i class="fa fa-check"></i><b>4.12</b> Resources</a></li>
 </ul></li>
 <li class="divider"></li>
-<li><a href="https://github.com/yiluheihei/codestyle" target="blank">Published with bookdown</a></li>
+<li><a href="https://github.com/yiluheihei/good-practice-bioinformatics" target="blank">Published with bookdown</a></li>
 
 </ul>
 
@@ -241,7 +254,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Code style guide</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Good practices in bioinformatic or computational biology projects</a>
           </h1>
         </div>
 
@@ -250,120 +263,120 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="r-style-guide" class="section level1">
-<h1><span class="header-section-number">Chapter 3</span> R Style Guide</h1>
+<h1><span class="header-section-number">Chapter 4</span> R Style Guide</h1>
 <div id="files" class="section level2">
-<h2><span class="header-section-number">3.1</span> Files</h2>
+<h2><span class="header-section-number">4.1</span> Files</h2>
 <div id="names" class="section level3">
-<h3><span class="header-section-number">3.1.1</span> Names</h3>
+<h3><span class="header-section-number">4.1.1</span> Names</h3>
 <ul>
 <li><p>File names should be meaningful and end in .R. Avoid using special
 characters in file names - stick with numbers, letters, <code>-</code>, and <code>_</code>.</p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="r-style-guide.html#cb39-1"></a><span class="co"># Good</span></span>
-<span id="cb39-2"><a href="r-style-guide.html#cb39-2"></a>fit_models.R</span>
-<span id="cb39-3"><a href="r-style-guide.html#cb39-3"></a>utility_functions.R</span>
-<span id="cb39-4"><a href="r-style-guide.html#cb39-4"></a></span>
-<span id="cb39-5"><a href="r-style-guide.html#cb39-5"></a><span class="co"># Bad</span></span>
-<span id="cb39-6"><a href="r-style-guide.html#cb39-6"></a>fit models.R</span>
-<span id="cb39-7"><a href="r-style-guide.html#cb39-7"></a>foo.r</span>
-<span id="cb39-8"><a href="r-style-guide.html#cb39-8"></a>stuff.r</span></code></pre></div></li>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="r-style-guide.html#cb40-1"></a><span class="co"># Good</span></span>
+<span id="cb40-2"><a href="r-style-guide.html#cb40-2"></a>fit_models.R</span>
+<span id="cb40-3"><a href="r-style-guide.html#cb40-3"></a>utility_functions.R</span>
+<span id="cb40-4"><a href="r-style-guide.html#cb40-4"></a></span>
+<span id="cb40-5"><a href="r-style-guide.html#cb40-5"></a><span class="co"># Bad</span></span>
+<span id="cb40-6"><a href="r-style-guide.html#cb40-6"></a>fit models.R</span>
+<span id="cb40-7"><a href="r-style-guide.html#cb40-7"></a>foo.r</span>
+<span id="cb40-8"><a href="r-style-guide.html#cb40-8"></a>stuff.r</span></code></pre></div></li>
 <li><p>If files should be run in a particular order, prefix them with numbers. If
 it seems likely you’ll have more than 10 files, left pad with zero:</p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="r-style-guide.html#cb40-1"></a><span class="dv">00</span>_download.R</span>
-<span id="cb40-2"><a href="r-style-guide.html#cb40-2"></a><span class="dv">01</span>_explore.R</span>
-<span id="cb40-3"><a href="r-style-guide.html#cb40-3"></a>...</span>
-<span id="cb40-4"><a href="r-style-guide.html#cb40-4"></a><span class="dv">09</span>_model.R</span>
-<span id="cb40-5"><a href="r-style-guide.html#cb40-5"></a><span class="dv">10</span>_visualize.R</span></code></pre></div></li>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="r-style-guide.html#cb41-1"></a><span class="dv">00</span>_download.R</span>
+<span id="cb41-2"><a href="r-style-guide.html#cb41-2"></a><span class="dv">01</span>_explore.R</span>
+<span id="cb41-3"><a href="r-style-guide.html#cb41-3"></a>...</span>
+<span id="cb41-4"><a href="r-style-guide.html#cb41-4"></a><span class="dv">09</span>_model.R</span>
+<span id="cb41-5"><a href="r-style-guide.html#cb41-5"></a><span class="dv">10</span>_visualize.R</span></code></pre></div></li>
 <li><p>Prefer file names that are all lower case, and never have names that differ
 only in their capitalization.</p></li>
 </ul>
 </div>
 <div id="internal-structure" class="section level3">
-<h3><span class="header-section-number">3.1.2</span> Internal structure</h3>
+<h3><span class="header-section-number">4.1.2</span> Internal structure</h3>
 <ul>
 <li><p>Use commented lines of - and = to break up your file into easily readable chunks.</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="r-style-guide.html#cb41-1"></a><span class="co"># Load data ---------------------------</span></span>
-<span id="cb41-2"><a href="r-style-guide.html#cb41-2"></a></span>
-<span id="cb41-3"><a href="r-style-guide.html#cb41-3"></a><span class="co"># Plot data ---------------------------</span></span></code></pre></div></li>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="r-style-guide.html#cb42-1"></a><span class="co"># Load data ---------------------------</span></span>
+<span id="cb42-2"><a href="r-style-guide.html#cb42-2"></a></span>
+<span id="cb42-3"><a href="r-style-guide.html#cb42-3"></a><span class="co"># Plot data ---------------------------</span></span></code></pre></div></li>
 <li><p>If your script uses add-on packages, load them all at once at the very
 beginning of the file.</p></li>
 </ul>
 </div>
 </div>
 <div id="naming-convention" class="section level2">
-<h2><span class="header-section-number">3.2</span> Naming Convention</h2>
+<h2><span class="header-section-number">4.2</span> Naming Convention</h2>
 <ul>
 <li><p>Variable and function names should use only lowercase letters, numbers,
 and <code>_</code>. Use underscores (<code>_</code>) (so called snake case) to separate words within
 a name.</p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="r-style-guide.html#cb42-1"></a><span class="co"># Good</span></span>
-<span id="cb42-2"><a href="r-style-guide.html#cb42-2"></a>day_one</span>
-<span id="cb42-3"><a href="r-style-guide.html#cb42-3"></a>day_<span class="dv">1</span></span></code></pre></div></li>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="r-style-guide.html#cb43-1"></a><span class="co"># Good</span></span>
+<span id="cb43-2"><a href="r-style-guide.html#cb43-2"></a>day_one</span>
+<span id="cb43-3"><a href="r-style-guide.html#cb43-3"></a>day_<span class="dv">1</span></span></code></pre></div></li>
 <li><p>It’s better to reserve dots exclusively for the S3 object system. In S3,
 methods are given the name <code>function.class</code>.</p></li>
 <li><p>Generally, variable names should be nouns and function names should be
 verbs. Strive for names that are concise and meaningful (this is not easy!).</p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="r-style-guide.html#cb43-1"></a><span class="co"># Good</span></span>
-<span id="cb43-2"><a href="r-style-guide.html#cb43-2"></a>day_one</span>
-<span id="cb43-3"><a href="r-style-guide.html#cb43-3"></a></span>
-<span id="cb43-4"><a href="r-style-guide.html#cb43-4"></a><span class="co"># Bad</span></span>
-<span id="cb43-5"><a href="r-style-guide.html#cb43-5"></a>first_day_of_the_month</span>
-<span id="cb43-6"><a href="r-style-guide.html#cb43-6"></a>djm1</span></code></pre></div></li>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="r-style-guide.html#cb44-1"></a><span class="co"># Good</span></span>
+<span id="cb44-2"><a href="r-style-guide.html#cb44-2"></a>day_one</span>
+<span id="cb44-3"><a href="r-style-guide.html#cb44-3"></a></span>
+<span id="cb44-4"><a href="r-style-guide.html#cb44-4"></a><span class="co"># Bad</span></span>
+<span id="cb44-5"><a href="r-style-guide.html#cb44-5"></a>first_day_of_the_month</span>
+<span id="cb44-6"><a href="r-style-guide.html#cb44-6"></a>djm1</span></code></pre></div></li>
 <li><p>Avoid re-using names of common functions and variables. This will cause
 confusion for the readers of your code.</p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="r-style-guide.html#cb44-1"></a><span class="co"># Bad</span></span>
-<span id="cb44-2"><a href="r-style-guide.html#cb44-2"></a>T &lt;-<span class="st"> </span><span class="ot">FALSE</span></span>
-<span id="cb44-3"><a href="r-style-guide.html#cb44-3"></a>c &lt;-<span class="st"> </span><span class="dv">10</span></span>
-<span id="cb44-4"><a href="r-style-guide.html#cb44-4"></a>mean &lt;-<span class="st"> </span><span class="cf">function</span>(x) <span class="kw">sum</span>(x)</span></code></pre></div></li>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="r-style-guide.html#cb45-1"></a><span class="co"># Bad</span></span>
+<span id="cb45-2"><a href="r-style-guide.html#cb45-2"></a>T &lt;-<span class="st"> </span><span class="ot">FALSE</span></span>
+<span id="cb45-3"><a href="r-style-guide.html#cb45-3"></a>c &lt;-<span class="st"> </span><span class="dv">10</span></span>
+<span id="cb45-4"><a href="r-style-guide.html#cb45-4"></a>mean &lt;-<span class="st"> </span><span class="cf">function</span>(x) <span class="kw">sum</span>(x)</span></code></pre></div></li>
 </ul>
 </div>
 <div id="spacing" class="section level2">
-<h2><span class="header-section-number">3.3</span> Spacing</h2>
+<h2><span class="header-section-number">4.3</span> Spacing</h2>
 <div id="indentation-1" class="section level3">
-<h3><span class="header-section-number">3.3.1</span> Indentation</h3>
+<h3><span class="header-section-number">4.3.1</span> Indentation</h3>
 <p>Use four spaces.</p>
 </div>
 <div id="commas" class="section level3">
-<h3><span class="header-section-number">3.3.2</span> Commas</h3>
+<h3><span class="header-section-number">4.3.2</span> Commas</h3>
 <p>Always put a space after a comma, never before, just like in regular English.</p>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="r-style-guide.html#cb45-1"></a><span class="co"># Good</span></span>
-<span id="cb45-2"><a href="r-style-guide.html#cb45-2"></a>x[, <span class="dv">1</span>]</span>
-<span id="cb45-3"><a href="r-style-guide.html#cb45-3"></a></span>
-<span id="cb45-4"><a href="r-style-guide.html#cb45-4"></a><span class="co"># Bad</span></span>
-<span id="cb45-5"><a href="r-style-guide.html#cb45-5"></a>x[,<span class="dv">1</span>]</span>
-<span id="cb45-6"><a href="r-style-guide.html#cb45-6"></a>x[ ,<span class="dv">1</span>]</span>
-<span id="cb45-7"><a href="r-style-guide.html#cb45-7"></a>x[ , <span class="dv">1</span>]</span></code></pre></div>
-</div>
-<div id="parentheses-1" class="section level3">
-<h3><span class="header-section-number">3.3.3</span> Parentheses</h3>
-<ul>
-<li><p>Do not put spaces inside or outside parentheses for regular function calls.</p>
 <div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="r-style-guide.html#cb46-1"></a><span class="co"># Good</span></span>
-<span id="cb46-2"><a href="r-style-guide.html#cb46-2"></a><span class="kw">mean</span>(x, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb46-2"><a href="r-style-guide.html#cb46-2"></a>x[, <span class="dv">1</span>]</span>
 <span id="cb46-3"><a href="r-style-guide.html#cb46-3"></a></span>
 <span id="cb46-4"><a href="r-style-guide.html#cb46-4"></a><span class="co"># Bad</span></span>
-<span id="cb46-5"><a href="r-style-guide.html#cb46-5"></a><span class="kw">mean</span> (x, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</span>
-<span id="cb46-6"><a href="r-style-guide.html#cb46-6"></a><span class="kw">mean</span>( x, <span class="dt">na.rm =</span> <span class="ot">TRUE</span> )</span></code></pre></div></li>
-<li><p>Place a space before and after <code>()</code> when used with <code>if</code>, <code>for</code>, or <code>while</code>.</p>
+<span id="cb46-5"><a href="r-style-guide.html#cb46-5"></a>x[,<span class="dv">1</span>]</span>
+<span id="cb46-6"><a href="r-style-guide.html#cb46-6"></a>x[ ,<span class="dv">1</span>]</span>
+<span id="cb46-7"><a href="r-style-guide.html#cb46-7"></a>x[ , <span class="dv">1</span>]</span></code></pre></div>
+</div>
+<div id="parentheses-1" class="section level3">
+<h3><span class="header-section-number">4.3.3</span> Parentheses</h3>
+<ul>
+<li><p>Do not put spaces inside or outside parentheses for regular function calls.</p>
 <div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="r-style-guide.html#cb47-1"></a><span class="co"># Good</span></span>
-<span id="cb47-2"><a href="r-style-guide.html#cb47-2"></a><span class="cf">if</span> (debug) {</span>
-<span id="cb47-3"><a href="r-style-guide.html#cb47-3"></a>    <span class="kw">show</span>(x)</span>
-<span id="cb47-4"><a href="r-style-guide.html#cb47-4"></a>}</span>
-<span id="cb47-5"><a href="r-style-guide.html#cb47-5"></a></span>
-<span id="cb47-6"><a href="r-style-guide.html#cb47-6"></a><span class="co"># Bad</span></span>
-<span id="cb47-7"><a href="r-style-guide.html#cb47-7"></a><span class="cf">if</span>(debug){</span>
-<span id="cb47-8"><a href="r-style-guide.html#cb47-8"></a>    <span class="kw">show</span>(x)</span>
-<span id="cb47-9"><a href="r-style-guide.html#cb47-9"></a>}</span></code></pre></div></li>
-<li><p>Place a space after <code>()</code> used for function arguments:</p>
+<span id="cb47-2"><a href="r-style-guide.html#cb47-2"></a><span class="kw">mean</span>(x, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb47-3"><a href="r-style-guide.html#cb47-3"></a></span>
+<span id="cb47-4"><a href="r-style-guide.html#cb47-4"></a><span class="co"># Bad</span></span>
+<span id="cb47-5"><a href="r-style-guide.html#cb47-5"></a><span class="kw">mean</span> (x, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb47-6"><a href="r-style-guide.html#cb47-6"></a><span class="kw">mean</span>( x, <span class="dt">na.rm =</span> <span class="ot">TRUE</span> )</span></code></pre></div></li>
+<li><p>Place a space before and after <code>()</code> when used with <code>if</code>, <code>for</code>, or <code>while</code>.</p>
 <div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="r-style-guide.html#cb48-1"></a><span class="co"># Good</span></span>
-<span id="cb48-2"><a href="r-style-guide.html#cb48-2"></a><span class="cf">function</span>(x) {}</span>
-<span id="cb48-3"><a href="r-style-guide.html#cb48-3"></a></span>
-<span id="cb48-4"><a href="r-style-guide.html#cb48-4"></a><span class="co"># Bad</span></span>
-<span id="cb48-5"><a href="r-style-guide.html#cb48-5"></a><span class="cf">function</span> (x) {}</span>
-<span id="cb48-6"><a href="r-style-guide.html#cb48-6"></a><span class="cf">function</span>(x){}</span></code></pre></div></li>
+<span id="cb48-2"><a href="r-style-guide.html#cb48-2"></a><span class="cf">if</span> (debug) {</span>
+<span id="cb48-3"><a href="r-style-guide.html#cb48-3"></a>    <span class="kw">show</span>(x)</span>
+<span id="cb48-4"><a href="r-style-guide.html#cb48-4"></a>}</span>
+<span id="cb48-5"><a href="r-style-guide.html#cb48-5"></a></span>
+<span id="cb48-6"><a href="r-style-guide.html#cb48-6"></a><span class="co"># Bad</span></span>
+<span id="cb48-7"><a href="r-style-guide.html#cb48-7"></a><span class="cf">if</span>(debug){</span>
+<span id="cb48-8"><a href="r-style-guide.html#cb48-8"></a>    <span class="kw">show</span>(x)</span>
+<span id="cb48-9"><a href="r-style-guide.html#cb48-9"></a>}</span></code></pre></div></li>
+<li><p>Place a space after <code>()</code> used for function arguments:</p>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="r-style-guide.html#cb49-1"></a><span class="co"># Good</span></span>
+<span id="cb49-2"><a href="r-style-guide.html#cb49-2"></a><span class="cf">function</span>(x) {}</span>
+<span id="cb49-3"><a href="r-style-guide.html#cb49-3"></a></span>
+<span id="cb49-4"><a href="r-style-guide.html#cb49-4"></a><span class="co"># Bad</span></span>
+<span id="cb49-5"><a href="r-style-guide.html#cb49-5"></a><span class="cf">function</span> (x) {}</span>
+<span id="cb49-6"><a href="r-style-guide.html#cb49-6"></a><span class="cf">function</span>(x){}</span></code></pre></div></li>
 </ul>
 </div>
 <div id="embracing" class="section level3">
-<h3><span class="header-section-number">3.3.4</span> Embracing</h3>
+<h3><span class="header-section-number">4.3.4</span> Embracing</h3>
 <p>The embracing operator, <code>{{ }}</code>, should always have inner spaces to help
 emphasise its special behaviour:</p>
 <pre><code># Good
@@ -381,7 +394,7 @@ max_by &lt;- function(data, var, by) {
 }</code></pre>
 </div>
 <div id="infix-operators" class="section level3">
-<h3><span class="header-section-number">3.3.5</span> Infix operators</h3>
+<h3><span class="header-section-number">4.3.5</span> Infix operators</h3>
 <p>Most infix operators (<code>==</code>, <code>+</code>, <code>-</code>, <code>&lt;-</code>, etc.) should always be surrounded
 by spaces:</p>
 <pre><code># Good
@@ -396,71 +409,71 @@ mean(x, na.rm=TRUE)</code></pre>
 <li><p>The operators with high precedence: <code>::</code>, <code>:::</code>, <code>$</code>, <code>@</code>, <code>[</code>, <code>[[</code>, <code>^</code>,
 unary <code>-</code>, unary <code>+</code>, and <code>:</code>.</p></li>
 <li><p>Single-sided formulas when the right-hand side is a single identifier.</p>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="r-style-guide.html#cb51-1"></a><span class="co"># Good</span></span>
-<span id="cb51-2"><a href="r-style-guide.html#cb51-2"></a><span class="op">~</span>foo</span>
-<span id="cb51-3"><a href="r-style-guide.html#cb51-3"></a></span>
-<span id="cb51-4"><a href="r-style-guide.html#cb51-4"></a><span class="co"># Bad</span></span>
-<span id="cb51-5"><a href="r-style-guide.html#cb51-5"></a><span class="op">~</span><span class="st"> </span>foo</span></code></pre></div>
-<p>Note that single-sided formulas with a complex right-hand side do need a space:</p>
 <div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="r-style-guide.html#cb52-1"></a><span class="co"># Good</span></span>
-<span id="cb52-2"><a href="r-style-guide.html#cb52-2"></a><span class="op">~</span><span class="st"> </span>.x <span class="op">+</span><span class="st"> </span>.y</span>
+<span id="cb52-2"><a href="r-style-guide.html#cb52-2"></a><span class="op">~</span>foo</span>
 <span id="cb52-3"><a href="r-style-guide.html#cb52-3"></a></span>
 <span id="cb52-4"><a href="r-style-guide.html#cb52-4"></a><span class="co"># Bad</span></span>
-<span id="cb52-5"><a href="r-style-guide.html#cb52-5"></a><span class="op">~</span>.x <span class="op">+</span><span class="st"> </span>.y</span></code></pre></div></li>
+<span id="cb52-5"><a href="r-style-guide.html#cb52-5"></a><span class="op">~</span><span class="st"> </span>foo</span></code></pre></div>
+<p>Note that single-sided formulas with a complex right-hand side do need a space:</p>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="r-style-guide.html#cb53-1"></a><span class="co"># Good</span></span>
+<span id="cb53-2"><a href="r-style-guide.html#cb53-2"></a><span class="op">~</span><span class="st"> </span>.x <span class="op">+</span><span class="st"> </span>.y</span>
+<span id="cb53-3"><a href="r-style-guide.html#cb53-3"></a></span>
+<span id="cb53-4"><a href="r-style-guide.html#cb53-4"></a><span class="co"># Bad</span></span>
+<span id="cb53-5"><a href="r-style-guide.html#cb53-5"></a><span class="op">~</span>.x <span class="op">+</span><span class="st"> </span>.y</span></code></pre></div></li>
 <li><p>When used in tidy evaluation <code>!!</code> (bang-bang) and <code>!!!</code> (bang-bang-bang)</p></li>
 </ul>
 </div>
 </div>
 <div id="function-calls" class="section level2">
-<h2><span class="header-section-number">3.4</span> Function Calls</h2>
+<h2><span class="header-section-number">4.4</span> Function Calls</h2>
 <div id="named-arguments" class="section level3">
-<h3><span class="header-section-number">3.4.1</span> Named arguments</h3>
+<h3><span class="header-section-number">4.4.1</span> Named arguments</h3>
 <ul>
 <li><p>If you override the default value of an argument, use the full name.</p></li>
 <li><p>You can omit the argument names for very common arguments</p>
-<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="r-style-guide.html#cb53-1"></a><span class="co"># Good</span></span>
-<span id="cb53-2"><a href="r-style-guide.html#cb53-2"></a><span class="kw">mean</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</span>
-<span id="cb53-3"><a href="r-style-guide.html#cb53-3"></a></span>
-<span id="cb53-4"><a href="r-style-guide.html#cb53-4"></a><span class="co"># Bad</span></span>
-<span id="cb53-5"><a href="r-style-guide.html#cb53-5"></a><span class="kw">mean</span>(<span class="dt">x =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, , <span class="ot">FALSE</span>)</span>
-<span id="cb53-6"><a href="r-style-guide.html#cb53-6"></a><span class="kw">mean</span>(, <span class="ot">TRUE</span>, <span class="dt">x =</span> <span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="ot">NA</span>))</span></code></pre></div></li>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="r-style-guide.html#cb54-1"></a><span class="co"># Good</span></span>
+<span id="cb54-2"><a href="r-style-guide.html#cb54-2"></a><span class="kw">mean</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb54-3"><a href="r-style-guide.html#cb54-3"></a></span>
+<span id="cb54-4"><a href="r-style-guide.html#cb54-4"></a><span class="co"># Bad</span></span>
+<span id="cb54-5"><a href="r-style-guide.html#cb54-5"></a><span class="kw">mean</span>(<span class="dt">x =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, , <span class="ot">FALSE</span>)</span>
+<span id="cb54-6"><a href="r-style-guide.html#cb54-6"></a><span class="kw">mean</span>(, <span class="ot">TRUE</span>, <span class="dt">x =</span> <span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="ot">NA</span>))</span></code></pre></div></li>
 </ul>
 </div>
 <div id="assignment" class="section level3">
-<h3><span class="header-section-number">3.4.2</span> Assignment</h3>
+<h3><span class="header-section-number">4.4.2</span> Assignment</h3>
 <p>Avoid assignment in function calls:</p>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="r-style-guide.html#cb54-1"></a><span class="co"># Good</span></span>
-<span id="cb54-2"><a href="r-style-guide.html#cb54-2"></a>x &lt;-<span class="st"> </span><span class="kw">complicated_function</span>()</span>
-<span id="cb54-3"><a href="r-style-guide.html#cb54-3"></a><span class="cf">if</span> (<span class="kw">nzchar</span>(x) <span class="op">&lt;</span><span class="st"> </span><span class="dv">1</span>) {</span>
-<span id="cb54-4"><a href="r-style-guide.html#cb54-4"></a>  <span class="co"># do something</span></span>
-<span id="cb54-5"><a href="r-style-guide.html#cb54-5"></a>}</span>
-<span id="cb54-6"><a href="r-style-guide.html#cb54-6"></a></span>
-<span id="cb54-7"><a href="r-style-guide.html#cb54-7"></a><span class="co"># Bad</span></span>
-<span id="cb54-8"><a href="r-style-guide.html#cb54-8"></a><span class="cf">if</span> (<span class="kw">nzchar</span>(x &lt;-<span class="st"> </span><span class="kw">complicated_function</span>()) <span class="op">&lt;</span><span class="st"> </span><span class="dv">1</span>) {</span>
-<span id="cb54-9"><a href="r-style-guide.html#cb54-9"></a>  <span class="co"># do something</span></span>
-<span id="cb54-10"><a href="r-style-guide.html#cb54-10"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="r-style-guide.html#cb55-1"></a><span class="co"># Good</span></span>
+<span id="cb55-2"><a href="r-style-guide.html#cb55-2"></a>x &lt;-<span class="st"> </span><span class="kw">complicated_function</span>()</span>
+<span id="cb55-3"><a href="r-style-guide.html#cb55-3"></a><span class="cf">if</span> (<span class="kw">nzchar</span>(x) <span class="op">&lt;</span><span class="st"> </span><span class="dv">1</span>) {</span>
+<span id="cb55-4"><a href="r-style-guide.html#cb55-4"></a>  <span class="co"># do something</span></span>
+<span id="cb55-5"><a href="r-style-guide.html#cb55-5"></a>}</span>
+<span id="cb55-6"><a href="r-style-guide.html#cb55-6"></a></span>
+<span id="cb55-7"><a href="r-style-guide.html#cb55-7"></a><span class="co"># Bad</span></span>
+<span id="cb55-8"><a href="r-style-guide.html#cb55-8"></a><span class="cf">if</span> (<span class="kw">nzchar</span>(x &lt;-<span class="st"> </span><span class="kw">complicated_function</span>()) <span class="op">&lt;</span><span class="st"> </span><span class="dv">1</span>) {</span>
+<span id="cb55-9"><a href="r-style-guide.html#cb55-9"></a>  <span class="co"># do something</span></span>
+<span id="cb55-10"><a href="r-style-guide.html#cb55-10"></a>}</span></code></pre></div>
 <p>The only exception is in functions that capture side-effects:</p>
-<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="r-style-guide.html#cb55-1"></a>output &lt;-<span class="st"> </span><span class="kw">capture.output</span>(x &lt;-<span class="st"> </span><span class="kw">f</span>())</span></code></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="r-style-guide.html#cb56-1"></a>output &lt;-<span class="st"> </span><span class="kw">capture.output</span>(x &lt;-<span class="st"> </span><span class="kw">f</span>())</span></code></pre></div>
 </div>
 <div id="long-lines" class="section level3">
-<h3><span class="header-section-number">3.4.3</span> Long lines</h3>
+<h3><span class="header-section-number">4.4.3</span> Long lines</h3>
 <p>There are two options if the function name and definition can’t fit on a single
 line:</p>
 <ul>
 <li><p>Function-indent: place each argument on its own line, and indent to match
 the opening <code>(</code> of function:</p>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="r-style-guide.html#cb56-1"></a>long_function_name &lt;-<span class="st"> </span><span class="cf">function</span>(<span class="dt">a =</span> <span class="st">&quot;a long argument&quot;</span>,</span>
-<span id="cb56-2"><a href="r-style-guide.html#cb56-2"></a>                               <span class="dt">b =</span> <span class="st">&quot;another argument&quot;</span>,</span>
-<span id="cb56-3"><a href="r-style-guide.html#cb56-3"></a>                               <span class="dt">c =</span> <span class="st">&quot;another long argument&quot;</span>) {</span>
-<span id="cb56-4"><a href="r-style-guide.html#cb56-4"></a>  <span class="co"># As usual code is indented by two spaces.</span></span>
-<span id="cb56-5"><a href="r-style-guide.html#cb56-5"></a>}</span></code></pre></div></li>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="r-style-guide.html#cb57-1"></a>long_function_name &lt;-<span class="st"> </span><span class="cf">function</span>(<span class="dt">a =</span> <span class="st">&quot;a long argument&quot;</span>,</span>
+<span id="cb57-2"><a href="r-style-guide.html#cb57-2"></a>                               <span class="dt">b =</span> <span class="st">&quot;another argument&quot;</span>,</span>
+<span id="cb57-3"><a href="r-style-guide.html#cb57-3"></a>                               <span class="dt">c =</span> <span class="st">&quot;another long argument&quot;</span>) {</span>
+<span id="cb57-4"><a href="r-style-guide.html#cb57-4"></a>  <span class="co"># As usual code is indented by two spaces.</span></span>
+<span id="cb57-5"><a href="r-style-guide.html#cb57-5"></a>}</span></code></pre></div></li>
 <li><p>Double-indent: Place each argument of its own double indented line.</p>
-<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="r-style-guide.html#cb57-1"></a>long_function_name &lt;-<span class="st"> </span><span class="cf">function</span>(</span>
-<span id="cb57-2"><a href="r-style-guide.html#cb57-2"></a>    <span class="dt">a =</span> <span class="st">&quot;a long argument&quot;</span>,</span>
-<span id="cb57-3"><a href="r-style-guide.html#cb57-3"></a>    <span class="dt">b =</span> <span class="st">&quot;another argument&quot;</span>,</span>
-<span id="cb57-4"><a href="r-style-guide.html#cb57-4"></a>    <span class="dt">c =</span> <span class="st">&quot;another long argument&quot;</span>) {</span>
-<span id="cb57-5"><a href="r-style-guide.html#cb57-5"></a>    <span class="co"># As usual code is indented by two spaces.</span></span>
-<span id="cb57-6"><a href="r-style-guide.html#cb57-6"></a>}</span></code></pre></div></li>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="r-style-guide.html#cb58-1"></a>long_function_name &lt;-<span class="st"> </span><span class="cf">function</span>(</span>
+<span id="cb58-2"><a href="r-style-guide.html#cb58-2"></a>    <span class="dt">a =</span> <span class="st">&quot;a long argument&quot;</span>,</span>
+<span id="cb58-3"><a href="r-style-guide.html#cb58-3"></a>    <span class="dt">b =</span> <span class="st">&quot;another argument&quot;</span>,</span>
+<span id="cb58-4"><a href="r-style-guide.html#cb58-4"></a>    <span class="dt">c =</span> <span class="st">&quot;another long argument&quot;</span>) {</span>
+<span id="cb58-5"><a href="r-style-guide.html#cb58-5"></a>    <span class="co"># As usual code is indented by two spaces.</span></span>
+<span id="cb58-6"><a href="r-style-guide.html#cb58-6"></a>}</span></code></pre></div></li>
 </ul>
 <p>In both cases the trailing <code>)</code> and leading <code>{</code> should go on the same line as
 the last argument.</p>
@@ -476,27 +489,10 @@ long_function_name &lt;- function(a = &quot;a long argument&quot;,
 }</code></pre>
 </div>
 <div id="return" class="section level3">
-<h3><span class="header-section-number">3.4.4</span> Return</h3>
+<h3><span class="header-section-number">4.4.4</span> Return</h3>
 <ul>
 <li><p>Only use <code>return()</code> for early returns. Otherwise, rely on R to return the
 result of the last evaluated expression.</p>
-<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="r-style-guide.html#cb59-1"></a><span class="co"># Good</span></span>
-<span id="cb59-2"><a href="r-style-guide.html#cb59-2"></a>find_abs &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</span>
-<span id="cb59-3"><a href="r-style-guide.html#cb59-3"></a>    <span class="cf">if</span> (x <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>) {</span>
-<span id="cb59-4"><a href="r-style-guide.html#cb59-4"></a>        <span class="kw">return</span>(x)</span>
-<span id="cb59-5"><a href="r-style-guide.html#cb59-5"></a>    }</span>
-<span id="cb59-6"><a href="r-style-guide.html#cb59-6"></a>    x <span class="op">*</span><span class="st"> </span><span class="dv">-1</span></span>
-<span id="cb59-7"><a href="r-style-guide.html#cb59-7"></a>}</span>
-<span id="cb59-8"><a href="r-style-guide.html#cb59-8"></a>add_two &lt;-<span class="st"> </span><span class="cf">function</span>(x, y) {</span>
-<span id="cb59-9"><a href="r-style-guide.html#cb59-9"></a>    x <span class="op">+</span><span class="st"> </span>y</span>
-<span id="cb59-10"><a href="r-style-guide.html#cb59-10"></a>}</span>
-<span id="cb59-11"><a href="r-style-guide.html#cb59-11"></a></span>
-<span id="cb59-12"><a href="r-style-guide.html#cb59-12"></a><span class="co"># Bad</span></span>
-<span id="cb59-13"><a href="r-style-guide.html#cb59-13"></a>add_two &lt;-<span class="st"> </span><span class="cf">function</span>(x, y) {</span>
-<span id="cb59-14"><a href="r-style-guide.html#cb59-14"></a>    <span class="kw">return</span>(x <span class="op">+</span><span class="st"> </span>y)</span>
-<span id="cb59-15"><a href="r-style-guide.html#cb59-15"></a>}</span></code></pre></div></li>
-<li><p>Return statements should always be on their own line because they have
-important effects on the control flow</p>
 <div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="r-style-guide.html#cb60-1"></a><span class="co"># Good</span></span>
 <span id="cb60-2"><a href="r-style-guide.html#cb60-2"></a>find_abs &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</span>
 <span id="cb60-3"><a href="r-style-guide.html#cb60-3"></a>    <span class="cf">if</span> (x <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>) {</span>
@@ -504,98 +500,115 @@ important effects on the control flow</p>
 <span id="cb60-5"><a href="r-style-guide.html#cb60-5"></a>    }</span>
 <span id="cb60-6"><a href="r-style-guide.html#cb60-6"></a>    x <span class="op">*</span><span class="st"> </span><span class="dv">-1</span></span>
 <span id="cb60-7"><a href="r-style-guide.html#cb60-7"></a>}</span>
-<span id="cb60-8"><a href="r-style-guide.html#cb60-8"></a></span>
-<span id="cb60-9"><a href="r-style-guide.html#cb60-9"></a><span class="co"># Bad</span></span>
-<span id="cb60-10"><a href="r-style-guide.html#cb60-10"></a>find_abs &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</span>
-<span id="cb60-11"><a href="r-style-guide.html#cb60-11"></a>    <span class="cf">if</span> (x <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>) <span class="kw">return</span>(x)</span>
-<span id="cb60-12"><a href="r-style-guide.html#cb60-12"></a>    x <span class="op">*</span><span class="st"> </span><span class="dv">-1</span></span>
-<span id="cb60-13"><a href="r-style-guide.html#cb60-13"></a>}</span></code></pre></div></li>
+<span id="cb60-8"><a href="r-style-guide.html#cb60-8"></a>add_two &lt;-<span class="st"> </span><span class="cf">function</span>(x, y) {</span>
+<span id="cb60-9"><a href="r-style-guide.html#cb60-9"></a>    x <span class="op">+</span><span class="st"> </span>y</span>
+<span id="cb60-10"><a href="r-style-guide.html#cb60-10"></a>}</span>
+<span id="cb60-11"><a href="r-style-guide.html#cb60-11"></a></span>
+<span id="cb60-12"><a href="r-style-guide.html#cb60-12"></a><span class="co"># Bad</span></span>
+<span id="cb60-13"><a href="r-style-guide.html#cb60-13"></a>add_two &lt;-<span class="st"> </span><span class="cf">function</span>(x, y) {</span>
+<span id="cb60-14"><a href="r-style-guide.html#cb60-14"></a>    <span class="kw">return</span>(x <span class="op">+</span><span class="st"> </span>y)</span>
+<span id="cb60-15"><a href="r-style-guide.html#cb60-15"></a>}</span></code></pre></div></li>
+<li><p>Return statements should always be on their own line because they have
+important effects on the control flow</p>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="r-style-guide.html#cb61-1"></a><span class="co"># Good</span></span>
+<span id="cb61-2"><a href="r-style-guide.html#cb61-2"></a>find_abs &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</span>
+<span id="cb61-3"><a href="r-style-guide.html#cb61-3"></a>    <span class="cf">if</span> (x <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>) {</span>
+<span id="cb61-4"><a href="r-style-guide.html#cb61-4"></a>        <span class="kw">return</span>(x)</span>
+<span id="cb61-5"><a href="r-style-guide.html#cb61-5"></a>    }</span>
+<span id="cb61-6"><a href="r-style-guide.html#cb61-6"></a>    x <span class="op">*</span><span class="st"> </span><span class="dv">-1</span></span>
+<span id="cb61-7"><a href="r-style-guide.html#cb61-7"></a>}</span>
+<span id="cb61-8"><a href="r-style-guide.html#cb61-8"></a></span>
+<span id="cb61-9"><a href="r-style-guide.html#cb61-9"></a><span class="co"># Bad</span></span>
+<span id="cb61-10"><a href="r-style-guide.html#cb61-10"></a>find_abs &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</span>
+<span id="cb61-11"><a href="r-style-guide.html#cb61-11"></a>    <span class="cf">if</span> (x <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>) <span class="kw">return</span>(x)</span>
+<span id="cb61-12"><a href="r-style-guide.html#cb61-12"></a>    x <span class="op">*</span><span class="st"> </span><span class="dv">-1</span></span>
+<span id="cb61-13"><a href="r-style-guide.html#cb61-13"></a>}</span></code></pre></div></li>
 <li><p>If your function is called primarily for its side-effects (like printing,
 plotting, or saving to disk), it should return the first argument invisibly.
 This makes it possible to use the function as part of a pipe. print methods
 should usually do this, like this example from httr:</p>
-<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="r-style-guide.html#cb61-1"></a>print.url &lt;-<span class="st"> </span><span class="cf">function</span>(x, ...) {</span>
-<span id="cb61-2"><a href="r-style-guide.html#cb61-2"></a>    <span class="kw">cat</span>(<span class="st">&quot;Url: &quot;</span>, <span class="kw">build_url</span>(x), <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;&quot;</span>)</span>
-<span id="cb61-3"><a href="r-style-guide.html#cb61-3"></a>    <span class="kw">invisible</span>(x)</span>
-<span id="cb61-4"><a href="r-style-guide.html#cb61-4"></a>}</span></code></pre></div></li>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="r-style-guide.html#cb62-1"></a>print.url &lt;-<span class="st"> </span><span class="cf">function</span>(x, ...) {</span>
+<span id="cb62-2"><a href="r-style-guide.html#cb62-2"></a>    <span class="kw">cat</span>(<span class="st">&quot;Url: &quot;</span>, <span class="kw">build_url</span>(x), <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb62-3"><a href="r-style-guide.html#cb62-3"></a>    <span class="kw">invisible</span>(x)</span>
+<span id="cb62-4"><a href="r-style-guide.html#cb62-4"></a>}</span></code></pre></div></li>
 </ul>
 </div>
 <div id="comments-1" class="section level3">
-<h3><span class="header-section-number">3.4.5</span> Comments</h3>
+<h3><span class="header-section-number">4.4.5</span> Comments</h3>
 <ul>
 <li><p>In code, use comments to explain the “why” not the “what” or “how”. Each
 line of a comment should begin with the comment symbol and a single space:
 <code>#</code>.</p>
-<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="r-style-guide.html#cb62-1"></a><span class="co"># Good</span></span>
-<span id="cb62-2"><a href="r-style-guide.html#cb62-2"></a></span>
-<span id="cb62-3"><a href="r-style-guide.html#cb62-3"></a><span class="co"># Objects like data frames are treated as leaves</span></span>
-<span id="cb62-4"><a href="r-style-guide.html#cb62-4"></a>x &lt;-<span class="st"> </span><span class="kw">map_if</span>(x, is_bare_list, recurse)</span>
-<span id="cb62-5"><a href="r-style-guide.html#cb62-5"></a></span>
-<span id="cb62-6"><a href="r-style-guide.html#cb62-6"></a></span>
-<span id="cb62-7"><a href="r-style-guide.html#cb62-7"></a><span class="co"># Bad</span></span>
-<span id="cb62-8"><a href="r-style-guide.html#cb62-8"></a></span>
-<span id="cb62-9"><a href="r-style-guide.html#cb62-9"></a><span class="co"># Recurse only with bare lists</span></span>
-<span id="cb62-10"><a href="r-style-guide.html#cb62-10"></a>x &lt;-<span class="st"> </span><span class="kw">map_if</span>(x, is_bare_list, recurse)</span></code></pre></div></li>
-<li><p>Comments should be in sentence case, and only end with a full stop if they
-contain at least two sentences:</p>
 <div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="r-style-guide.html#cb63-1"></a><span class="co"># Good</span></span>
 <span id="cb63-2"><a href="r-style-guide.html#cb63-2"></a></span>
 <span id="cb63-3"><a href="r-style-guide.html#cb63-3"></a><span class="co"># Objects like data frames are treated as leaves</span></span>
 <span id="cb63-4"><a href="r-style-guide.html#cb63-4"></a>x &lt;-<span class="st"> </span><span class="kw">map_if</span>(x, is_bare_list, recurse)</span>
 <span id="cb63-5"><a href="r-style-guide.html#cb63-5"></a></span>
-<span id="cb63-6"><a href="r-style-guide.html#cb63-6"></a><span class="co"># Do not use `is.list()`. Objects like data frames must be treated</span></span>
-<span id="cb63-7"><a href="r-style-guide.html#cb63-7"></a><span class="co"># as leaves.</span></span>
-<span id="cb63-8"><a href="r-style-guide.html#cb63-8"></a>x &lt;-<span class="st"> </span><span class="kw">map_if</span>(x, is_bare_list, recurse)</span>
-<span id="cb63-9"><a href="r-style-guide.html#cb63-9"></a></span>
-<span id="cb63-10"><a href="r-style-guide.html#cb63-10"></a></span>
-<span id="cb63-11"><a href="r-style-guide.html#cb63-11"></a><span class="co"># Bad</span></span>
-<span id="cb63-12"><a href="r-style-guide.html#cb63-12"></a></span>
-<span id="cb63-13"><a href="r-style-guide.html#cb63-13"></a><span class="co"># objects like data frames are treated as leaves</span></span>
-<span id="cb63-14"><a href="r-style-guide.html#cb63-14"></a>x &lt;-<span class="st"> </span><span class="kw">map_if</span>(x, is_bare_list, recurse)</span>
-<span id="cb63-15"><a href="r-style-guide.html#cb63-15"></a></span>
-<span id="cb63-16"><a href="r-style-guide.html#cb63-16"></a><span class="co"># Objects like data frames are treated as leaves.</span></span>
-<span id="cb63-17"><a href="r-style-guide.html#cb63-17"></a>x &lt;-<span class="st"> </span><span class="kw">map_if</span>(x, is_bare_list, recurse)</span></code></pre></div></li>
+<span id="cb63-6"><a href="r-style-guide.html#cb63-6"></a></span>
+<span id="cb63-7"><a href="r-style-guide.html#cb63-7"></a><span class="co"># Bad</span></span>
+<span id="cb63-8"><a href="r-style-guide.html#cb63-8"></a></span>
+<span id="cb63-9"><a href="r-style-guide.html#cb63-9"></a><span class="co"># Recurse only with bare lists</span></span>
+<span id="cb63-10"><a href="r-style-guide.html#cb63-10"></a>x &lt;-<span class="st"> </span><span class="kw">map_if</span>(x, is_bare_list, recurse)</span></code></pre></div></li>
+<li><p>Comments should be in sentence case, and only end with a full stop if they
+contain at least two sentences:</p>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="r-style-guide.html#cb64-1"></a><span class="co"># Good</span></span>
+<span id="cb64-2"><a href="r-style-guide.html#cb64-2"></a></span>
+<span id="cb64-3"><a href="r-style-guide.html#cb64-3"></a><span class="co"># Objects like data frames are treated as leaves</span></span>
+<span id="cb64-4"><a href="r-style-guide.html#cb64-4"></a>x &lt;-<span class="st"> </span><span class="kw">map_if</span>(x, is_bare_list, recurse)</span>
+<span id="cb64-5"><a href="r-style-guide.html#cb64-5"></a></span>
+<span id="cb64-6"><a href="r-style-guide.html#cb64-6"></a><span class="co"># Do not use `is.list()`. Objects like data frames must be treated</span></span>
+<span id="cb64-7"><a href="r-style-guide.html#cb64-7"></a><span class="co"># as leaves.</span></span>
+<span id="cb64-8"><a href="r-style-guide.html#cb64-8"></a>x &lt;-<span class="st"> </span><span class="kw">map_if</span>(x, is_bare_list, recurse)</span>
+<span id="cb64-9"><a href="r-style-guide.html#cb64-9"></a></span>
+<span id="cb64-10"><a href="r-style-guide.html#cb64-10"></a></span>
+<span id="cb64-11"><a href="r-style-guide.html#cb64-11"></a><span class="co"># Bad</span></span>
+<span id="cb64-12"><a href="r-style-guide.html#cb64-12"></a></span>
+<span id="cb64-13"><a href="r-style-guide.html#cb64-13"></a><span class="co"># objects like data frames are treated as leaves</span></span>
+<span id="cb64-14"><a href="r-style-guide.html#cb64-14"></a>x &lt;-<span class="st"> </span><span class="kw">map_if</span>(x, is_bare_list, recurse)</span>
+<span id="cb64-15"><a href="r-style-guide.html#cb64-15"></a></span>
+<span id="cb64-16"><a href="r-style-guide.html#cb64-16"></a><span class="co"># Objects like data frames are treated as leaves.</span></span>
+<span id="cb64-17"><a href="r-style-guide.html#cb64-17"></a>x &lt;-<span class="st"> </span><span class="kw">map_if</span>(x, is_bare_list, recurse)</span></code></pre></div></li>
 </ul>
 </div>
 </div>
 <div id="control-flow" class="section level2">
-<h2><span class="header-section-number">3.5</span> Control flow</h2>
+<h2><span class="header-section-number">4.5</span> Control flow</h2>
 <div id="code-blocks" class="section level3">
-<h3><span class="header-section-number">3.5.1</span> Code blocks</h3>
+<h3><span class="header-section-number">4.5.1</span> Code blocks</h3>
 <ul>
 <li><p><code>{</code> should be the last character on the line. Related code (e.g., an <code>if</code>
 clause, a function declaration, a trailing comma, …) must be on the same line
 as the opening brace.</p></li>
 <li><p>The contents should be indented by four spaces.</p></li>
 <li><p><code>}</code> should be the first character on the line.</p>
-<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="r-style-guide.html#cb64-1"></a><span class="co"># good</span></span>
-<span id="cb64-2"><a href="r-style-guide.html#cb64-2"></a><span class="cf">if</span> (y <span class="op">&lt;</span><span class="st"> </span><span class="dv">0</span> <span class="op">&amp;&amp;</span><span class="st"> </span>debug) {</span>
-<span id="cb64-3"><a href="r-style-guide.html#cb64-3"></a>    <span class="kw">message</span>(<span class="st">&quot;y is negative&quot;</span>)</span>
-<span id="cb64-4"><a href="r-style-guide.html#cb64-4"></a>}</span>
-<span id="cb64-5"><a href="r-style-guide.html#cb64-5"></a></span>
-<span id="cb64-6"><a href="r-style-guide.html#cb64-6"></a><span class="cf">if</span> (y <span class="op">==</span><span class="st"> </span><span class="dv">0</span>) {</span>
-<span id="cb64-7"><a href="r-style-guide.html#cb64-7"></a>    <span class="cf">if</span> (x <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>) {</span>
-<span id="cb64-8"><a href="r-style-guide.html#cb64-8"></a>        <span class="kw">log</span>(x)</span>
-<span id="cb64-9"><a href="r-style-guide.html#cb64-9"></a>    } <span class="cf">else</span> {</span>
-<span id="cb64-10"><a href="r-style-guide.html#cb64-10"></a>        <span class="kw">message</span>(<span class="st">&quot;x is negative or zero&quot;</span>)</span>
-<span id="cb64-11"><a href="r-style-guide.html#cb64-11"></a>    }</span>
-<span id="cb64-12"><a href="r-style-guide.html#cb64-12"></a>} <span class="cf">else</span> {</span>
-<span id="cb64-13"><a href="r-style-guide.html#cb64-13"></a>    y<span class="op">^</span>x</span>
-<span id="cb64-14"><a href="r-style-guide.html#cb64-14"></a>}</span>
-<span id="cb64-15"><a href="r-style-guide.html#cb64-15"></a></span>
-<span id="cb64-16"><a href="r-style-guide.html#cb64-16"></a><span class="co"># bad</span></span>
-<span id="cb64-17"><a href="r-style-guide.html#cb64-17"></a><span class="cf">if</span> (y <span class="op">==</span><span class="st"> </span><span class="dv">0</span>)</span>
-<span id="cb64-18"><a href="r-style-guide.html#cb64-18"></a>{</span>
-<span id="cb64-19"><a href="r-style-guide.html#cb64-19"></a>  <span class="cf">if</span> (x <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>) {</span>
-<span id="cb64-20"><a href="r-style-guide.html#cb64-20"></a>    <span class="kw">log</span>(x)</span>
-<span id="cb64-21"><a href="r-style-guide.html#cb64-21"></a>  } <span class="cf">else</span> {</span>
-<span id="cb64-22"><a href="r-style-guide.html#cb64-22"></a><span class="kw">message</span>(<span class="st">&quot;x is negative or zero&quot;</span>)</span>
-<span id="cb64-23"><a href="r-style-guide.html#cb64-23"></a>  }</span>
-<span id="cb64-24"><a href="r-style-guide.html#cb64-24"></a>} <span class="cf">else</span> { y <span class="op">^</span><span class="st"> </span>x }</span></code></pre></div></li>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="r-style-guide.html#cb65-1"></a><span class="co"># good</span></span>
+<span id="cb65-2"><a href="r-style-guide.html#cb65-2"></a><span class="cf">if</span> (y <span class="op">&lt;</span><span class="st"> </span><span class="dv">0</span> <span class="op">&amp;&amp;</span><span class="st"> </span>debug) {</span>
+<span id="cb65-3"><a href="r-style-guide.html#cb65-3"></a>    <span class="kw">message</span>(<span class="st">&quot;y is negative&quot;</span>)</span>
+<span id="cb65-4"><a href="r-style-guide.html#cb65-4"></a>}</span>
+<span id="cb65-5"><a href="r-style-guide.html#cb65-5"></a></span>
+<span id="cb65-6"><a href="r-style-guide.html#cb65-6"></a><span class="cf">if</span> (y <span class="op">==</span><span class="st"> </span><span class="dv">0</span>) {</span>
+<span id="cb65-7"><a href="r-style-guide.html#cb65-7"></a>    <span class="cf">if</span> (x <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>) {</span>
+<span id="cb65-8"><a href="r-style-guide.html#cb65-8"></a>        <span class="kw">log</span>(x)</span>
+<span id="cb65-9"><a href="r-style-guide.html#cb65-9"></a>    } <span class="cf">else</span> {</span>
+<span id="cb65-10"><a href="r-style-guide.html#cb65-10"></a>        <span class="kw">message</span>(<span class="st">&quot;x is negative or zero&quot;</span>)</span>
+<span id="cb65-11"><a href="r-style-guide.html#cb65-11"></a>    }</span>
+<span id="cb65-12"><a href="r-style-guide.html#cb65-12"></a>} <span class="cf">else</span> {</span>
+<span id="cb65-13"><a href="r-style-guide.html#cb65-13"></a>    y<span class="op">^</span>x</span>
+<span id="cb65-14"><a href="r-style-guide.html#cb65-14"></a>}</span>
+<span id="cb65-15"><a href="r-style-guide.html#cb65-15"></a></span>
+<span id="cb65-16"><a href="r-style-guide.html#cb65-16"></a><span class="co"># bad</span></span>
+<span id="cb65-17"><a href="r-style-guide.html#cb65-17"></a><span class="cf">if</span> (y <span class="op">==</span><span class="st"> </span><span class="dv">0</span>)</span>
+<span id="cb65-18"><a href="r-style-guide.html#cb65-18"></a>{</span>
+<span id="cb65-19"><a href="r-style-guide.html#cb65-19"></a>  <span class="cf">if</span> (x <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>) {</span>
+<span id="cb65-20"><a href="r-style-guide.html#cb65-20"></a>    <span class="kw">log</span>(x)</span>
+<span id="cb65-21"><a href="r-style-guide.html#cb65-21"></a>  } <span class="cf">else</span> {</span>
+<span id="cb65-22"><a href="r-style-guide.html#cb65-22"></a><span class="kw">message</span>(<span class="st">&quot;x is negative or zero&quot;</span>)</span>
+<span id="cb65-23"><a href="r-style-guide.html#cb65-23"></a>  }</span>
+<span id="cb65-24"><a href="r-style-guide.html#cb65-24"></a>} <span class="cf">else</span> { y <span class="op">^</span><span class="st"> </span>x }</span></code></pre></div></li>
 </ul>
 </div>
 <div id="if-statements" class="section level3">
-<h3><span class="header-section-number">3.5.2</span> If Statements</h3>
+<h3><span class="header-section-number">4.5.2</span> If Statements</h3>
 <ul>
 <li>If used, <code>else</code> should be on the same line as <code>}</code>.</li>
 <li><code>&amp;</code> and <code>|</code> should never be used inside of an <code>if</code> clause because they can
@@ -603,117 +616,117 @@ return vectors. Always use <code>&amp;&amp;</code> and <code>||</code> instead.<
 </ul>
 </div>
 <div id="inline-statement" class="section level3">
-<h3><span class="header-section-number">3.5.3</span> Inline statement</h3>
+<h3><span class="header-section-number">4.5.3</span> Inline statement</h3>
 <ul>
 <li><p>You can write a simple <code>if</code> block on ane single line</p>
-<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="r-style-guide.html#cb65-1"></a>message &lt;-<span class="st"> </span><span class="cf">if</span> (x <span class="op">&gt;</span><span class="st"> </span><span class="dv">10</span>) <span class="st">&quot;big&quot;</span> <span class="cf">else</span> <span class="st">&quot;small&quot;</span></span></code></pre></div></li>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="r-style-guide.html#cb66-1"></a>message &lt;-<span class="st"> </span><span class="cf">if</span> (x <span class="op">&gt;</span><span class="st"> </span><span class="dv">10</span>) <span class="st">&quot;big&quot;</span> <span class="cf">else</span> <span class="st">&quot;small&quot;</span></span></code></pre></div></li>
 <li><p>Function calls that affect control flow (like <code>return()</code>, <code>stop()</code> or
 <code>continue</code>) should always go in their own <code>{}</code> block:</p>
-<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="r-style-guide.html#cb66-1"></a><span class="co"># Good</span></span>
-<span id="cb66-2"><a href="r-style-guide.html#cb66-2"></a><span class="cf">if</span> (y <span class="op">&lt;</span><span class="st"> </span><span class="dv">0</span>) {</span>
-<span id="cb66-3"><a href="r-style-guide.html#cb66-3"></a>    <span class="kw">stop</span>(<span class="st">&quot;Y is negative&quot;</span>)</span>
-<span id="cb66-4"><a href="r-style-guide.html#cb66-4"></a>}</span>
-<span id="cb66-5"><a href="r-style-guide.html#cb66-5"></a></span>
-<span id="cb66-6"><a href="r-style-guide.html#cb66-6"></a>find_abs &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</span>
-<span id="cb66-7"><a href="r-style-guide.html#cb66-7"></a>    <span class="cf">if</span> (x <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>) {</span>
-<span id="cb66-8"><a href="r-style-guide.html#cb66-8"></a>        <span class="kw">return</span>(x)</span>
-<span id="cb66-9"><a href="r-style-guide.html#cb66-9"></a>    }</span>
-<span id="cb66-10"><a href="r-style-guide.html#cb66-10"></a>    x <span class="op">*</span><span class="st"> </span><span class="dv">-1</span></span>
-<span id="cb66-11"><a href="r-style-guide.html#cb66-11"></a>}</span>
-<span id="cb66-12"><a href="r-style-guide.html#cb66-12"></a></span>
-<span id="cb66-13"><a href="r-style-guide.html#cb66-13"></a><span class="co"># Bad</span></span>
-<span id="cb66-14"><a href="r-style-guide.html#cb66-14"></a><span class="cf">if</span> (y <span class="op">&lt;</span><span class="st"> </span><span class="dv">0</span>) <span class="kw">stop</span>(<span class="st">&quot;Y is negative&quot;</span>)</span>
-<span id="cb66-15"><a href="r-style-guide.html#cb66-15"></a></span>
-<span id="cb66-16"><a href="r-style-guide.html#cb66-16"></a><span class="cf">if</span> (y <span class="op">&lt;</span><span class="st"> </span><span class="dv">0</span>)</span>
-<span id="cb66-17"><a href="r-style-guide.html#cb66-17"></a>    <span class="kw">stop</span>(<span class="st">&quot;Y is negative&quot;</span>)</span></code></pre></div></li>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="r-style-guide.html#cb67-1"></a><span class="co"># Good</span></span>
+<span id="cb67-2"><a href="r-style-guide.html#cb67-2"></a><span class="cf">if</span> (y <span class="op">&lt;</span><span class="st"> </span><span class="dv">0</span>) {</span>
+<span id="cb67-3"><a href="r-style-guide.html#cb67-3"></a>    <span class="kw">stop</span>(<span class="st">&quot;Y is negative&quot;</span>)</span>
+<span id="cb67-4"><a href="r-style-guide.html#cb67-4"></a>}</span>
+<span id="cb67-5"><a href="r-style-guide.html#cb67-5"></a></span>
+<span id="cb67-6"><a href="r-style-guide.html#cb67-6"></a>find_abs &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</span>
+<span id="cb67-7"><a href="r-style-guide.html#cb67-7"></a>    <span class="cf">if</span> (x <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>) {</span>
+<span id="cb67-8"><a href="r-style-guide.html#cb67-8"></a>        <span class="kw">return</span>(x)</span>
+<span id="cb67-9"><a href="r-style-guide.html#cb67-9"></a>    }</span>
+<span id="cb67-10"><a href="r-style-guide.html#cb67-10"></a>    x <span class="op">*</span><span class="st"> </span><span class="dv">-1</span></span>
+<span id="cb67-11"><a href="r-style-guide.html#cb67-11"></a>}</span>
+<span id="cb67-12"><a href="r-style-guide.html#cb67-12"></a></span>
+<span id="cb67-13"><a href="r-style-guide.html#cb67-13"></a><span class="co"># Bad</span></span>
+<span id="cb67-14"><a href="r-style-guide.html#cb67-14"></a><span class="cf">if</span> (y <span class="op">&lt;</span><span class="st"> </span><span class="dv">0</span>) <span class="kw">stop</span>(<span class="st">&quot;Y is negative&quot;</span>)</span>
+<span id="cb67-15"><a href="r-style-guide.html#cb67-15"></a></span>
+<span id="cb67-16"><a href="r-style-guide.html#cb67-16"></a><span class="cf">if</span> (y <span class="op">&lt;</span><span class="st"> </span><span class="dv">0</span>)</span>
+<span id="cb67-17"><a href="r-style-guide.html#cb67-17"></a>    <span class="kw">stop</span>(<span class="st">&quot;Y is negative&quot;</span>)</span></code></pre></div></li>
 </ul>
 </div>
 <div id="implicit-type-coercion" class="section level3">
-<h3><span class="header-section-number">3.5.4</span> Implicit type coercion</h3>
+<h3><span class="header-section-number">4.5.4</span> Implicit type coercion</h3>
 <p>Avoid implicit type coercion (e.g. from numeric to logical) in <code>if</code> statements:</p>
-<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="r-style-guide.html#cb67-1"></a><span class="co"># Good</span></span>
-<span id="cb67-2"><a href="r-style-guide.html#cb67-2"></a><span class="cf">if</span> (<span class="kw">length</span>(x) <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>) {</span>
-<span id="cb67-3"><a href="r-style-guide.html#cb67-3"></a>    <span class="co"># do something</span></span>
-<span id="cb67-4"><a href="r-style-guide.html#cb67-4"></a>}</span>
-<span id="cb67-5"><a href="r-style-guide.html#cb67-5"></a></span>
-<span id="cb67-6"><a href="r-style-guide.html#cb67-6"></a><span class="co"># Bad</span></span>
-<span id="cb67-7"><a href="r-style-guide.html#cb67-7"></a><span class="cf">if</span> (<span class="kw">length</span>(x)) {</span>
-<span id="cb67-8"><a href="r-style-guide.html#cb67-8"></a>    <span class="co"># do something</span></span>
-<span id="cb67-9"><a href="r-style-guide.html#cb67-9"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="r-style-guide.html#cb68-1"></a><span class="co"># Good</span></span>
+<span id="cb68-2"><a href="r-style-guide.html#cb68-2"></a><span class="cf">if</span> (<span class="kw">length</span>(x) <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>) {</span>
+<span id="cb68-3"><a href="r-style-guide.html#cb68-3"></a>    <span class="co"># do something</span></span>
+<span id="cb68-4"><a href="r-style-guide.html#cb68-4"></a>}</span>
+<span id="cb68-5"><a href="r-style-guide.html#cb68-5"></a></span>
+<span id="cb68-6"><a href="r-style-guide.html#cb68-6"></a><span class="co"># Bad</span></span>
+<span id="cb68-7"><a href="r-style-guide.html#cb68-7"></a><span class="cf">if</span> (<span class="kw">length</span>(x)) {</span>
+<span id="cb68-8"><a href="r-style-guide.html#cb68-8"></a>    <span class="co"># do something</span></span>
+<span id="cb68-9"><a href="r-style-guide.html#cb68-9"></a>}</span></code></pre></div>
 </div>
 <div id="switch-statements" class="section level3">
-<h3><span class="header-section-number">3.5.5</span> Switch statements</h3>
+<h3><span class="header-section-number">4.5.5</span> Switch statements</h3>
 <ul>
 <li><p>Avoid position-based <code>switch()</code> statements (i.e. prefer names).</p></li>
 <li><p>Each element should go on its own line.</p></li>
 <li><p>Elements that fall through to the following element should have a space after
 <code>=</code>.</p></li>
 <li><p>Provide a fall-through error, unless you have previously validated the input.</p>
-<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="r-style-guide.html#cb68-1"></a><span class="co"># Good </span></span>
-<span id="cb68-2"><a href="r-style-guide.html#cb68-2"></a><span class="cf">switch</span>(x, </span>
-<span id="cb68-3"><a href="r-style-guide.html#cb68-3"></a>    <span class="dt">a =</span> ,</span>
-<span id="cb68-4"><a href="r-style-guide.html#cb68-4"></a>    <span class="dt">b =</span> <span class="dv">1</span>, </span>
-<span id="cb68-5"><a href="r-style-guide.html#cb68-5"></a>    <span class="dt">c =</span> <span class="dv">2</span>,</span>
-<span id="cb68-6"><a href="r-style-guide.html#cb68-6"></a>    <span class="kw">stop</span>(<span class="st">&quot;Unknown `x`&quot;</span>, <span class="dt">call. =</span> <span class="ot">FALSE</span>)</span>
-<span id="cb68-7"><a href="r-style-guide.html#cb68-7"></a>)</span>
-<span id="cb68-8"><a href="r-style-guide.html#cb68-8"></a></span>
-<span id="cb68-9"><a href="r-style-guide.html#cb68-9"></a><span class="co"># Bad</span></span>
-<span id="cb68-10"><a href="r-style-guide.html#cb68-10"></a><span class="cf">switch</span>(x, <span class="dt">a =</span> , <span class="dt">b =</span> <span class="dv">1</span>, <span class="dt">c =</span> <span class="dv">2</span>)</span>
-<span id="cb68-11"><a href="r-style-guide.html#cb68-11"></a><span class="cf">switch</span>(x, <span class="dt">a =</span>, <span class="dt">b =</span> <span class="dv">1</span>, <span class="dt">c =</span> <span class="dv">2</span>)</span>
-<span id="cb68-12"><a href="r-style-guide.html#cb68-12"></a><span class="cf">switch</span>(y, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span></code></pre></div></li>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="r-style-guide.html#cb69-1"></a><span class="co"># Good </span></span>
+<span id="cb69-2"><a href="r-style-guide.html#cb69-2"></a><span class="cf">switch</span>(x, </span>
+<span id="cb69-3"><a href="r-style-guide.html#cb69-3"></a>    <span class="dt">a =</span> ,</span>
+<span id="cb69-4"><a href="r-style-guide.html#cb69-4"></a>    <span class="dt">b =</span> <span class="dv">1</span>, </span>
+<span id="cb69-5"><a href="r-style-guide.html#cb69-5"></a>    <span class="dt">c =</span> <span class="dv">2</span>,</span>
+<span id="cb69-6"><a href="r-style-guide.html#cb69-6"></a>    <span class="kw">stop</span>(<span class="st">&quot;Unknown `x`&quot;</span>, <span class="dt">call. =</span> <span class="ot">FALSE</span>)</span>
+<span id="cb69-7"><a href="r-style-guide.html#cb69-7"></a>)</span>
+<span id="cb69-8"><a href="r-style-guide.html#cb69-8"></a></span>
+<span id="cb69-9"><a href="r-style-guide.html#cb69-9"></a><span class="co"># Bad</span></span>
+<span id="cb69-10"><a href="r-style-guide.html#cb69-10"></a><span class="cf">switch</span>(x, <span class="dt">a =</span> , <span class="dt">b =</span> <span class="dv">1</span>, <span class="dt">c =</span> <span class="dv">2</span>)</span>
+<span id="cb69-11"><a href="r-style-guide.html#cb69-11"></a><span class="cf">switch</span>(x, <span class="dt">a =</span>, <span class="dt">b =</span> <span class="dv">1</span>, <span class="dt">c =</span> <span class="dv">2</span>)</span>
+<span id="cb69-12"><a href="r-style-guide.html#cb69-12"></a><span class="cf">switch</span>(y, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span></code></pre></div></li>
 </ul>
 </div>
 </div>
 <div id="long-lines-1" class="section level2">
-<h2><span class="header-section-number">3.6</span> Long lines</h2>
+<h2><span class="header-section-number">4.6</span> Long lines</h2>
 <ul>
 <li><p>Strive to limit your code to 80 characters per line.</p></li>
 <li><p>If a function call is too long to fit on a single line, use one line each for
 the function name, each argument, and the closing <code>)</code>. This makes the code
 easier to read and to change later.</p>
-<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="r-style-guide.html#cb69-1"></a><span class="co"># Good</span></span>
-<span id="cb69-2"><a href="r-style-guide.html#cb69-2"></a><span class="kw">do_something_very_complicated</span>(</span>
-<span id="cb69-3"><a href="r-style-guide.html#cb69-3"></a>    <span class="dt">something =</span> <span class="st">&quot;that&quot;</span>,</span>
-<span id="cb69-4"><a href="r-style-guide.html#cb69-4"></a>    <span class="dt">requires =</span> many,</span>
-<span id="cb69-5"><a href="r-style-guide.html#cb69-5"></a>    <span class="dt">arguments =</span> <span class="st">&quot;some of which may be long&quot;</span></span>
-<span id="cb69-6"><a href="r-style-guide.html#cb69-6"></a>)</span>
-<span id="cb69-7"><a href="r-style-guide.html#cb69-7"></a></span>
-<span id="cb69-8"><a href="r-style-guide.html#cb69-8"></a><span class="co"># Bad</span></span>
-<span id="cb69-9"><a href="r-style-guide.html#cb69-9"></a><span class="kw">do_something_very_complicated</span>(<span class="st">&quot;that&quot;</span>, requires, many, arguments,</span>
-<span id="cb69-10"><a href="r-style-guide.html#cb69-10"></a>                              <span class="st">&quot;some of which may be long&quot;</span></span>
-<span id="cb69-11"><a href="r-style-guide.html#cb69-11"></a>                             )</span></code></pre></div></li>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="r-style-guide.html#cb70-1"></a><span class="co"># Good</span></span>
+<span id="cb70-2"><a href="r-style-guide.html#cb70-2"></a><span class="kw">do_something_very_complicated</span>(</span>
+<span id="cb70-3"><a href="r-style-guide.html#cb70-3"></a>    <span class="dt">something =</span> <span class="st">&quot;that&quot;</span>,</span>
+<span id="cb70-4"><a href="r-style-guide.html#cb70-4"></a>    <span class="dt">requires =</span> many,</span>
+<span id="cb70-5"><a href="r-style-guide.html#cb70-5"></a>    <span class="dt">arguments =</span> <span class="st">&quot;some of which may be long&quot;</span></span>
+<span id="cb70-6"><a href="r-style-guide.html#cb70-6"></a>)</span>
+<span id="cb70-7"><a href="r-style-guide.html#cb70-7"></a></span>
+<span id="cb70-8"><a href="r-style-guide.html#cb70-8"></a><span class="co"># Bad</span></span>
+<span id="cb70-9"><a href="r-style-guide.html#cb70-9"></a><span class="kw">do_something_very_complicated</span>(<span class="st">&quot;that&quot;</span>, requires, many, arguments,</span>
+<span id="cb70-10"><a href="r-style-guide.html#cb70-10"></a>                              <span class="st">&quot;some of which may be long&quot;</span></span>
+<span id="cb70-11"><a href="r-style-guide.html#cb70-11"></a>                             )</span></code></pre></div></li>
 <li><p>Short unnamed arguments can also go on the same line as the function name,
 even if the whole function call spans multiple lines.</p>
-<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="r-style-guide.html#cb70-1"></a><span class="kw">map</span>(x, f,</span>
-<span id="cb70-2"><a href="r-style-guide.html#cb70-2"></a>    <span class="dt">extra_argument_a =</span> <span class="dv">10</span>,</span>
-<span id="cb70-3"><a href="r-style-guide.html#cb70-3"></a>    <span class="dt">extra_argument_b =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">43</span>, <span class="dv">390</span>, <span class="dv">210209</span>)</span>
-<span id="cb70-4"><a href="r-style-guide.html#cb70-4"></a>)</span></code></pre></div></li>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="r-style-guide.html#cb71-1"></a><span class="kw">map</span>(x, f,</span>
+<span id="cb71-2"><a href="r-style-guide.html#cb71-2"></a>    <span class="dt">extra_argument_a =</span> <span class="dv">10</span>,</span>
+<span id="cb71-3"><a href="r-style-guide.html#cb71-3"></a>    <span class="dt">extra_argument_b =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">43</span>, <span class="dv">390</span>, <span class="dv">210209</span>)</span>
+<span id="cb71-4"><a href="r-style-guide.html#cb71-4"></a>)</span></code></pre></div></li>
 <li><p>You may also place several arguments on the same line if they are closely
 related to each other.</p>
-<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="r-style-guide.html#cb71-1"></a><span class="co"># Good</span></span>
-<span id="cb71-2"><a href="r-style-guide.html#cb71-2"></a><span class="kw">paste0</span>(</span>
-<span id="cb71-3"><a href="r-style-guide.html#cb71-3"></a>    <span class="st">&quot;Requirement: &quot;</span>, requires, <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>,</span>
-<span id="cb71-4"><a href="r-style-guide.html#cb71-4"></a>    <span class="st">&quot;Result: &quot;</span>, result, <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span></span>
-<span id="cb71-5"><a href="r-style-guide.html#cb71-5"></a>)</span>
-<span id="cb71-6"><a href="r-style-guide.html#cb71-6"></a></span>
-<span id="cb71-7"><a href="r-style-guide.html#cb71-7"></a><span class="co"># Bad</span></span>
-<span id="cb71-8"><a href="r-style-guide.html#cb71-8"></a><span class="kw">paste0</span>(</span>
-<span id="cb71-9"><a href="r-style-guide.html#cb71-9"></a>    <span class="st">&quot;Requirement: &quot;</span>, requires,</span>
-<span id="cb71-10"><a href="r-style-guide.html#cb71-10"></a>    <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>, <span class="st">&quot;Result: &quot;</span>,</span>
-<span id="cb71-11"><a href="r-style-guide.html#cb71-11"></a>    result, <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)</span></code></pre></div></li>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="r-style-guide.html#cb72-1"></a><span class="co"># Good</span></span>
+<span id="cb72-2"><a href="r-style-guide.html#cb72-2"></a><span class="kw">paste0</span>(</span>
+<span id="cb72-3"><a href="r-style-guide.html#cb72-3"></a>    <span class="st">&quot;Requirement: &quot;</span>, requires, <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>,</span>
+<span id="cb72-4"><a href="r-style-guide.html#cb72-4"></a>    <span class="st">&quot;Result: &quot;</span>, result, <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span></span>
+<span id="cb72-5"><a href="r-style-guide.html#cb72-5"></a>)</span>
+<span id="cb72-6"><a href="r-style-guide.html#cb72-6"></a></span>
+<span id="cb72-7"><a href="r-style-guide.html#cb72-7"></a><span class="co"># Bad</span></span>
+<span id="cb72-8"><a href="r-style-guide.html#cb72-8"></a><span class="kw">paste0</span>(</span>
+<span id="cb72-9"><a href="r-style-guide.html#cb72-9"></a>    <span class="st">&quot;Requirement: &quot;</span>, requires,</span>
+<span id="cb72-10"><a href="r-style-guide.html#cb72-10"></a>    <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>, <span class="st">&quot;Result: &quot;</span>,</span>
+<span id="cb72-11"><a href="r-style-guide.html#cb72-11"></a>    result, <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)</span></code></pre></div></li>
 </ul>
 </div>
 <div id="semicolons" class="section level2">
-<h2><span class="header-section-number">3.7</span> Semicolons</h2>
+<h2><span class="header-section-number">4.7</span> Semicolons</h2>
 <p>Don’t put <code>;</code> at the end of a line, and don’t use <code>;</code> to put multiple commands
 on one line.</p>
 </div>
 <div id="assignment-1" class="section level2">
-<h2><span class="header-section-number">3.8</span> Assignment</h2>
+<h2><span class="header-section-number">4.8</span> Assignment</h2>
 <p>Use <code>&lt;-</code>, not <code>=</code>, for assignment.</p>
 </div>
 <div id="character-vectors" class="section level2">
-<h2><span class="header-section-number">3.9</span> Character vectors</h2>
+<h2><span class="header-section-number">4.9</span> Character vectors</h2>
 <p>Use <code>"</code>, not <code>'</code>, for quoting text. The only exception is when the text already
 contains double quotes and no single quotes.</p>
 <pre><code># Good
@@ -726,11 +739,11 @@ contains double quotes and no single quotes.</p>
 &#39;Text with &quot;double&quot; and \&#39;single\&#39; quotes&#39;</code></pre>
 </div>
 <div id="logical-vectors" class="section level2">
-<h2><span class="header-section-number">3.10</span> Logical vectors</h2>
+<h2><span class="header-section-number">4.10</span> Logical vectors</h2>
 <p>Use <code>TRUE</code> and <code>FALSE</code> rather than <code>T</code> and <code>F</code>.</p>
 </div>
 <div id="comments-2" class="section level2">
-<h2><span class="header-section-number">3.11</span> Comments</h2>
+<h2><span class="header-section-number">4.11</span> Comments</h2>
 <p>Each line of a comment should begin with the comment symbol <code>#</code> and a single space.</p>
 <p>In data analysis code, use comments to record important findings and analysis
 decisions. If you need comments to explain what your code is doing, consider
@@ -738,7 +751,7 @@ rewriting your code to be clearer. If you discover that you have more comments
 than code, consider switching to <a href="https://rmarkdown.rstudio.com/">R Markdown</a>.</p>
 </div>
 <div id="resources-1" class="section level2">
-<h2><span class="header-section-number">3.12</span> Resources</h2>
+<h2><span class="header-section-number">4.12</span> Resources</h2>
 <ul>
 <li><a href="https://github.com/r-lib/styler">styler</a>: formatting your code according to
 the tidyverse style guide (or your custom style guide) so you can direct your
@@ -788,7 +801,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/yiluheihei/codestyle/edit/master/03-R.Rmd",
+"link": "https://github.com/yiluheihei/good-practice-bioinformatics/edit/master/04-R.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -799,7 +812,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["codestyle.pdf.pdf"],
+"download": ["codestyle.pdf"],
 "search": {
 "engine": "fuse",
 "options": null

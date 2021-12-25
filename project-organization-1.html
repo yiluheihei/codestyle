@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Page not found | Good practices in bioinformatic or computational biology projects</title>
-  <meta name="description" content="Page not found | Good practices in bioinformatic or computational biology projects" />
+  <title>Chapter 1 Project Organization | Good practices in bioinformatic or computational biology projects</title>
+  <meta name="description" content="Chapter 1 Project Organization | Good practices in bioinformatic or computational biology projects" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Page not found | Good practices in bioinformatic or computational biology projects" />
+  <meta property="og:title" content="Chapter 1 Project Organization | Good practices in bioinformatic or computational biology projects" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="yiluheihei/codestyle" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Page not found | Good practices in bioinformatic or computational biology projects" />
+  <meta name="twitter:title" content="Chapter 1 Project Organization | Good practices in bioinformatic or computational biology projects" />
   
   
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-
+<link rel="prev" href="index.html"/>
+<link rel="next" href="bash-shell-style-guide.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -262,19 +262,141 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="page-not-found" class="section level1">
-<h1>Page not found</h1>
-<p>The page you requested cannot be found (perhaps it was moved or renamed).</p>
-<p>You may want to try searching to find the page's new location, or use
-the table of contents to find the page you are looking for.</p>
+<div id="project-organization-1" class="section level1">
+<h1><span class="header-section-number">Chapter 1</span> Project Organization</h1>
+<p>As a rule of thumb, divide work into projects based on the overlap in data and
+code files. If 2 research efforts share no data or code, they will probably be
+easiest to manage independently. If they share more than half of their data and
+code, they are probably best managed together, while if you are building tools
+that are used in several projects, the common code should probably be in a
+project of its own.</p>
+<p>Projects do often require their own organizational model, but below are general
+recommendations on how you can structure data, code, analysis outputs, and other
+files. The important concept is that it is useful to organize the project by
+the types of files and that consistency helps you effectively find and use
+things later.</p>
+<p><strong>All files should be named using using <code>snake_case</code> to reflect their content or
+function.</strong></p>
+<div id="readme" class="section level2">
+<h2><span class="header-section-number">1.1</span> README</h2>
+<p><code>README</code> should be created in the root directory of the project to introduce
+and explain the project. It should at least cover the following terms:</p>
+<ul>
+<li>The project’s title, a brief description.</li>
+<li>Dependencies and requirements, and how to install the requirements. If all the
+requirements have been installed on your server, please detailed that whether
+others should add the paths of the tools to the <code>PATH</code> variable. If a docker
+image which preinstalled all dependencies and requirements has been created,
+please provides details on how to use it.</li>
+<li>A simple example on how to run the analysis tasks of the project.
+an example or 2 of how to run various cleaning or analysis tasks.</li>
+<li>If the project is a software or pipeline, I recommend to write a detailed
+manual, which can help others to use it.</li>
+</ul>
 </div>
+<div id="document" class="section level2">
+<h2><span class="header-section-number">1.2</span> Document</h2>
+<p>Put text documents associated with the project in the <code>doc</code> directory. This
+includes files for manuscripts, documentation for source code, and/or an
+electronic lab notebook recording your experiments. Subdirectories may be
+created for these different classes of files in large projects.</p>
+</div>
+<div id="data" class="section level2">
+<h2><span class="header-section-number">1.3</span> Data</h2>
+<p>Put raw data and metadata in the <code>data</code> directory. The <code>data</code> directory might
+require subdirectories to organize raw data based on time, method of collection,
+or other metadata most relevant to your analysis.</p>
+</div>
+<div id="results" class="section level2">
+<h2><span class="header-section-number">1.4</span> Results</h2>
+<p>Files generated during cleanup and analysis in the <code>results</code> directory where
+“generated files” includes intermediate results such as cleaned data sets or
+simulated data, as well as final results such as figures and tables.</p>
+<p>The <code>results</code> directory will usually require additional subdirectories. Intermediate files such as cleaned data, statistical tables, and figures should be separated clearly by file-naming conventions or placed into different subdirectories.</p>
+</div>
+<div id="code" class="section level2">
+<h2><span class="header-section-number">1.5</span> Code</h2>
+<p><code>src</code> contains all of the code written for the project. This includes programs
+written in interpreted languages such as R or Python; those written in compiled
+languages like Fortran, C++, or Java; as well as shell scripts, snippets of SQL
+used to pull information from databases; and other code needed to regenerate the
+results.</p>
+</div>
+<div id="compiled-programs" class="section level2">
+<h2><span class="header-section-number">1.6</span> Compiled programs</h2>
+<p>Compiled programs should be saved in the <code>bin</code> directory. Projects that do not
+have any executable programs compiled from code in the src directory will not
+require bin.</p>
+</div>
+<div id="example" class="section level2">
+<h2><span class="header-section-number">1.7</span> Example</h2>
+<ul>
+<li>A <code>README</code> file that provides an overview of the project as a whole.</li>
+<li>The <code>data</code> directory contains the sequence file (machine-readable metadata
+could also be included here).</li>
+<li>The <code>src</code> directory contains <code>run_shapemap</code>, a Python file containing
+functions to analysis the shapemap data, <code>run_3wj</code> to perform 3WJ prediction,
+and a controller script <code>runall.py</code> that run all the analysis.</li>
+<li>Different results (shape and 3wj) are saved on their own subdirectories
+in the <code>results</code> directory.</li>
+<li>Optional: A <code>CITATION</code> file that explains how to reference it, and a <code>LICENSE</code> file that states the licensing.</li>
+</ul>
+<pre><code>|-- README
+
+|-- requirements.txt
+
+|-- data
+
+|  |-- sample1.fq
+
+|  |-- sample2.fq
+
+|-- doc
+
+|  |-- notebook.md
+
+|  |-- manuscript.md
+
+|  |-- changelog.txt
+
+|-- results
+
+|  |-- shapemap
+
+|  |  |-- res.shapemap
+
+|  |-- 3WJ
+
+|  |  |-- 3wj.csv
+
+|  |  |-- 4wj.csv
+
+|  |  | -- ...
+
+|-- src
+
+|  |-- run_shapmap.py
+
+|  |-- run_3wj.py
+
+|  |-- runall.py
+
+|-- CITATION
+
+|-- LICENSE</code></pre>
+
+</div>
+</div>
+
+
+
             </section>
 
           </div>
         </div>
       </div>
-
-
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="bash-shell-style-guide.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -305,7 +427,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/yiluheihei/good-practice-bioinformatics/edit/master/%s",
+"link": "https://github.com/yiluheihei/good-practice-bioinformatics/edit/master/01-proj-organization.Rmd",
 "text": "Edit"
 },
 "history": {
