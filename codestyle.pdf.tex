@@ -822,69 +822,23 @@ Python filenames must have a \texttt{.py} extension and must not contain dashes 
 \hypertarget{naming-guides-from-google-python-style}{%
 \subsubsection{\texorpdfstring{\href{https://google.github.io/styleguide/pyguide.html\#s3.16.4-guidelines-derived-from-guidos-recommendations}{Naming guides from google python style}}{Naming guides from google python style}}\label{naming-guides-from-google-python-style}}
 
-Type
-
-Public
-
-Internal
-
-Packages
-
-lower\_with\_under
-
-Modules
-
-lower\_with\_under
-
-\_lower\_with\_under
-
-Classes
-
-CapWords
-
-\_CapWords
-
-Exceptions
-
-CapWords
-
-Functions
-
-lower\_with\_under()
-
-\_lower\_with\_under()
-
-Global/Class Constants
-
-CAPS\_WITH\_UNDER
-
-\_CAPS\_WITH\_UNDER
-
-Global/Class Variables
-
-lower\_with\_under
-
-\_lower\_with\_under
-
-Instance Variables
-
-lower\_with\_under
-
-\_lower\_with\_under (protected)
-
-Method Names
-
-lower\_with\_under()
-
-\_lower\_with\_under() (protected)
-
-Function/Method Parameters
-
-lower\_with\_under
-
-Local Variables
-
-lower\_with\_under
+\begin{longtable}[]{@{}lll@{}}
+\toprule
+Type & Public & Internal\tabularnewline
+\midrule
+\endhead
+Packages & \texttt{lower\_with\_under} &\tabularnewline
+Classes & \texttt{CapWords} & \texttt{\_CapWords}\tabularnewline
+Exceptions & \texttt{CapWords} &\tabularnewline
+Functions & \texttt{lower\_with\_under()} & \texttt{lower\_with\_under()}\tabularnewline
+Global/Class Constants & \texttt{CAPS\_WITH\_UNDER} & \texttt{\_CAPS\_WITH\_UNDER}\tabularnewline
+Global/Class Variables & \texttt{lower\_with\_under} & \texttt{\_lower\_with\_under}\tabularnewline
+Instance Variables & \texttt{lower\_with\_under} & \texttt{\_lower\_with\_under}\tabularnewline
+Method Names & \texttt{lower\_with\_under()} & \texttt{\_lower\_with\_under()}\tabularnewline
+Function/Method Parameters & \texttt{lower\_with\_under} &\tabularnewline
+Local Variables & \texttt{lower\_with\_under} &\tabularnewline
+\bottomrule
+\end{longtable}
 
 \hypertarget{code-layout}{%
 \section{Code Layout}\label{code-layout}}
@@ -1163,17 +1117,17 @@ element.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-  \CommentTok{# good}
-\NormalTok{  golomb3 }\OperatorTok{=}\NormalTok{ [}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{3}\NormalTok{]}
-\NormalTok{  golomb4 }\OperatorTok{=}\NormalTok{ [}
-      \DecValTok{0}\NormalTok{,}
-      \DecValTok{1}\NormalTok{,}
-      \DecValTok{4}\NormalTok{,}
-      \DecValTok{6}\NormalTok{,}
-\NormalTok{  ]}
-  
-  \CommentTok{# bad}
-\NormalTok{  golomb4 }\OperatorTok{=}\NormalTok{ [}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{6}\NormalTok{,]}
+\CommentTok{# good}
+\NormalTok{golomb3 }\OperatorTok{=}\NormalTok{ [}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{3}\NormalTok{]}
+\NormalTok{golomb4 }\OperatorTok{=}\NormalTok{ [}
+    \DecValTok{0}\NormalTok{,}
+    \DecValTok{1}\NormalTok{,}
+    \DecValTok{4}\NormalTok{,}
+    \DecValTok{6}\NormalTok{,}
+\NormalTok{]}
+
+\CommentTok{# bad}
+\NormalTok{golomb4 }\OperatorTok{=}\NormalTok{ [}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{6}\NormalTok{,]}
 \end{Highlighting}
 \end{Shaded}
 

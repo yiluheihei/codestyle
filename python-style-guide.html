@@ -456,136 +456,66 @@ a word.</p>
 <p>Python filenames must have a <code>.py</code> extension and must not contain dashes (<code>-</code>).</p>
 <div id="naming-guides-from-google-python-style" class="section level4">
 <h4><span class="header-section-number">2.2.2.1</span> <a href="https://google.github.io/styleguide/pyguide.html#s3.16.4-guidelines-derived-from-guidos-recommendations">Naming guides from google python style</a></h4>
-<table rules="all" border="1" summary="Guidelines from Guido's Recommendations"
-       cellspacing="2" cellpadding="2">
-<tr>
-<th>
-Type
-</th>
-<th>
-Public
-</th>
-<th>
-Internal
-</th>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Type</th>
+<th align="left">Public</th>
+<th align="left">Internal</th>
 </tr>
-<tr>
-<td>
-Packages
-</td>
-<td>
-<code>lower_with_under</code>
-</td>
-<td>
-</td>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Packages</td>
+<td align="left"><code>lower_with_under</code></td>
+<td align="left"></td>
 </tr>
-<tr>
-<td>
-Modules
-</td>
-<td>
-<code>lower_with_under</code>
-</td>
-<td>
-<code>_lower_with_under</code>
-</td>
+<tr class="even">
+<td align="left">Classes</td>
+<td align="left"><code>CapWords</code></td>
+<td align="left"><code>_CapWords</code></td>
 </tr>
-<tr>
-<td>
-Classes
-</td>
-<td>
-<code>CapWords</code>
-</td>
-<td>
-<code>_CapWords</code>
-</td>
+<tr class="odd">
+<td align="left">Exceptions</td>
+<td align="left"><code>CapWords</code></td>
+<td align="left"></td>
 </tr>
-<tr>
-<td>
-Exceptions
-</td>
-<td>
-<code>CapWords</code>
-</td>
-<td>
-</td>
+<tr class="even">
+<td align="left">Functions</td>
+<td align="left"><code>lower_with_under()</code></td>
+<td align="left"><code>lower_with_under()</code></td>
 </tr>
-<tr>
-<td>
-Functions
-</td>
-<td>
-<code>lower_with_under()</code>
-</td>
-<td>
-<code>_lower_with_under()</code>
-</td>
+<tr class="odd">
+<td align="left">Global/Class Constants</td>
+<td align="left"><code>CAPS_WITH_UNDER</code></td>
+<td align="left"><code>_CAPS_WITH_UNDER</code></td>
 </tr>
-<tr>
-<td>
-Global/Class Constants
-</td>
-<td>
-<code>CAPS_WITH_UNDER</code>
-</td>
-<td>
-<code>_CAPS_WITH_UNDER</code>
-</td>
+<tr class="even">
+<td align="left">Global/Class Variables</td>
+<td align="left"><code>lower_with_under</code></td>
+<td align="left"><code>_lower_with_under</code></td>
 </tr>
-<tr>
-<td>
-Global/Class Variables
-</td>
-<td>
-<code>lower_with_under</code>
-</td>
-<td>
-<code>_lower_with_under</code>
-</td>
+<tr class="odd">
+<td align="left">Instance Variables</td>
+<td align="left"><code>lower_with_under</code></td>
+<td align="left"><code>_lower_with_under</code></td>
 </tr>
-<tr>
-<td>
-Instance Variables
-</td>
-<td>
-<code>lower_with_under</code>
-</td>
-<td>
-<code>_lower_with_under</code> (protected)
-</td>
+<tr class="even">
+<td align="left">Method Names</td>
+<td align="left"><code>lower_with_under()</code></td>
+<td align="left"><code>_lower_with_under()</code></td>
 </tr>
-<tr>
-<td>
-Method Names
-</td>
-<td>
-<code>lower_with_under()</code>
-</td>
-<td>
-<code>_lower_with_under()</code> (protected)
-</td>
+<tr class="odd">
+<td align="left">Function/Method Parameters</td>
+<td align="left"><code>lower_with_under</code></td>
+<td align="left"></td>
 </tr>
-<tr>
-<td>
-Function/Method Parameters
-</td>
-<td>
-<code>lower_with_under</code>
-</td>
-<td>
-</td>
+<tr class="even">
+<td align="left">Local Variables</td>
+<td align="left"><code>lower_with_under</code></td>
+<td align="left"></td>
 </tr>
-<tr>
-<td>
-Local Variables
-</td>
-<td>
-<code>lower_with_under</code>
-</td>
-<td>
-</td>
-</tr>
+</tbody>
 </table>
 </div>
 </div>
@@ -764,17 +694,17 @@ use spaces around the = for the default parameter value.</p>
 <p>Trailing commas in sequences of items are recommended only when the closing
 container token <code>]</code>, <code>)</code>, or <code>}</code> does not appear on the same line as the final
 element.</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb34-1"><a href="python-style-guide.html#cb34-1"></a>  <span class="co"># good</span></span>
-<span id="cb34-2"><a href="python-style-guide.html#cb34-2"></a>  golomb3 <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">3</span>]</span>
-<span id="cb34-3"><a href="python-style-guide.html#cb34-3"></a>  golomb4 <span class="op">=</span> [</span>
-<span id="cb34-4"><a href="python-style-guide.html#cb34-4"></a>      <span class="dv">0</span>,</span>
-<span id="cb34-5"><a href="python-style-guide.html#cb34-5"></a>      <span class="dv">1</span>,</span>
-<span id="cb34-6"><a href="python-style-guide.html#cb34-6"></a>      <span class="dv">4</span>,</span>
-<span id="cb34-7"><a href="python-style-guide.html#cb34-7"></a>      <span class="dv">6</span>,</span>
-<span id="cb34-8"><a href="python-style-guide.html#cb34-8"></a>  ]</span>
-<span id="cb34-9"><a href="python-style-guide.html#cb34-9"></a>  </span>
-<span id="cb34-10"><a href="python-style-guide.html#cb34-10"></a>  <span class="co"># bad</span></span>
-<span id="cb34-11"><a href="python-style-guide.html#cb34-11"></a>  golomb4 <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">6</span>,]</span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb34-1"><a href="python-style-guide.html#cb34-1"></a><span class="co"># good</span></span>
+<span id="cb34-2"><a href="python-style-guide.html#cb34-2"></a>golomb3 <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">3</span>]</span>
+<span id="cb34-3"><a href="python-style-guide.html#cb34-3"></a>golomb4 <span class="op">=</span> [</span>
+<span id="cb34-4"><a href="python-style-guide.html#cb34-4"></a>    <span class="dv">0</span>,</span>
+<span id="cb34-5"><a href="python-style-guide.html#cb34-5"></a>    <span class="dv">1</span>,</span>
+<span id="cb34-6"><a href="python-style-guide.html#cb34-6"></a>    <span class="dv">4</span>,</span>
+<span id="cb34-7"><a href="python-style-guide.html#cb34-7"></a>    <span class="dv">6</span>,</span>
+<span id="cb34-8"><a href="python-style-guide.html#cb34-8"></a>]</span>
+<span id="cb34-9"><a href="python-style-guide.html#cb34-9"></a></span>
+<span id="cb34-10"><a href="python-style-guide.html#cb34-10"></a><span class="co"># bad</span></span>
+<span id="cb34-11"><a href="python-style-guide.html#cb34-11"></a>golomb4 <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">6</span>,]</span></code></pre></div>
 </div>
 <div id="strings" class="section level3">
 <h3><span class="header-section-number">2.3.7</span> Strings</h3>
@@ -893,7 +823,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/yiluheihei/codestyle/edit/BRANCH/02-python.Rmd",
+"link": "https://github.com/yiluheihei/codestyle/edit/master/02-python.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -904,7 +834,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["_main.pdf", "_main.epub"],
+"download": ["codestyle.pdf.pdf"],
 "search": {
 "engine": "fuse",
 "options": null
