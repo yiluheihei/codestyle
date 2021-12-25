@@ -1,4 +1,4 @@
-book_filename: "codestyle"
+book_filename: "good-practice-bioinformatics"
 delete_merged_file: true
 language:
   ui:
