@@ -32,6 +32,11 @@ jobs:
       - name: Install bookdown
         run: Rscript -e 'install.packages(c("rmarkdown","bookdown"))'
 
+      - name: Install TinyTeX
+        uses: r-lib/actions/setup-tinytex@v1
+        env:
+          # install full prebuilt version
+          TINYTEX_INSTALLER: TinyTeX
       
       - name: Build site
         run: |
