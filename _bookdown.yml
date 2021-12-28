@@ -9,3 +9,4 @@ rmd_files:
   - "02-bash.Rmd"
   - "03-python.Rmd"
   - "04-R.Rmd"
+  - "05-WDL.Rmd"

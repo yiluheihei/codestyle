@@ -42,9 +42,9 @@ The bash is derived from
 [Google's shell style guide](https://google.github.io/styleguide/shellguide.html); 
 python code style is derived from 
 [Google's python style guide](https://www.python.org/dev/peps/pep-0008/) and 
-[PEP 8 style guide for python](https://www.python.org/dev/peps/pep-0008/); and 
-the R code style is drived from 
-[Tidyverse Style Guide](https://style.tidyverse.org/).
+[PEP 8 style guide for python](https://www.python.org/dev/peps/pep-0008/); 
+the R code style is derived from 
+[Tidyverse Style Guide](https://style.tidyverse.org/); and WDL style is derived from [BioWDL style](https://biowdl.github.io/styleGuidelines.html).
 
 **If you’re modifying existing files, you should follow the style that’s already 
 in the files.**
