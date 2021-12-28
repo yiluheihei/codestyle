@@ -24,7 +24,7 @@
 <meta name="author" content="Yang Cao" />
 
 
-<meta name="date" content="2021-12-25" />
+<meta name="date" content="2021-12-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -242,6 +242,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.11" data-path="r-style-guide.html"><a href="r-style-guide.html#comments-2"><i class="fa fa-check"></i><b>4.11</b> Comments</a></li>
 <li class="chapter" data-level="4.12" data-path="r-style-guide.html"><a href="r-style-guide.html#resources-1"><i class="fa fa-check"></i><b>4.12</b> Resources</a></li>
 </ul></li>
+<li class="chapter" data-level="5" data-path="wdl-style-guide.html"><a href="wdl-style-guide.html"><i class="fa fa-check"></i><b>5</b> WDL style guide</a><ul>
+<li class="chapter" data-level="5.1" data-path="wdl-style-guide.html"><a href="wdl-style-guide.html#name-conventions"><i class="fa fa-check"></i><b>5.1</b> Name conventions</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="wdl-style-guide.html"><a href="wdl-style-guide.html#input-and-output-names"><i class="fa fa-check"></i><b>5.1.1</b> Input and output names</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="wdl-style-guide.html"><a href="wdl-style-guide.html#indentation-2"><i class="fa fa-check"></i><b>5.2</b> Indentation</a></li>
+<li class="chapter" data-level="5.3" data-path="wdl-style-guide.html"><a href="wdl-style-guide.html#blank-lines-1"><i class="fa fa-check"></i><b>5.3</b> Blank Lines</a></li>
+<li class="chapter" data-level="5.4" data-path="wdl-style-guide.html"><a href="wdl-style-guide.html#line-length-and-line-breaks"><i class="fa fa-check"></i><b>5.4</b> Line length and line breaks</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="wdl-style-guide.html"><a href="wdl-style-guide.html#line-break"><i class="fa fa-check"></i><b>5.4.1</b> Line break</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="wdl-style-guide.html"><a href="wdl-style-guide.html#expression-spacing"><i class="fa fa-check"></i><b>5.5</b> Expression spacing</a></li>
+<li class="chapter" data-level="5.6" data-path="wdl-style-guide.html"><a href="wdl-style-guide.html#tasks"><i class="fa fa-check"></i><b>5.6</b> Tasks</a><ul>
+<li class="chapter" data-level="5.6.1" data-path="wdl-style-guide.html"><a href="wdl-style-guide.html#command-section"><i class="fa fa-check"></i><b>5.6.1</b> Command section</a></li>
+<li class="chapter" data-level="5.6.2" data-path="wdl-style-guide.html"><a href="wdl-style-guide.html#runtime-section"><i class="fa fa-check"></i><b>5.6.2</b> Runtime section</a></li>
+<li class="chapter" data-level="5.6.3" data-path="wdl-style-guide.html"><a href="wdl-style-guide.html#the-parameter_meta-section"><i class="fa fa-check"></i><b>5.6.3</b> The parameter_meta section</a></li>
+<li class="chapter" data-level="5.6.4" data-path="wdl-style-guide.html"><a href="wdl-style-guide.html#example-1"><i class="fa fa-check"></i><b>5.6.4</b> Example</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="wdl-style-guide.html"><a href="wdl-style-guide.html#modularization"><i class="fa fa-check"></i><b>5.7</b> Modularization</a><ul>
+<li class="chapter" data-level="5.7.1" data-path="wdl-style-guide.html"><a href="wdl-style-guide.html#tasks-and-workflows"><i class="fa fa-check"></i><b>5.7.1</b> Tasks and workflows</a></li>
+<li class="chapter" data-level="5.7.2" data-path="wdl-style-guide.html"><a href="wdl-style-guide.html#analyses"><i class="fa fa-check"></i><b>5.7.2</b> Analyses</a></li>
+</ul></li>
+<li class="chapter" data-level="5.8" data-path="wdl-style-guide.html"><a href="wdl-style-guide.html#imports-1"><i class="fa fa-check"></i><b>5.8</b> Imports</a></li>
+<li class="chapter" data-level="5.9" data-path="wdl-style-guide.html"><a href="wdl-style-guide.html#references-2"><i class="fa fa-check"></i><b>5.9</b> References</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/yiluheihei/good-practice-bioinformatics" target="blank">Published with bookdown</a></li>
 
@@ -265,7 +288,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="header">
 <h1 class="title">Good practices in bioinformatic or computational biology projects</h1>
 <p class="author"><em>Yang Cao</em></p>
-<p class="date"><em>2021-12-25</em></p>
+<p class="date"><em>2021-12-28</em></p>
 </div>
 <div id="about" class="section level1 unnumbered">
 <h1>About</h1>
@@ -294,9 +317,9 @@ And many decisions are arbitrary, any suggestions are welcome.</p>
 <a href="https://google.github.io/styleguide/shellguide.html">Google’s shell style guide</a>;
 python code style is derived from
 <a href="https://www.python.org/dev/peps/pep-0008/">Google’s python style guide</a> and
-<a href="https://www.python.org/dev/peps/pep-0008/">PEP 8 style guide for python</a>; and
-the R code style is drived from
-<a href="https://style.tidyverse.org/">Tidyverse Style Guide</a>.</p>
+<a href="https://www.python.org/dev/peps/pep-0008/">PEP 8 style guide for python</a>;
+the R code style is derived from
+<a href="https://style.tidyverse.org/">Tidyverse Style Guide</a>; and WDL style is derived from <a href="https://biowdl.github.io/styleGuidelines.html">BioWDL style</a>.</p>
 <p><strong>If you’re modifying existing files, you should follow the style that’s already
 in the files.</strong></p>
 <pre><code>Do what Romans do in Rome.</code></pre>
