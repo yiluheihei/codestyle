@@ -6,7 +6,8 @@ language:
 rmd_files:
   - "01-proj-organization.Rmd"
   - "index.Rmd"
-  - "02-bash.Rmd"
-  - "03-python.Rmd"
-  - "04-R.Rmd"
-  - "05-WDL.Rmd"
+  - "02-bash-style.Rmd"
+  - "03-python-style.Rmd"
+  - "04-r-style.Rmd"
+  - "05-wdl-style.Rmd"
+  - "06-cromwell-wdl-skill.Rmd"
