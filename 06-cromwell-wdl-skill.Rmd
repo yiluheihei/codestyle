@@ -63,7 +63,7 @@ This can have a format like `ubuntu:latest` or `broadinstitute/scala-baseimage`
 in which case it should be interpreted as an image on DockerHub (i.e. it is valid to use in a docker pull command).
 
 
-##### Use local registry
+##### Use local registry {-}
 
 **Create local registry and push the required image to it:**
 
@@ -105,6 +105,10 @@ default_runtime_attributes: {
   docker: localhost:5000/ubuntu:latest
 }
 ```
+
+**Note** To use local registry: you should set 
+`docker.hash-lookup.enabled = false` see 
+[this issue](https://github.com/broadinstitute/cromwell/issues/6172).
 
 ##### volume host path to the container {-} 
 
