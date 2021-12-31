@@ -113,7 +113,7 @@
 
 \title{Good practices in bioinformatic or computational biology projects}
 \author{Yang Cao}
-\date{2021-12-29}
+\date{2021-12-31}
 
 \begin{document}
 \maketitle
@@ -2585,6 +2585,267 @@ imports must be named using the as syntax.
   \href{https://biowdl.github.io/styleGuidelines.html}{BioWDL style guide}
 \item
   \href{https://github.com/mondrian-scwgs/mondrian/wiki/wdl_conventions}{wdl conventions}
+\end{itemize}
+
+\hypertarget{part-practical-skills-in-action}{%
+\part*{Practical Skills in action}\label{part-practical-skills-in-action}}
+\addcontentsline{toc}{part}{Practical Skills in action}
+
+\hypertarget{cromwell-wdl-practical-skills}{%
+\chapter{Cromwell-WDL practical skills}\label{cromwell-wdl-practical-skills}}
+
+\hypertarget{modes-for-cromwell}{%
+\section{Modes for Cromwell}\label{modes-for-cromwell}}
+
+There are two modes for Cromwell:
+- \textbf{run}: It is designed for local prototyping or demos and has limited
+features compared to server, and it executes a single workflow in Cromwell and
+then exits.
+
+Options:
+- \texttt{-\/-metadata-output}: specify a file where Cromwell will write workflow
+metadata in JSON format, such as start/end timestamps, status, inputs and
+outputs. By default Cromwell does not write workflow metadata.
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{server}: The default mode for most applications of Cromwell, suitable for
+  production use, and it accepts no arguments and runs Cromwell as a web server
+  that accepts REST requests (
+  \href{https://cromwell.readthedocs.io/en/stable/api/RESTAPI}{REST endpoints}).
+\end{itemize}
+
+\hypertarget{tasks-1}{%
+\section{Tasks}\label{tasks-1}}
+
+\hypertarget{runtime-arrtributes}{%
+\subsection{Runtime arrtributes}\label{runtime-arrtributes}}
+
+There are two ways to specify runtime attributes of tasks:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Within a task by set the runtime Section in the WDL file.
+\end{enumerate}
+
+\begin{verbatim}
+task jes_task {
+  command {
+    echo "Hello JES!"
+  }
+  
+  runtime {
+    docker: "ubuntu:latest"
+    memory: "4G"
+    cpu: "3"
+    zones: "us-central1-c us-central1-b"
+    disks: "/mnt/mnt1 3 SSD, /mnt/mnt2 500 HDD"
+  }
+}
+
+workflow jes_workflow {
+  call jes_task
+}
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Using cromwell workflow options, e.g.~options can be provided in JSON format,
+  see \href{https://cromwell.readthedocs.io/en/stable/wf_options/Overview/}{Workflow Options}
+  for more details. This options will be overridden by the values provided in
+  the workflow definition file itself
+\end{enumerate}
+
+\begin{verbatim}
+"docker": "ubuntu:latest",
+"continueOnReturnCode": [4, 8, 15, 16, 23, 42]
+\end{verbatim}
+
+\hypertarget{docker}{%
+\subsubsection*{docker}\label{docker}}
+\addcontentsline{toc}{subsubsection}{docker}
+
+This can have a format like \texttt{ubuntu:latest} or \texttt{broadinstitute/scala-baseimage}
+in which case it should be interpreted as an image on DockerHub (i.e.~it is valid to use in a docker pull command).
+
+\hypertarget{use-local-registry}{%
+\paragraph{Use local registry}\label{use-local-registry}}
+
+\textbf{Create local registry and push the required image to it:}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Create local registry using
+  \href{https://docs.docker.com/registry/}{docker-registry}.
+\item
+  Customize the storage location. By default, the registry contents are saved
+  in \texttt{/var/lib/registry}, you should change it to a readable directory using argument \texttt{-v} if you are rootless.
+\item
+  Tag the image and push it to the local registry.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# create local registry}
+\ExtensionTok{docker}\NormalTok{ run -d \textbackslash{}}
+\NormalTok{  -p 5000:5000 \textbackslash{}}
+\NormalTok{  --restart=always \textbackslash{}}
+\NormalTok{  --name registry \textbackslash{}}
+\NormalTok{  -v }\OperatorTok{<}\NormalTok{customized storage location}\OperatorTok{>}\NormalTok{:/var/lib/registry \textbackslash{}}
+\NormalTok{  registry}
+
+ \CommentTok{# tag}
+ \ExtensionTok{docker}\NormalTok{ tag ubuntu:latest 127.0.0.1:5000/ubuntu:latest}
+
+ \CommentTok{# push}
+ \ExtensionTok{docker}\NormalTok{ push 127.0.0.1:5000/ubuntu:latest}
+
+ \CommentTok{# show images in the local registry}
+ \ExtensionTok{curl}\NormalTok{ 127.0.0.1:5000/v2/_catalog}
+
+ \CommentTok{# then you can test it: remove and pull}
+ \ExtensionTok{docker}\NormalTok{ image rm 127.0.0.1:5000/ubuntu:latest}
+ \ExtensionTok{docker}\NormalTok{ image pull 127.0.0.1:5000/ubuntu:latest}
+\end{Highlighting}
+\end{Shaded}
+\end{enumerate}
+
+Then the the image can be specified within the WDL file or using worlflow
+options.
+
+\begin{verbatim}
+# e.g. in workflow options
+default_runtime_attributes: {
+  docker: localhost:5000/ubuntu:latest
+}
+\end{verbatim}
+
+\hypertarget{volume-host-path-to-the-container}{%
+\paragraph{volume host path to the container}\label{volume-host-path-to-the-container}}
+\addcontentsline{toc}{paragraph}{volume host path to the container}
+
+If there are files in the host need to read in the container or some files are
+persisted even the container stops, you can use
+\href{https://docs.docker.com/storage/volumes/}{docker volume}.
+
+To make the volume flexibility:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  you can set the path in host using workflow inputs.
+\item
+  set the inputs in \texttt{runtime-attributes} and customize the submit string (
+  \texttt{submit-docker}) in the backend in \href{https://www.github.com/broadinstitute/cromwell/tree/develop/cromwell.example.backends/cromwell.examples.conf}{cromwell configure files}.
+\item
+  set runtime attributes of tasks: in workflow options or in the runtime\\
+  section of a task (\protect\hyperlink{runtime-arrtributes}{Runtime arrtributes}).
+\end{enumerate}
+
+\begin{verbatim}
+# e.g. data_volume, workflow input data_volume
+workflow test {
+    String data_volume = "/data"
+  
+    ...
+}
+
+# cromwell configure files, take Local backend for example
+# new input data_volume for `run-attributes`
+runtime-attributes = """
+String? docker
+String? docker_user
+String? data_volume
+"""
+# submit-docker string
+submit-docker = """
+docker run \
+--rm -i \
+${"--user " + docker_user} \
+--entrypoint ${job_shell} \
+-v ${cwd}:${docker_cwd} \
+-v ${data_volume}:${data_volume} \
+${docker} ${docker_script}
+"""
+
+# runtime attrutes of tasks
+# in runtime section
+runtime {
+    docker: localhost:5000/ubuntu:latest
+    data_volume: data_volume
+}
+# or in workflow options file
+default_runtime_attributes: {
+    docker: localhost:5000/ubuntu:latest
+    data_volume: data_volume
+}
+\end{verbatim}
+
+\hypertarget{expression-support}{%
+\subsubsection*{Expression support}\label{expression-support}}
+\addcontentsline{toc}{subsubsection}{Expression support}
+
+Runtime attribute values are interpreted as expressions. This means that it has
+the ability to express the value of a runtime attribute as a function of one of
+the task's inputs.
+
+\begin{verbatim}
+task runtime_test {
+  String ubuntu_tag
+  Int memory_gb
+
+  command {
+    ./my_binary
+  }
+
+  runtime {
+    docker: "ubuntu:" + ubuntu_tag
+    memory: memory_gb + "GB"
+  }
+}
+\end{verbatim}
+
+\hypertarget{disks}{%
+\subsubsection*{disks}\label{disks}}
+\addcontentsline{toc}{subsubsection}{disks}
+
+This attribute specifies
+
+\hypertarget{docker-1}{%
+\subsubsection*{docker}\label{docker-1}}
+\addcontentsline{toc}{subsubsection}{docker}
+
+When specified, Cromwell will run your task within the specified Docker image.
+
+\begin{itemize}
+\tightlist
+\item
+  Local: Cromwell will automatically run the docker container.
+\item
+  SFS: When a docker container exists within a task, the submit-docker method is
+  called. See the Getting started with containers guide for more information.
+\item
+  GCP: This attribute is mandatory when submitting tasks to Google Cloud.
+\item
+  AWS Batch: This attribute is mandatory when submitting tasks to AWS Batch.
+\end{itemize}
+
+\hypertarget{continueonreturncode}{%
+\subsubsection*{continueOnReturnCode}\label{continueonreturncode}}
+\addcontentsline{toc}{subsubsection}{continueOnReturnCode}
+
+\begin{itemize}
+\tightlist
+\item
+  When set to false, any non-zero return code will be considered a failure.
+\item
+  When set to true, all return codes will be considered successful.
 \end{itemize}
 
 \end{document}

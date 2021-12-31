@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 5 WDL style guide | Good practices in bioinformatic or computational biology projects</title>
-  <meta name="description" content="Chapter 5 WDL style guide | Good practices in bioinformatic or computational biology projects" />
+  <title>Chapter 6 Cromwell-WDL practical skills | Good practices in bioinformatic or computational biology projects</title>
+  <meta name="description" content="Chapter 6 Cromwell-WDL practical skills | Good practices in bioinformatic or computational biology projects" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 5 WDL style guide | Good practices in bioinformatic or computational biology projects" />
+  <meta property="og:title" content="Chapter 6 Cromwell-WDL practical skills | Good practices in bioinformatic or computational biology projects" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="yiluheihei/codestyle" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 5 WDL style guide | Good practices in bioinformatic or computational biology projects" />
+  <meta name="twitter:title" content="Chapter 6 Cromwell-WDL practical skills | Good practices in bioinformatic or computational biology projects" />
   
   
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="r-style-guide.html"/>
-<link rel="next" href="cromwell-wdl-practical-skills.html"/>
+<link rel="prev" href="wdl-style-guide.html"/>
+
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -292,326 +292,202 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="wdl-style-guide" class="section level1">
-<h1><span class="header-section-number">Chapter 5</span> WDL style guide</h1>
-<blockquote>
-<p>The Workflow Description Language (WDL) is a way to specify data processing
-workflows with a human-readable and writeable syntax. WDL makes it
-straightforward to define complex analysis tasks, chain them together in
-workflows, and parallelize their execution</p>
-</blockquote>
-<div id="name-conventions" class="section level2">
-<h2><span class="header-section-number">5.1</span> Name conventions</h2>
-<p>The names for the various types of objects should be in the following format:</p>
+<div id="cromwell-wdl-practical-skills" class="section level1">
+<h1><span class="header-section-number">Chapter 6</span> Cromwell-WDL practical skills</h1>
+<div id="modes-for-cromwell" class="section level2">
+<h2><span class="header-section-number">6.1</span> Modes for Cromwell</h2>
+<p>There are two modes for Cromwell:
+- <strong>run</strong>: It is designed for local prototyping or demos and has limited
+features compared to server, and it executes a single workflow in Cromwell and
+then exits.</p>
+<p>Options:
+- <code>--metadata-output</code>: specify a file where Cromwell will write workflow
+metadata in JSON format, such as start/end timestamps, status, inputs and
+outputs. By default Cromwell does not write workflow metadata.</p>
 <ul>
-<li>Workflow: <code>UpperCamelCase</code></li>
-<li>Task: <code>UpperCamelCase</code></li>
-<li>Struct: <code>UpperCamelCase</code></li>
-<li>Variable: <code>lower_case</code> separated with underscore <code>_</code></li>
+<li><strong>server</strong>: The default mode for most applications of Cromwell, suitable for
+production use, and it accepts no arguments and runs Cromwell as a web server
+that accepts REST requests (
+<a href="https://cromwell.readthedocs.io/en/stable/api/RESTAPI">REST endpoints</a>).</li>
 </ul>
-<p>To avoid name conflicts, end with <code>Task</code> to tasks, and end with <code>Flow</code> to
-workflows.</p>
-<div id="input-and-output-names" class="section level3">
-<h3><span class="header-section-number">5.1.1</span> Input and output names</h3>
-<ul>
-<li><p>Should mimic the (long form) versions of the options they
-represent as much as possible.</p></li>
-<li><p>Should be formatted as <code>lower_case</code>.</p></li>
-<li><p>End with <code>_path</code> for input which represents a file path.</p></li>
-<li><p>End with <code>_file</code> for input which represents a file.</p></li>
-<li><p>Avoid referencing Absolute Paths (Except when using Docker), use a input
-parameter.</p>
-<pre><code>task bad {
-    File f
-
-    command {
-        java -jar /usr/lib/library.jar -Dinput=${f}
-    }
+</div>
+<div id="tasks-1" class="section level2">
+<h2><span class="header-section-number">6.2</span> Tasks</h2>
+<div id="runtime-arrtributes" class="section level3">
+<h3><span class="header-section-number">6.2.1</span> Runtime arrtributes</h3>
+<p>There are two ways to specify runtime attributes of tasks:</p>
+<ol style="list-style-type: decimal">
+<li>Within a task by set the runtime Section in the WDL file.</li>
+</ol>
+<pre><code>task jes_task {
+  command {
+    echo &quot;Hello JES!&quot;
+  }
+  
+  runtime {
+    docker: &quot;ubuntu:latest&quot;
+    memory: &quot;4G&quot;
+    cpu: &quot;3&quot;
+    zones: &quot;us-central1-c us-central1-b&quot;
+    disks: &quot;/mnt/mnt1 3 SSD, /mnt/mnt2 500 HDD&quot;
+  }
 }
 
-# Instead:
-task good {
-    File f
-    File jar
-
-    command {
-        java -jar ${jar} -Dinput=${f}
-    }
-}</code></pre></li>
-</ul>
-</div>
-</div>
-<div id="indentation-2" class="section level2">
-<h2><span class="header-section-number">5.2</span> Indentation</h2>
-<p>Following should be indented:</p>
-<ul>
-<li>Anything within a set of braces <code>{}</code>.</li>
-<li>Inputs following <code>input:</code> in a call block.</li>
-<li>Continuations of expressions which did no fit on a single line,
-see <a href="wdl-style-guide.html#line-length-and-line-breaks">Line length and line breaks</a>.</li>
-</ul>
-<p>Indentation rules:</p>
-<ul>
-<li>Use spaces.</li>
-<li>4 spaces per indentation.</li>
-<li>Closing braces should use the same level as indentation as their opening
-braces.</li>
-</ul>
-<p>Example:</p>
-<pre><code>workflow Example {
-    call SomeTask as doStuff {
-        input:
-            number = 1,
-            letter = &quot;a&quot;
-    }
+workflow jes_workflow {
+  call jes_task
+}</code></pre>
+<ol style="list-style-type: decimal">
+<li>Using cromwell workflow options, e.g. options can be provided in JSON format,
+see <a href="https://cromwell.readthedocs.io/en/stable/wf_options/Overview/">Workflow Options</a>
+for more details. This options will be overridden by the values provided in
+the workflow definition file itself</li>
+</ol>
+<pre><code>&quot;docker&quot;: &quot;ubuntu:latest&quot;,
+&quot;continueOnReturnCode&quot;: [4, 8, 15, 16, 23, 42]</code></pre>
+<div id="docker" class="section level4 unnumbered">
+<h4>docker</h4>
+<p>This can have a format like <code>ubuntu:latest</code> or <code>broadinstitute/scala-baseimage</code>
+in which case it should be interpreted as an image on DockerHub (i.e. it is valid to use in a docker pull command).</p>
+<div id="use-local-registry" class="section level5">
+<h5><span class="header-section-number">6.2.1.0.1</span> Use local registry</h5>
+<p><strong>Create local registry and push the required image to it:</strong></p>
+<ol style="list-style-type: decimal">
+<li><p>Create local registry using
+<a href="https://docs.docker.com/registry/">docker-registry</a>.</p></li>
+<li><p>Customize the storage location. By default, the registry contents are saved
+in <code>/var/lib/registry</code>, you should change it to a readable directory using argument <code>-v</code> if you are rootless.</p></li>
+<li><p>Tag the image and push it to the local registry.</p>
+<div class="sourceCode" id="cb84"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb84-1"><a href="cromwell-wdl-practical-skills.html#cb84-1"></a><span class="co"># create local registry</span></span>
+<span id="cb84-2"><a href="cromwell-wdl-practical-skills.html#cb84-2"></a><span class="ex">docker</span> run -d \</span>
+<span id="cb84-3"><a href="cromwell-wdl-practical-skills.html#cb84-3"></a>  -p 5000:5000 \</span>
+<span id="cb84-4"><a href="cromwell-wdl-practical-skills.html#cb84-4"></a>  --restart=always \</span>
+<span id="cb84-5"><a href="cromwell-wdl-practical-skills.html#cb84-5"></a>  --name registry \</span>
+<span id="cb84-6"><a href="cromwell-wdl-practical-skills.html#cb84-6"></a>  -v <span class="op">&lt;</span>customized storage location<span class="op">&gt;</span>:/var/lib/registry \</span>
+<span id="cb84-7"><a href="cromwell-wdl-practical-skills.html#cb84-7"></a>  registry</span>
+<span id="cb84-8"><a href="cromwell-wdl-practical-skills.html#cb84-8"></a></span>
+<span id="cb84-9"><a href="cromwell-wdl-practical-skills.html#cb84-9"></a> <span class="co"># tag</span></span>
+<span id="cb84-10"><a href="cromwell-wdl-practical-skills.html#cb84-10"></a> <span class="ex">docker</span> tag ubuntu:latest 127.0.0.1:5000/ubuntu:latest</span>
+<span id="cb84-11"><a href="cromwell-wdl-practical-skills.html#cb84-11"></a></span>
+<span id="cb84-12"><a href="cromwell-wdl-practical-skills.html#cb84-12"></a> <span class="co"># push</span></span>
+<span id="cb84-13"><a href="cromwell-wdl-practical-skills.html#cb84-13"></a> <span class="ex">docker</span> push 127.0.0.1:5000/ubuntu:latest</span>
+<span id="cb84-14"><a href="cromwell-wdl-practical-skills.html#cb84-14"></a></span>
+<span id="cb84-15"><a href="cromwell-wdl-practical-skills.html#cb84-15"></a> <span class="co"># show images in the local registry</span></span>
+<span id="cb84-16"><a href="cromwell-wdl-practical-skills.html#cb84-16"></a> <span class="ex">curl</span> 127.0.0.1:5000/v2/_catalog</span>
+<span id="cb84-17"><a href="cromwell-wdl-practical-skills.html#cb84-17"></a></span>
+<span id="cb84-18"><a href="cromwell-wdl-practical-skills.html#cb84-18"></a> <span class="co"># then you can test it: remove and pull</span></span>
+<span id="cb84-19"><a href="cromwell-wdl-practical-skills.html#cb84-19"></a> <span class="ex">docker</span> image rm 127.0.0.1:5000/ubuntu:latest</span>
+<span id="cb84-20"><a href="cromwell-wdl-practical-skills.html#cb84-20"></a> <span class="ex">docker</span> image pull 127.0.0.1:5000/ubuntu:latest</span></code></pre></div></li>
+</ol>
+<p>Then the the image can be specified within the WDL file or using worlflow
+options.</p>
+<pre><code># e.g. in workflow options
+default_runtime_attributes: {
+  docker: localhost:5000/ubuntu:latest
 }</code></pre>
 </div>
-<div id="blank-lines-1" class="section level2">
-<h2><span class="header-section-number">5.3</span> Blank Lines</h2>
-<p>Blank lines should be used to separate different parts of a workflow:</p>
-<ul>
-<li>Different blocks (code surrounded by <code>{}</code> or <code>&lt;&lt;&lt;&gt;&gt;&gt;</code>) should be separated by
-a single blank line.</li>
-<li>Different groupings of inputs (in call, task and workflow blocks) and items
-in runtime and parameter_meta sections may also be separated by a single blank line.</li>
-<li>Between the closing braces of a parent and child block, no blank lines should
-be placed.</li>
-</ul>
-</div>
-<div id="line-length-and-line-breaks" class="section level2">
-<h2><span class="header-section-number">5.4</span> Line length and line breaks</h2>
-<p>Lines should be at most 80 characters long. If a line exceeds this, it should
-be broken up into multiple lines.</p>
-<div id="line-break" class="section level3">
-<h3><span class="header-section-number">5.4.1</span> Line break</h3>
-<p>Aways add line breaks in:</p>
-<ul>
-<li>Input section after each input.</li>
-<li>Output section after each output.</li>
-<li>After <code>{</code>, <code>}</code>, <code>&lt;&lt;&lt;</code> or <code>&gt;&gt;&gt;</code>.</li>
-<li>Between inputs in a call block.</li>
-</ul>
-<p>When using line breaks to adhere to the line length limit, they should occur
-on logical places. These include:</p>
-<ul>
-<li>Following a comma.</li>
-<li>Before the <code>then</code> or <code>else</code> in an <code>if-then-else</code> expression.</li>
-<li>Following an opening bracket (<code>(</code>).</li>
-<li>Following an operator which would otherwise be followed by a space in
-(<a href="wdl-style-guide.html#expression-spacing">Expression spacing</a>)</li>
-</ul>
-<p>Example:</p>
-<pre><code>Int value = if defined(aVariableThatHasAWayTooLongName)
-    then aVariableThatHasAWayTooLongName else 10
+<div id="volume-host-path-to-the-container" class="section level5 unnumbered">
+<h5>volume host path to the container</h5>
+<p>If there are files in the host need to read in the container or some files are
+persisted even the container stops, you can use
+<a href="https://docs.docker.com/storage/volumes/">docker volume</a>.</p>
+<p>To make the volume flexibility:</p>
+<ol style="list-style-type: decimal">
+<li>you can set the path in host using workflow inputs.</li>
+<li>set the inputs in <code>runtime-attributes</code> and customize the submit string (
+<code>submit-docker</code>) in the backend in <a href="https://www.github.com/broadinstitute/cromwell/tree/develop/cromwell.example.backends/cromwell.examples.conf">cromwell configure files</a>.</li>
+<li>set runtime attributes of tasks: in workflow options or in the runtime<br />
+section of a task (<a href="cromwell-wdl-practical-skills.html#runtime-arrtributes">Runtime arrtributes</a>).</li>
+</ol>
+<pre><code># e.g. data_volume, workflow input data_volume
+workflow test {
+    String data_volume = &quot;/data&quot;
+  
+    ...
+}
 
-# or
+# cromwell configure files, take Local backend for example
+# new input data_volume for `run-attributes`
+runtime-attributes = &quot;&quot;&quot;
+String? docker
+String? docker_user
+String? data_volume
+&quot;&quot;&quot;
+# submit-docker string
+submit-docker = &quot;&quot;&quot;
+docker run \
+--rm -i \
+${&quot;--user &quot; + docker_user} \
+--entrypoint ${job_shell} \
+-v ${cwd}:${docker_cwd} \
+-v ${data_volume}:${data_volume} \
+${docker} ${docker_script}
+&quot;&quot;&quot;
 
-Int value = if defined(aVariableThatHasAWayTooLongName)
-    then aVariableThatHasAWayTooLongName
-    else 10
-
-# ----
-
-call SomeTask as doStuff {
-    input:
-        number = 1,
-        letter = &quot;a&quot;
+# runtime attrutes of tasks
+# in runtime section
+runtime {
+    docker: localhost:5000/ubuntu:latest
+    data_volume: data_volume
+}
+# or in workflow options file
+default_runtime_attributes: {
+    docker: localhost:5000/ubuntu:latest
+    data_volume: data_volume
 }</code></pre>
 </div>
 </div>
-<div id="expression-spacing" class="section level2">
-<h2><span class="header-section-number">5.5</span> Expression spacing</h2>
-<ul>
-<li>Spaces should be added between values and operators in expressions.</li>
-<li>If multiple expressions occur within a single overarching expression, they may
-be grouped without placing spaces, with spaces being placed between the groups
-instead. It is advisable to base the groups on the order of operations.</li>
-<li>In the case of groupings, opening brackets (<code>(</code>) should always be preceded by
-a space and closing brackets (<code>)</code>) should always be followed by one. There
-should not be a space between the brackets and their first or last value.</li>
-<li>In the case of function calls, there should not be a space between the
-function’s name and the opening bracket of it’s parameters, but besides that
-the same rules apply as with groupings, as far as the brackets are concerned.
-The commas separating the parameters should be followed, but not preceded by a
-space.</li>
-</ul>
-<p>Example</p>
-<pre><code>1 + 1
-1 + 1/2
-(1 + 1) / 2
-!(a == -1)</code></pre>
-</div>
-<div id="tasks" class="section level2">
-<h2><span class="header-section-number">5.6</span> Tasks</h2>
-<ul>
-<li><p>Recommend to use <code>as</code> format and name all tasks.</p></li>
-<li><p>One empty line between each subsection example.</p>
-<pre><code>task Echo {
-  input {
-      String message
+<div id="expression-support" class="section level4 unnumbered">
+<h4>Expression support</h4>
+<p>Runtime attribute values are interpreted as expressions. This means that it has
+the ability to express the value of a runtime attribute as a function of one of
+the task’s inputs.</p>
+<pre><code>task runtime_test {
+  String ubuntu_tag
+  Int memory_gb
 
-      String? outputPath # Optional input(s) separated from mandatory input(s)
+  command {
+    ./my_binary
   }
 
-  command &lt;&lt;&lt;
-      echo ~{message} ~{&quot;&gt; &quot; + outputPath}
-  &gt;&gt;&gt;
-
-  output {
-      File? outputFile = outputPath
+  runtime {
+    docker: &quot;ubuntu:&quot; + ubuntu_tag
+    memory: memory_gb + &quot;GB&quot;
   }
-}</code></pre></li>
-</ul>
-<div id="command-section" class="section level3">
-<h3><span class="header-section-number">5.6.1</span> Command section</h3>
-<ul>
-<li><p>Each option in a bash command should be on a new line. Ending previous lines
-with a backslash (). Some grouping of options on a single line may be
-acceptable. For example, various java memory settings may be set on the same
-line, as long as the line does not exceed the line length limit.</p></li>
-<li><p>All bash commands should start with <code>set -e -o pipefail</code> if more than one bash
-command gets executed in the task.</p></li>
-<li><p>Use <code>command &lt;&lt;&lt;...&gt;&gt;&gt;</code> rather than <code>command {...}</code>, which menas the <code>~{...}</code><br />
-placeholder syntax should be used in all cases rather than the <code>${...}</code>
-syntax.</p></li>
-<li><p>Full scripts, e.g. python</p>
-<pre><code>task heredoc {
-input {
-    File in
-}
-
-command&lt;&lt;&lt;
-python &lt;&lt;CODE
-    with open(&quot;${in}&quot;) as fp:
-        for line in fp:
-            if not line.startswith(&#39;#&#39;):
-                print(line.strip())
-CODE
-&gt;&gt;&gt;
-}</code></pre></li>
-</ul>
-</div>
-<div id="runtime-section" class="section level3">
-<h3><span class="header-section-number">5.6.2</span> Runtime section</h3>
-<p>A docker container should be provided for all tasks, e.g.
-<a href="https://biocontainers.pro/">Biocontainers</a>. Only if a task performs highly
-generic tasks (eg. a simple ln command) may the docker container be omitted.</p>
-</div>
-<div id="the-parameter_meta-section" class="section level3">
-<h3><span class="header-section-number">5.6.3</span> The parameter_meta section</h3>
-<p>It is highly advised that a parameter_meta section is defined, containing
-descriptions of both the inputs and output of the task.</p>
-</div>
-<div id="example-1" class="section level3">
-<h3><span class="header-section-number">5.6.4</span> Example</h3>
-<pre><code>task DoStuff {
-    input {
-        File inputFile
-        String outputPath
-        Int maxRAM
-
-        String? preCommand
-    }
-
-    command {
-        set -e -o pipefail
-        mkdir -p `dirname outputPath`
-        someScript \
-        -i ~{inputFile} \
-        --maxRAM ~{maxRAM} \
-        -o outputPath
-    }
-
-    output {
-        File output = outputPath
-    }
-
-    runtime {
-        docker: &quot;alpine&quot;
-    }
-
-    parameter_meta {
-        inputFile: &quot;A file&quot;
-        outputPath: &quot;A location to put the output&quot;
-        maxRam: &quot;The maximum amount of RAM that can be used (in GB)&quot;
-
-        output: &quot;A file containing the output&quot;
-    }
 }</code></pre>
 </div>
+<div id="disks" class="section level4 unnumbered">
+<h4>disks</h4>
+<p>This attribute specifies</p>
 </div>
-<div id="modularization" class="section level2">
-<h2><span class="header-section-number">5.7</span> Modularization</h2>
-<div id="tasks-and-workflows" class="section level3">
-<h3><span class="header-section-number">5.7.1</span> Tasks and workflows</h3>
+<div id="docker-1" class="section level4 unnumbered">
+<h4>docker</h4>
+<p>When specified, Cromwell will run your task within the specified Docker image.</p>
 <ul>
-<li>In general tasks and structs should be kept in separate files from workflows.
-Only if a task is small and specific to a certain workflow may it be placed
-in the same file as the workflow.</li>
-<li>Tasks and structs relating to the same tool or toolkit should be in the same
-file.</li>
-<li>If a file contains multiple tasks and/or structs, the structs should be kept
-below the tasks and both the tasks and structs should be ordered
-alphabetically.</li>
-<li>Calls and value assignments in a workflow should be placed in order of
-execution.</li>
-<li>If there are multiple workflows and task files:
-<ul>
-<li>all tasks should saved in the <code>tasks/</code> folder.</li>
-<li>All workflows that contain tasks must go in <code>workflows/</code>.</li>
-<li>each wdl file must only contain tasks corresponding to a certain tool.</li>
-</ul></li>
+<li>Local: Cromwell will automatically run the docker container.</li>
+<li>SFS: When a docker container exists within a task, the submit-docker method is
+called. See the Getting started with containers guide for more information.</li>
+<li>GCP: This attribute is mandatory when submitting tasks to Google Cloud.</li>
+<li>AWS Batch: This attribute is mandatory when submitting tasks to AWS Batch.</li>
 </ul>
 </div>
-<div id="analyses" class="section level3">
-<h3><span class="header-section-number">5.7.2</span> Analyses</h3>
+<div id="continueonreturncode" class="section level4 unnumbered">
+<h4>continueOnReturnCode</h4>
 <ul>
-<li>Analyses are higher level workflows that string together multiple workflows
-that all do the same kind of computation.</li>
-<li>All analyses should go into <code>analyses/</code>.</li>
-</ul>
-<p>Example:</p>
-<pre><code>task A {
-    command {
-        echo A
-    }
-}
-
-task Z {
-    command {
-        echo Z
-    }
-}
-
-struct B {
-    String name
-}</code></pre>
-</div>
-</div>
-<div id="imports-1" class="section level2">
-<h2><span class="header-section-number">5.8</span> Imports</h2>
-<p>Imports should be placed in alphabetical order at the top of the file. All
-imports must be named using the as syntax.</p>
-</div>
-<div id="references-2" class="section level2">
-<h2><span class="header-section-number">5.9</span> References</h2>
-<ul>
-<li><a href="https://biowdl.github.io/styleGuidelines.html">BioWDL style guide</a></li>
-<li><a href="https://github.com/mondrian-scwgs/mondrian/wiki/wdl_conventions">wdl conventions</a></li>
+<li>When set to false, any non-zero return code will be considered a failure.</li>
+<li>When set to true, all return codes will be considered successful.</li>
 </ul>
 
 </div>
 </div>
-
-
-
+</div>
+</div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="r-style-guide.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="cromwell-wdl-practical-skills.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="wdl-style-guide.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -642,7 +518,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/yiluheihei/good-practice-bioinformatics/edit/master/05-wdl-style.Rmd",
+"link": "https://github.com/yiluheihei/good-practice-bioinformatics/edit/master/06-cromwell-wdl-skill.Rmd",
 "text": "Edit"
 },
 "history": {
