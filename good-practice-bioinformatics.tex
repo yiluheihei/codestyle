@@ -2675,6 +2675,7 @@ in which case it should be interpreted as an image on DockerHub (i.e.~it is vali
 
 \hypertarget{use-local-registry}{%
 \paragraph{Use local registry}\label{use-local-registry}}
+\addcontentsline{toc}{paragraph}{Use local registry}
 
 \textbf{Create local registry and push the required image to it:}
 
@@ -2724,6 +2725,10 @@ default_runtime_attributes: {
   docker: localhost:5000/ubuntu:latest
 }
 \end{verbatim}
+
+\textbf{Note} To use local registry: you should set
+\texttt{docker.hash-lookup.enabled\ =\ false} see
+\href{https://github.com/broadinstitute/cromwell/issues/6172}{this issue}.
 
 \hypertarget{volume-host-path-to-the-container}{%
 \paragraph{volume host path to the container}\label{volume-host-path-to-the-container}}

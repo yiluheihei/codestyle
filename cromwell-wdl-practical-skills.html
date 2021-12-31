@@ -348,8 +348,8 @@ the workflow definition file itself</li>
 <h4>docker</h4>
 <p>This can have a format like <code>ubuntu:latest</code> or <code>broadinstitute/scala-baseimage</code>
 in which case it should be interpreted as an image on DockerHub (i.e. it is valid to use in a docker pull command).</p>
-<div id="use-local-registry" class="section level5">
-<h5><span class="header-section-number">6.2.1.0.1</span> Use local registry</h5>
+<div id="use-local-registry" class="section level5 unnumbered">
+<h5>Use local registry</h5>
 <p><strong>Create local registry and push the required image to it:</strong></p>
 <ol style="list-style-type: decimal">
 <li><p>Create local registry using
@@ -384,6 +384,9 @@ options.</p>
 default_runtime_attributes: {
   docker: localhost:5000/ubuntu:latest
 }</code></pre>
+<p><strong>Note</strong> To use local registry: you should set
+<code>docker.hash-lookup.enabled = false</code> see
+<a href="https://github.com/broadinstitute/cromwell/issues/6172">this issue</a>.</p>
 </div>
 <div id="volume-host-path-to-the-container" class="section level5 unnumbered">
 <h5>volume host path to the container</h5>
